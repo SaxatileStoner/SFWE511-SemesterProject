@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <project xmlns="http://www.plcopen.org/xml/tc6_0201" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:ns1="http://www.plcopen.org/xml/tc6_0201">
   <fileHeader companyName="Unknown" productName="RLW-PLC-Command" productVersion="0.0.1" creationDateTime="2024-10-23T22:26:44"/>
-  <contentHeader name="Semester-Project-RLW" modificationDateTime="2024-11-22T14:26:38" version="0.0.1">
+  <contentHeader name="Semester-Project-RLW" modificationDateTime="2024-11-22T14:40:45" version="0.0.1">
     <coordinateInfo>
       <fbd>
         <scaling x="10" y="10"/>
@@ -1917,6 +1917,24 @@ Set Isolation Valve to 0% (0.0) when general site alarm is high; override all ot
                 </variable>
               </outputVariables>
             </block>
+            <comment localId="103" height="140" width="460">
+              <position x="1380" y="1000"/>
+              <content>
+                <xhtml:p><![CDATA[TODO: Utilize 0-100 Int values as percentages of the value open or closed instead of actual real types. Edit `isWithin5Percent` to use integers as the percentage.]]></xhtml:p>
+              </content>
+            </comment>
+            <comment localId="104" height="60" width="280">
+              <position x="1020" y="760"/>
+              <content>
+                <xhtml:p><![CDATA[TODO: Change External Values Here to Integer]]></xhtml:p>
+              </content>
+            </comment>
+            <comment localId="105" height="100" width="180">
+              <position x="570" y="1340"/>
+              <content>
+                <xhtml:p><![CDATA[TODO: Change IsoValStatus Vars to Integer]]></xhtml:p>
+              </content>
+            </comment>
           </LD>
         </body>
       </pou>
@@ -2313,6 +2331,12 @@ Set Isolation Valve to 0% (0.0) when general site alarm is high; override all ot
               </connectionPointOut>
               <expression>1.0</expression>
             </inVariable>
+            <comment localId="25" height="90" width="240">
+              <position x="620" y="60"/>
+              <content>
+                <xhtml:p><![CDATA[TODO: Change this function to utilize Integers instead of Real types]]></xhtml:p>
+              </content>
+            </comment>
           </LD>
         </body>
       </pou>
@@ -2500,6 +2524,12 @@ Set Isolation Valve to 0% (0.0) when general site alarm is high; override all ot
               </connectionPointOut>
               <expression>1.0</expression>
             </inVariable>
+            <comment localId="11" height="60" width="200">
+              <position x="420" y="230"/>
+              <content>
+                <xhtml:p><![CDATA[TODO: Set these to an integer: 0.5 -> 50]]></xhtml:p>
+              </content>
+            </comment>
           </LD>
         </body>
         <documentation>

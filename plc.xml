@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <project xmlns="http://www.plcopen.org/xml/tc6_0201" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:ns1="http://www.plcopen.org/xml/tc6_0201">
   <fileHeader companyName="Unknown" productName="RLW-PLC-Command" productVersion="0.0.1" creationDateTime="2024-10-23T22:26:44"/>
-  <contentHeader name="Semester-Project-RLW" modificationDateTime="2024-11-20T19:06:00" version="0.0.1">
+  <contentHeader name="Semester-Project-RLW" modificationDateTime="2024-11-22T14:26:38" version="0.0.1">
     <coordinateInfo>
       <fbd>
         <scaling x="10" y="10"/>
@@ -20,28 +20,28 @@
       <pou name="DCSProgramSector" pouType="program">
         <interface>
           <localVars>
-            <variable name="FlowRateSensor0" address="%ID0">
+            <variable name="FlowRateSensor0" address="%IW0">
               <type>
-                <REAL/>
+                <INT/>
               </type>
               <initialValue>
-                <simpleValue value="5.5"/>
+                <simpleValue value="60"/>
               </initialValue>
             </variable>
-            <variable name="FlowRateSensor1" address="%ID1">
+            <variable name="FlowRateSensor1" address="%IW1">
               <type>
-                <REAL/>
+                <INT/>
               </type>
               <initialValue>
-                <simpleValue value="5.5"/>
+                <simpleValue value="5"/>
               </initialValue>
             </variable>
-            <variable name="FlowRateSensor2" address="%ID2">
+            <variable name="FlowRateSensor2" address="%IW2">
               <type>
-                <REAL/>
+                <INT/>
               </type>
               <initialValue>
-                <simpleValue value="5.5"/>
+                <simpleValue value="5"/>
               </initialValue>
             </variable>
             <variable name="BoosterPumpStatus0" address="%IX0.0">
@@ -49,7 +49,7 @@
                 <BOOL/>
               </type>
               <initialValue>
-                <simpleValue value="False"/>
+                <simpleValue value="True"/>
               </initialValue>
             </variable>
             <variable name="BoosterPumpStatus1" address="%IX0.1">
@@ -183,7 +183,7 @@
             </variable>
           </externalVars>
           <localVars constant="true">
-            <variable name="FlowSensorMaxCapacity" address="%MD0.0">
+            <variable name="FlowSensorMaxCapacity" address="%MD0">
               <type>
                 <REAL/>
               </type>
@@ -578,13 +578,13 @@
               <variable>BoosterPumpCommand0</variable>
             </coil>
             <block localId="4" typeName="GT" width="70" height="60" executionOrderId="0">
-              <position x="590" y="20"/>
+              <position x="690" y="20"/>
               <inputVariables>
                 <variable formalParameter="IN1">
                   <connectionPointIn>
                     <relPosition x="0" y="30"/>
                     <connection refLocalId="3">
-                      <position x="590" y="50"/>
+                      <position x="690" y="50"/>
                       <position x="340" y="50"/>
                       <position x="340" y="40"/>
                       <position x="300" y="40"/>
@@ -594,11 +594,11 @@
                 <variable formalParameter="IN2">
                   <connectionPointIn>
                     <relPosition x="0" y="50"/>
-                    <connection refLocalId="69" formalParameter="OUT">
-                      <position x="590" y="70"/>
-                      <position x="570" y="70"/>
-                      <position x="570" y="120"/>
-                      <position x="510" y="120"/>
+                    <connection refLocalId="102" formalParameter="OUT">
+                      <position x="690" y="70"/>
+                      <position x="649" y="70"/>
+                      <position x="649" y="120"/>
+                      <position x="608" y="120"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -634,15 +634,15 @@
               <variable>BoosterPumpCommand1</variable>
             </coil>
             <block localId="10" typeName="GT" width="70" height="60" executionOrderId="0">
-              <position x="590" y="180"/>
+              <position x="690" y="180"/>
               <inputVariables>
                 <variable formalParameter="IN1">
                   <connectionPointIn>
                     <relPosition x="0" y="30"/>
                     <connection refLocalId="9">
-                      <position x="590" y="210"/>
-                      <position x="445" y="210"/>
-                      <position x="445" y="200"/>
+                      <position x="690" y="210"/>
+                      <position x="485" y="210"/>
+                      <position x="485" y="200"/>
                       <position x="300" y="200"/>
                     </connection>
                   </connectionPointIn>
@@ -650,11 +650,11 @@
                 <variable formalParameter="IN2">
                   <connectionPointIn>
                     <relPosition x="0" y="50"/>
-                    <connection refLocalId="5" formalParameter="OUT">
+                    <connection refLocalId="49" formalParameter="OUT">
+                      <position x="690" y="230"/>
                       <position x="590" y="230"/>
-                      <position x="550" y="230"/>
-                      <position x="550" y="270"/>
-                      <position x="510" y="270"/>
+                      <position x="590" y="270"/>
+                      <position x="560" y="270"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -690,13 +690,13 @@
               <variable>BoosterPumpCommand2</variable>
             </coil>
             <block localId="8" typeName="GT" width="70" height="60" executionOrderId="0">
-              <position x="590" y="320"/>
+              <position x="690" y="320"/>
               <inputVariables>
                 <variable formalParameter="IN1">
                   <connectionPointIn>
                     <relPosition x="0" y="30"/>
                     <connection refLocalId="7">
-                      <position x="590" y="350"/>
+                      <position x="690" y="350"/>
                       <position x="445" y="350"/>
                       <position x="445" y="360"/>
                       <position x="300" y="360"/>
@@ -706,11 +706,11 @@
                 <variable formalParameter="IN2">
                   <connectionPointIn>
                     <relPosition x="0" y="50"/>
-                    <connection refLocalId="11" formalParameter="OUT">
-                      <position x="590" y="370"/>
-                      <position x="550" y="370"/>
-                      <position x="550" y="410"/>
-                      <position x="510" y="410"/>
+                    <connection refLocalId="50" formalParameter="OUT">
+                      <position x="690" y="370"/>
+                      <position x="665" y="370"/>
+                      <position x="665" y="410"/>
+                      <position x="640" y="410"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -1232,14 +1232,14 @@ Set Isolation Valve to 0% (0.0) when general site alarm is high; override all ot
               </outputVariables>
             </block>
             <block localId="69" typeName="MUL" width="70" height="60">
-              <position x="440" y="90"/>
+              <position x="380" y="90"/>
               <inputVariables>
                 <variable formalParameter="IN1">
                   <connectionPointIn>
                     <relPosition x="0" y="30"/>
                     <connection refLocalId="70">
-                      <position x="440" y="120"/>
-                      <position x="350" y="120"/>
+                      <position x="380" y="120"/>
+                      <position x="290" y="120"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -1247,10 +1247,10 @@ Set Isolation Valve to 0% (0.0) when general site alarm is high; override all ot
                   <connectionPointIn>
                     <relPosition x="0" y="50"/>
                     <connection refLocalId="71">
-                      <position x="440" y="140"/>
-                      <position x="395" y="140"/>
-                      <position x="395" y="160"/>
-                      <position x="350" y="160"/>
+                      <position x="380" y="140"/>
+                      <position x="335" y="140"/>
+                      <position x="335" y="160"/>
+                      <position x="290" y="160"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -1265,14 +1265,14 @@ Set Isolation Valve to 0% (0.0) when general site alarm is high; override all ot
               </outputVariables>
             </block>
             <inVariable localId="70" width="180" height="30" negated="false">
-              <position x="170" y="100"/>
+              <position x="110" y="100"/>
               <connectionPointOut>
                 <relPosition x="180" y="20"/>
               </connectionPointOut>
               <expression>FlowSensorMaxCapacity</expression>
             </inVariable>
             <inVariable localId="71" width="40" height="30" negated="false">
-              <position x="310" y="140"/>
+              <position x="250" y="140"/>
               <connectionPointOut>
                 <relPosition x="40" y="20"/>
               </connectionPointOut>
@@ -1293,14 +1293,16 @@ Set Isolation Valve to 0% (0.0) when general site alarm is high; override all ot
               <variable>BoosterPumpAlarm1</variable>
             </coil>
             <block localId="5" typeName="MUL" width="70" height="60" executionOrderId="0">
-              <position x="440" y="240"/>
+              <position x="350" y="240"/>
               <inputVariables>
                 <variable formalParameter="IN1">
                   <connectionPointIn>
                     <relPosition x="0" y="30"/>
                     <connection refLocalId="15">
-                      <position x="440" y="270"/>
                       <position x="350" y="270"/>
+                      <position x="310" y="270"/>
+                      <position x="310" y="260"/>
+                      <position x="290" y="260"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -1308,10 +1310,10 @@ Set Isolation Valve to 0% (0.0) when general site alarm is high; override all ot
                   <connectionPointIn>
                     <relPosition x="0" y="50"/>
                     <connection refLocalId="65">
-                      <position x="440" y="290"/>
-                      <position x="395" y="290"/>
-                      <position x="395" y="310"/>
-                      <position x="350" y="310"/>
+                      <position x="350" y="290"/>
+                      <position x="310" y="290"/>
+                      <position x="310" y="300"/>
+                      <position x="290" y="300"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -1326,16 +1328,16 @@ Set Isolation Valve to 0% (0.0) when general site alarm is high; override all ot
               </outputVariables>
             </block>
             <inVariable localId="15" width="180" height="30" negated="false" executionOrderId="0">
-              <position x="170" y="250"/>
+              <position x="110" y="250"/>
               <connectionPointOut>
-                <relPosition x="180" y="20"/>
+                <relPosition x="180" y="10"/>
               </connectionPointOut>
               <expression>FlowSensorMaxCapacity</expression>
             </inVariable>
             <inVariable localId="65" width="40" height="30" negated="false" executionOrderId="0">
-              <position x="310" y="290"/>
+              <position x="250" y="290"/>
               <connectionPointOut>
-                <relPosition x="40" y="20"/>
+                <relPosition x="40" y="10"/>
               </connectionPointOut>
               <expression>0.2</expression>
             </inVariable>
@@ -1347,7 +1349,9 @@ Set Isolation Valve to 0% (0.0) when general site alarm is high; override all ot
                     <relPosition x="0" y="30"/>
                     <connection refLocalId="13">
                       <position x="440" y="410"/>
-                      <position x="350" y="410"/>
+                      <position x="395" y="410"/>
+                      <position x="395" y="400"/>
+                      <position x="350" y="400"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -1357,8 +1361,8 @@ Set Isolation Valve to 0% (0.0) when general site alarm is high; override all ot
                     <connection refLocalId="73">
                       <position x="440" y="430"/>
                       <position x="395" y="430"/>
-                      <position x="395" y="450"/>
-                      <position x="350" y="450"/>
+                      <position x="395" y="440"/>
+                      <position x="350" y="440"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -1469,7 +1473,7 @@ Set Isolation Valve to 0% (0.0) when general site alarm is high; override all ot
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="4" formalParameter="OUT">
                   <position x="870" y="50"/>
-                  <position x="660" y="50"/>
+                  <position x="760" y="50"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -1483,7 +1487,7 @@ Set Isolation Valve to 0% (0.0) when general site alarm is high; override all ot
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="10" formalParameter="OUT">
                   <position x="870" y="210"/>
-                  <position x="660" y="210"/>
+                  <position x="760" y="210"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -1497,7 +1501,7 @@ Set Isolation Valve to 0% (0.0) when general site alarm is high; override all ot
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="8" formalParameter="OUT">
                   <position x="870" y="350"/>
-                  <position x="660" y="350"/>
+                  <position x="760" y="350"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -1847,6 +1851,72 @@ Set Isolation Valve to 0% (0.0) when general site alarm is high; override all ot
                 <xhtml:p><![CDATA[While sensing positive flow from flow rate sensor, and isolation valve status is 0% (0.0) (closed), FlowSensorAlarm is set high.]]></xhtml:p>
               </content>
             </comment>
+            <block localId="102" typeName="REAL_TO_INT" width="100" height="40">
+              <position x="508" y="90"/>
+              <inputVariables>
+                <variable formalParameter="IN">
+                  <connectionPointIn>
+                    <relPosition x="0" y="30"/>
+                    <connection refLocalId="69" formalParameter="OUT">
+                      <position x="508" y="120"/>
+                      <position x="450" y="120"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+              </inputVariables>
+              <inOutVariables/>
+              <outputVariables>
+                <variable formalParameter="OUT">
+                  <connectionPointOut>
+                    <relPosition x="100" y="30"/>
+                  </connectionPointOut>
+                </variable>
+              </outputVariables>
+            </block>
+            <block localId="49" typeName="REAL_TO_INT" width="100" height="40" executionOrderId="0">
+              <position x="460" y="240"/>
+              <inputVariables>
+                <variable formalParameter="IN">
+                  <connectionPointIn>
+                    <relPosition x="0" y="30"/>
+                    <connection refLocalId="5" formalParameter="OUT">
+                      <position x="460" y="270"/>
+                      <position x="420" y="270"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+              </inputVariables>
+              <inOutVariables/>
+              <outputVariables>
+                <variable formalParameter="OUT">
+                  <connectionPointOut>
+                    <relPosition x="100" y="30"/>
+                  </connectionPointOut>
+                </variable>
+              </outputVariables>
+            </block>
+            <block localId="50" typeName="REAL_TO_INT" width="100" height="40" executionOrderId="0">
+              <position x="540" y="380"/>
+              <inputVariables>
+                <variable formalParameter="IN">
+                  <connectionPointIn>
+                    <relPosition x="0" y="30"/>
+                    <connection refLocalId="11" formalParameter="OUT">
+                      <position x="540" y="410"/>
+                      <position x="510" y="410"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+              </inputVariables>
+              <inOutVariables/>
+              <outputVariables>
+                <variable formalParameter="OUT">
+                  <connectionPointOut>
+                    <relPosition x="100" y="30"/>
+                  </connectionPointOut>
+                </variable>
+              </outputVariables>
+            </block>
           </LD>
         </body>
       </pou>
@@ -2449,7 +2519,7 @@ Set Isolation Valve to 0% (0.0) when general site alarm is high; override all ot
             </variable>
             <variable name="FlowRateSensor">
               <type>
-                <REAL/>
+                <INT/>
               </type>
             </variable>
           </inputVars>
@@ -2457,7 +2527,7 @@ Set Isolation Valve to 0% (0.0) when general site alarm is high; override all ot
         <body>
           <LD>
             <inVariable localId="94" width="40" height="30" negated="false" executionOrderId="0">
-              <position x="280" y="380"/>
+              <position x="200" y="380"/>
               <connectionPointOut>
                 <relPosition x="40" y="20"/>
               </connectionPointOut>
@@ -2471,18 +2541,20 @@ Set Isolation Valve to 0% (0.0) when general site alarm is high; override all ot
                     <relPosition x="0" y="30"/>
                     <connection refLocalId="102">
                       <position x="430" y="330"/>
-                      <position x="320" y="330"/>
+                      <position x="300" y="330"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
                 <variable formalParameter="IN2">
                   <connectionPointIn>
                     <relPosition x="0" y="50"/>
-                    <connection refLocalId="94">
+                    <connection refLocalId="106" formalParameter="OUT">
                       <position x="430" y="350"/>
-                      <position x="390" y="350"/>
-                      <position x="390" y="400"/>
-                      <position x="320" y="400"/>
+                      <position x="420" y="350"/>
+                      <position x="420" y="375"/>
+                      <position x="450" y="375"/>
+                      <position x="450" y="400"/>
+                      <position x="440" y="400"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -2504,7 +2576,9 @@ Set Isolation Valve to 0% (0.0) when general site alarm is high; override all ot
                     <relPosition x="0" y="30"/>
                     <connection refLocalId="99">
                       <position x="430" y="250"/>
-                      <position x="320" y="250"/>
+                      <position x="375" y="250"/>
+                      <position x="375" y="260"/>
+                      <position x="320" y="260"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -2513,9 +2587,9 @@ Set Isolation Valve to 0% (0.0) when general site alarm is high; override all ot
                     <relPosition x="0" y="50"/>
                     <connection refLocalId="94">
                       <position x="430" y="270"/>
-                      <position x="390" y="270"/>
-                      <position x="390" y="400"/>
+                      <position x="320" y="270"/>
                       <position x="320" y="400"/>
+                      <position x="240" y="400"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -2570,9 +2644,9 @@ Set Isolation Valve to 0% (0.0) when general site alarm is high; override all ot
               <expression>IsolationValveStatus</expression>
             </inVariable>
             <inVariable localId="102" width="130" height="30" negated="false">
-              <position x="190" y="320"/>
+              <position x="170" y="310"/>
               <connectionPointOut>
-                <relPosition x="130" y="10"/>
+                <relPosition x="130" y="20"/>
               </connectionPointOut>
               <expression>FlowRateSensor</expression>
             </inVariable>
@@ -2600,6 +2674,28 @@ Set Isolation Valve to 0% (0.0) when general site alarm is high; override all ot
                 </connection>
               </connectionPointIn>
             </rightPowerRail>
+            <block localId="106" typeName="REAL_TO_INT" width="100" height="40">
+              <position x="340" y="370"/>
+              <inputVariables>
+                <variable formalParameter="IN">
+                  <connectionPointIn>
+                    <relPosition x="0" y="30"/>
+                    <connection refLocalId="94">
+                      <position x="340" y="400"/>
+                      <position x="240" y="400"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+              </inputVariables>
+              <inOutVariables/>
+              <outputVariables>
+                <variable formalParameter="OUT">
+                  <connectionPointOut>
+                    <relPosition x="100" y="30"/>
+                  </connectionPointOut>
+                </variable>
+              </outputVariables>
+            </block>
           </LD>
         </body>
       </pou>

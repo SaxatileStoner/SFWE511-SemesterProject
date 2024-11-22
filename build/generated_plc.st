@@ -45,26 +45,28 @@ END_FUNCTION
 FUNCTION SetFlowSensorAlarm : BOOL
   VAR_INPUT
     IsolationValveStatus : REAL;
-    FlowRateSensor : REAL;
+    FlowRateSensor : INT;
   END_VAR
   VAR
     _TMP_EQ97_OUT : BOOL;
+    _TMP_REAL_TO_INT106_OUT : INT;
     _TMP_GT95_OUT : BOOL;
     _TMP_AND98_OUT : BOOL;
   END_VAR
 
   _TMP_EQ97_OUT := EQ(IsolationValveStatus, 0.0);
-  _TMP_GT95_OUT := GT(FlowRateSensor, 0.0);
+  _TMP_REAL_TO_INT106_OUT := REAL_TO_INT(0.0);
+  _TMP_GT95_OUT := GT(FlowRateSensor, _TMP_REAL_TO_INT106_OUT);
   _TMP_AND98_OUT := AND(_TMP_EQ97_OUT, _TMP_GT95_OUT);
   SetFlowSensorAlarm := _TMP_AND98_OUT;
 END_FUNCTION
 
 PROGRAM DCSProgramSector
   VAR
-    FlowRateSensor0 AT %ID0 : REAL := 5.5;
-    FlowRateSensor1 AT %ID1 : REAL := 5.5;
-    FlowRateSensor2 AT %ID2 : REAL := 5.5;
-    BoosterPumpStatus0 AT %IX0.0 : BOOL := False;
+    FlowRateSensor0 AT %IW0 : INT := 60;
+    FlowRateSensor1 AT %IW1 : INT := 5;
+    FlowRateSensor2 AT %IW2 : INT := 5;
+    BoosterPumpStatus0 AT %IX0.0 : BOOL := True;
     BoosterPumpStatus1 AT %IX0.1 : BOOL := False;
     BoosterPumpStatus2 AT %IX0.2 : BOOL := False;
     IsolationValveStatus0 AT %ID3 : REAL := 0.5;
@@ -94,14 +96,17 @@ PROGRAM DCSProgramSector
     IsolationValveCommand2 : REAL;
   END_VAR
   VAR CONSTANT
-    FlowSensorMaxCapacity AT %MD0.0 : REAL := 50.0;
+    FlowSensorMaxCapacity AT %MD0 : REAL := 50.0;
   END_VAR
   VAR
     _TMP_MUL69_OUT : REAL;
+    _TMP_REAL_TO_INT102_OUT : INT;
     _TMP_GT4_OUT : BOOL;
     _TMP_MUL5_OUT : REAL;
+    _TMP_REAL_TO_INT49_OUT : INT;
     _TMP_GT10_OUT : BOOL;
     _TMP_MUL11_OUT : REAL;
+    _TMP_REAL_TO_INT50_OUT : INT;
     _TMP_GT8_OUT : BOOL;
     _TMP_XOR24_OUT : BOOL;
     _TMP_XOR27_OUT : BOOL;
@@ -121,13 +126,16 @@ PROGRAM DCSProgramSector
   END_VAR
 
   _TMP_MUL69_OUT := MUL(FlowSensorMaxCapacity, 0.2);
-  _TMP_GT4_OUT := GT(FlowRateSensor0, _TMP_MUL69_OUT);
+  _TMP_REAL_TO_INT102_OUT := REAL_TO_INT(_TMP_MUL69_OUT);
+  _TMP_GT4_OUT := GT(FlowRateSensor0, _TMP_REAL_TO_INT102_OUT);
   BoosterPumpCommand0 := NOT(GeneralSiteAlarm0) AND _TMP_GT4_OUT;
   _TMP_MUL5_OUT := MUL(FlowSensorMaxCapacity, 0.2);
-  _TMP_GT10_OUT := GT(FlowRateSensor1, _TMP_MUL5_OUT);
+  _TMP_REAL_TO_INT49_OUT := REAL_TO_INT(_TMP_MUL5_OUT);
+  _TMP_GT10_OUT := GT(FlowRateSensor1, _TMP_REAL_TO_INT49_OUT);
   BoosterPumpCommand1 := NOT(GeneralSiteAlarm0) AND _TMP_GT10_OUT;
   _TMP_MUL11_OUT := MUL(FlowSensorMaxCapacity, 0.2);
-  _TMP_GT8_OUT := GT(FlowRateSensor2, _TMP_MUL11_OUT);
+  _TMP_REAL_TO_INT50_OUT := REAL_TO_INT(_TMP_MUL11_OUT);
+  _TMP_GT8_OUT := GT(FlowRateSensor2, _TMP_REAL_TO_INT50_OUT);
   BoosterPumpCommand2 := NOT(GeneralSiteAlarm0) AND _TMP_GT8_OUT;
   _TMP_XOR24_OUT := XOR(BoosterPumpCommand0, BoosterPumpStatus0);
   BoosterPumpAlarm0 := _TMP_XOR24_OUT;

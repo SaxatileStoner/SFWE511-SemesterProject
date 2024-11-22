@@ -98,12 +98,12 @@ void PLC_SetTimer(unsigned long long next, unsigned long long period);
 
 
 
-IEC_REAL var0;
-IEC_REAL *__ID0 = &var0;
-IEC_REAL var1;
-IEC_REAL *__ID1 = &var1;
-IEC_REAL var2;
-IEC_REAL *__ID2 = &var2;
+IEC_INT var0;
+IEC_INT *__IW0 = &var0;
+IEC_INT var1;
+IEC_INT *__IW1 = &var1;
+IEC_INT var2;
+IEC_INT *__IW2 = &var2;
 IEC_BOOL var3;
 IEC_BOOL *__IX0_0 = &var3;
 IEC_BOOL var4;
@@ -137,7 +137,7 @@ IEC_BOOL *__QX1_4 = &var17;
 IEC_BOOL var18;
 IEC_BOOL *__QX1_5 = &var18;
 IEC_REAL var19;
-IEC_REAL *__MD0_0 = &var19;
+IEC_REAL *__MD0 = &var19;
 IEC_REAL var20;
 IEC_REAL *__ID6 = &var20;
 IEC_REAL var21;

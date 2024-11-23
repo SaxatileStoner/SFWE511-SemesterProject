@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <project xmlns="http://www.plcopen.org/xml/tc6_0201" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:ns1="http://www.plcopen.org/xml/tc6_0201">
   <fileHeader companyName="Unknown" productName="RLW-PLC-Command" productVersion="0.0.1" creationDateTime="2024-10-23T22:26:44"/>
-  <contentHeader name="Semester-Project-RLW" modificationDateTime="2024-11-23T13:20:01" version="0.0.1">
+  <contentHeader name="Semester-Project-RLW" modificationDateTime="2024-11-23T13:30:53" version="0.0.1">
     <coordinateInfo>
       <fbd>
         <scaling x="10" y="10"/>
@@ -7977,36 +7977,36 @@ Note: A Tank with 90% capcity will trigger the 60% capcity protocal too, but wit
             </variable>
           </localVars>
           <localVars constant="true">
-            <variable name="AcidicLevel" address="%MD2.1">
+            <variable name="AcidicLevel" address="%MW3">
               <type>
-                <REAL/>
+                <INT/>
               </type>
               <initialValue>
-                <simpleValue value="4.0"/>
+                <simpleValue value="4"/>
               </initialValue>
             </variable>
-            <variable name="CriticalAcidicLevel" address="%MD2.2">
+            <variable name="CriticalAcidicLevel" address="%MW4">
               <type>
-                <REAL/>
+                <INT/>
               </type>
               <initialValue>
-                <simpleValue value="3.0"/>
+                <simpleValue value="3"/>
               </initialValue>
             </variable>
-            <variable name="BasicLevel" address="%MD2.3">
+            <variable name="BasicLevel" address="%MW5">
               <type>
-                <REAL/>
+                <INT/>
               </type>
               <initialValue>
-                <simpleValue value="10.0"/>
+                <simpleValue value="10"/>
               </initialValue>
             </variable>
-            <variable name="CriticalBasicLevel" address="%MD2.4">
+            <variable name="CriticalBasicLevel" address="%MW6">
               <type>
-                <REAL/>
+                <INT/>
               </type>
               <initialValue>
-                <simpleValue value="11.0"/>
+                <simpleValue value="11"/>
               </initialValue>
             </variable>
           </localVars>
@@ -8231,12 +8231,12 @@ Note: A Tank with 90% capcity will trigger the 60% capcity protocal too, but wit
             </variable>
             <variable name="BasicMax">
               <type>
-                <REAL/>
+                <INT/>
               </type>
             </variable>
             <variable name="AcidicMax">
               <type>
-                <REAL/>
+                <INT/>
               </type>
             </variable>
           </inputVars>
@@ -8270,11 +8270,11 @@ Note: A Tank with 90% capcity will trigger the 60% capcity protocal too, but wit
                 <variable formalParameter="IN1">
                   <connectionPointIn>
                     <relPosition x="0" y="30"/>
-                    <connection refLocalId="8" formalParameter="OUT">
+                    <connection refLocalId="1">
                       <position x="520" y="210"/>
-                      <position x="464" y="210"/>
-                      <position x="464" y="200"/>
-                      <position x="408" y="200"/>
+                      <position x="370" y="210"/>
+                      <position x="370" y="200"/>
+                      <position x="220" y="200"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -8305,11 +8305,11 @@ Note: A Tank with 90% capcity will trigger the 60% capcity protocal too, but wit
                 <variable formalParameter="IN1">
                   <connectionPointIn>
                     <relPosition x="0" y="30"/>
-                    <connection refLocalId="8" formalParameter="OUT">
+                    <connection refLocalId="1">
                       <position x="520" y="120"/>
-                      <position x="464" y="120"/>
-                      <position x="464" y="200"/>
-                      <position x="408" y="200"/>
+                      <position x="370" y="120"/>
+                      <position x="370" y="200"/>
+                      <position x="220" y="200"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -8378,28 +8378,6 @@ Note: A Tank with 90% capcity will trigger the 60% capcity protocal too, but wit
               </connectionPointIn>
               <expression>isOutsidePHRange</expression>
             </outVariable>
-            <block localId="8" typeName="INT_TO_REAL" width="100" height="40">
-              <position x="308" y="170"/>
-              <inputVariables>
-                <variable formalParameter="IN">
-                  <connectionPointIn>
-                    <relPosition x="0" y="30"/>
-                    <connection refLocalId="1">
-                      <position x="308" y="200"/>
-                      <position x="220" y="200"/>
-                    </connection>
-                  </connectionPointIn>
-                </variable>
-              </inputVariables>
-              <inOutVariables/>
-              <outputVariables>
-                <variable formalParameter="OUT">
-                  <connectionPointOut>
-                    <relPosition x="100" y="30"/>
-                  </connectionPointOut>
-                </variable>
-              </outputVariables>
-            </block>
           </LD>
         </body>
       </pou>

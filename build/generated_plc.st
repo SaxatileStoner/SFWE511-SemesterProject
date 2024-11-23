@@ -546,19 +546,17 @@ END_PROGRAM
 FUNCTION isOutsidePHRange : BOOL
   VAR_INPUT
     EvalulateVarIn : INT;
-    BasicMax : REAL;
-    AcidicMax : REAL;
+    BasicMax : INT;
+    AcidicMax : INT;
   END_VAR
   VAR
-    _TMP_INT_TO_REAL8_OUT : REAL;
     _TMP_LT5_OUT : BOOL;
     _TMP_GT4_OUT : BOOL;
     _TMP_OR6_OUT : BOOL;
   END_VAR
 
-  _TMP_INT_TO_REAL8_OUT := INT_TO_REAL(EvalulateVarIn);
-  _TMP_LT5_OUT := LT(_TMP_INT_TO_REAL8_OUT, AcidicMax);
-  _TMP_GT4_OUT := GT(_TMP_INT_TO_REAL8_OUT, BasicMax);
+  _TMP_LT5_OUT := LT(EvalulateVarIn, AcidicMax);
+  _TMP_GT4_OUT := GT(EvalulateVarIn, BasicMax);
   _TMP_OR6_OUT := OR(_TMP_LT5_OUT, _TMP_GT4_OUT);
   isOutsidePHRange := _TMP_OR6_OUT;
 END_FUNCTION
@@ -568,10 +566,10 @@ PROGRAM SCADApHTankMonitorProgram
     pHSensor AT %IW13 : INT := 7;
   END_VAR
   VAR CONSTANT
-    AcidicLevel AT %MD2.1 : REAL := 4.0;
-    CriticalAcidicLevel AT %MD2.2 : REAL := 3.0;
-    BasicLevel AT %MD2.3 : REAL := 10.0;
-    CriticalBasicLevel AT %MD2.4 : REAL := 11.0;
+    AcidicLevel AT %MW3 : INT := 4;
+    CriticalAcidicLevel AT %MW4 : INT := 3;
+    BasicLevel AT %MW5 : INT := 10;
+    CriticalBasicLevel AT %MW6 : INT := 11;
   END_VAR
   VAR_EXTERNAL
     pHAlertAlarm : BOOL;

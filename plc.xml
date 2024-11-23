@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <project xmlns="http://www.plcopen.org/xml/tc6_0201" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:ns1="http://www.plcopen.org/xml/tc6_0201">
   <fileHeader companyName="Unknown" productName="RLW-PLC-Command" productVersion="0.0.1" creationDateTime="2024-10-23T22:26:44"/>
-  <contentHeader name="Semester-Project-RLW" modificationDateTime="2024-11-23T13:09:03" version="0.0.1">
+  <contentHeader name="Semester-Project-RLW" modificationDateTime="2024-11-23T13:20:01" version="0.0.1">
     <coordinateInfo>
       <fbd>
         <scaling x="10" y="10"/>
@@ -68,7 +68,7 @@
                 <simpleValue value="False"/>
               </initialValue>
             </variable>
-            <variable name="IsolationValveStatus0" address="%ID3">
+            <variable name="IsolationValveStatus0" address="%IW3">
               <type>
                 <INT/>
               </type>
@@ -76,7 +76,7 @@
                 <simpleValue value="50"/>
               </initialValue>
             </variable>
-            <variable name="IsolationValveStatus1" address="%ID4">
+            <variable name="IsolationValveStatus1" address="%IW4">
               <type>
                 <INT/>
               </type>
@@ -84,7 +84,7 @@
                 <simpleValue value="50"/>
               </initialValue>
             </variable>
-            <variable name="IsolationValveStatus2" address="%ID5">
+            <variable name="IsolationValveStatus2" address="%IW5">
               <type>
                 <INT/>
               </type>
@@ -1917,12 +1917,6 @@ Set Isolation Valve to 0% (0.0) when general site alarm is high; override all ot
                 </variable>
               </outputVariables>
             </block>
-            <comment localId="103" height="140" width="460">
-              <position x="1380" y="1000"/>
-              <content>
-                <xhtml:p><![CDATA[TODO: Utilize 0-100 Int values as percentages of the value open or closed instead of actual real types. Edit `isWithin5Percent` to use integers as the percentage.]]></xhtml:p>
-              </content>
-            </comment>
             <comment localId="104" height="60" width="280">
               <position x="1020" y="760"/>
               <content>
@@ -2698,37 +2692,37 @@ Set Isolation Valve to 0% (0.0) when general site alarm is high; override all ot
       <pou name="SCADATankLevelProgram" pouType="program">
         <interface>
           <localVars>
-            <variable name="EductorValveStatus0" address="%ID6">
+            <variable name="EductorValveStatus0" address="%IW6">
               <type>
                 <INT/>
               </type>
             </variable>
-            <variable name="EductorValveStatus1" address="%ID7">
+            <variable name="EductorValveStatus1" address="%IW7">
               <type>
                 <INT/>
               </type>
             </variable>
-            <variable name="EductorValveStatus2" address="%ID8">
+            <variable name="EductorValveStatus2" address="%IW8">
               <type>
                 <INT/>
               </type>
             </variable>
-            <variable name="UltrasonicTankLevelSensor0" address="%ID9">
+            <variable name="UltrasonicTankLevelSensor0" address="%IW9">
               <type>
                 <INT/>
               </type>
             </variable>
-            <variable name="UltrasonicTankLevelSensor1" address="%ID10">
+            <variable name="UltrasonicTankLevelSensor1" address="%IW10">
               <type>
                 <INT/>
               </type>
             </variable>
-            <variable name="UltrasonicTankLevelSensor2" address="%ID11">
+            <variable name="UltrasonicTankLevelSensor2" address="%IW11">
               <type>
                 <INT/>
               </type>
             </variable>
-            <variable name="DisposalValveStatus" address="%ID12">
+            <variable name="DisposalValveStatus" address="%IW12">
               <type>
                 <INT/>
               </type>
@@ -2763,17 +2757,17 @@ Set Isolation Valve to 0% (0.0) when general site alarm is high; override all ot
                 <BOOL/>
               </type>
             </variable>
-            <variable name="EductorValveCommand0" address="%QD3">
+            <variable name="EductorValveCommand0" address="%QW3">
               <type>
                 <INT/>
               </type>
             </variable>
-            <variable name="EductorValveCommand1" address="%QD4">
+            <variable name="EductorValveCommand1" address="%QW4">
               <type>
                 <INT/>
               </type>
             </variable>
-            <variable name="EductorValveCommand2" address="%QD5">
+            <variable name="EductorValveCommand2" address="%QW5">
               <type>
                 <INT/>
               </type>
@@ -2798,12 +2792,12 @@ Set Isolation Valve to 0% (0.0) when general site alarm is high; override all ot
                 <BOOL/>
               </type>
             </variable>
-            <variable name="DistributionPumpSpeedCommand" address="%QD6">
+            <variable name="DistributionPumpSpeedCommand" address="%QW6">
               <type>
                 <INT/>
               </type>
             </variable>
-            <variable name="DisposalValveCommand" address="%QD7">
+            <variable name="DisposalValveCommand" address="%QW7">
               <type>
                 <INT/>
               </type>
@@ -3555,9 +3549,9 @@ Set Isolation Valve to 0% (0.0) when general site alarm is high; override all ot
             <inVariable localId="43" width="40" height="30" negated="false">
               <position x="300" y="1320"/>
               <connectionPointOut>
-                <relPosition x="40" y="10"/>
+                <relPosition x="40" y="20"/>
               </connectionPointOut>
-              <expression>1.0</expression>
+              <expression>100</expression>
             </inVariable>
             <inVariable localId="44" width="170" height="30" negated="false">
               <position x="170" y="1170"/>
@@ -3733,10 +3727,10 @@ Set Isolation Valve to 0% (0.0) when general site alarm is high; override all ot
               <position x="960" y="1120"/>
               <content>
                 <xhtml:p><![CDATA[Set the distribution pump speed based upon the number of open eductor valves and if there is detected high pressure in one of the tanks.
-No Valves -> 0% (0.0)
-1 Valves -> 30% (0.3)
-2 Valves -> 60% (0.6)
-3 Valves -> 90% (0.9)
+No Valves -> 0% (0)
+1 Valves -> 30% (30)
+2 Valves -> 60% (60)
+3 Valves -> 90% (90)
 If detected high pressure, reduce speed by 30% (0.3).]]></xhtml:p>
               </content>
             </comment>
@@ -3750,9 +3744,9 @@ If detected high pressure, reduce speed by 30% (0.3).]]></xhtml:p>
             <inVariable localId="51" width="40" height="30" negated="false">
               <position x="360" y="1500"/>
               <connectionPointOut>
-                <relPosition x="40" y="10"/>
+                <relPosition x="40" y="20"/>
               </connectionPointOut>
-              <expression>0.3</expression>
+              <expression>30</expression>
             </inVariable>
             <block localId="52" typeName="GE" width="70" height="60">
               <position x="470" y="1450"/>
@@ -3813,9 +3807,9 @@ If detected high pressure, reduce speed by 30% (0.3).]]></xhtml:p>
             <inVariable localId="33" width="40" height="30" negated="false" executionOrderId="0">
               <position x="360" y="1640"/>
               <connectionPointOut>
-                <relPosition x="40" y="10"/>
+                <relPosition x="40" y="20"/>
               </connectionPointOut>
-              <expression>0.3</expression>
+              <expression>30</expression>
             </inVariable>
             <block localId="34" typeName="GE" width="70" height="60" executionOrderId="0">
               <position x="470" y="1590"/>
@@ -3825,9 +3819,7 @@ If detected high pressure, reduce speed by 30% (0.3).]]></xhtml:p>
                     <relPosition x="0" y="30"/>
                     <connection refLocalId="32">
                       <position x="470" y="1620"/>
-                      <position x="435" y="1620"/>
-                      <position x="435" y="1610"/>
-                      <position x="400" y="1610"/>
+                      <position x="400" y="1620"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -3837,8 +3829,8 @@ If detected high pressure, reduce speed by 30% (0.3).]]></xhtml:p>
                     <connection refLocalId="33">
                       <position x="470" y="1640"/>
                       <position x="435" y="1640"/>
-                      <position x="435" y="1650"/>
-                      <position x="400" y="1650"/>
+                      <position x="435" y="1660"/>
+                      <position x="400" y="1660"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -3876,9 +3868,9 @@ If detected high pressure, reduce speed by 30% (0.3).]]></xhtml:p>
             <inVariable localId="55" width="40" height="30" negated="false" executionOrderId="0">
               <position x="360" y="1770"/>
               <connectionPointOut>
-                <relPosition x="40" y="20"/>
+                <relPosition x="40" y="10"/>
               </connectionPointOut>
-              <expression>0.3</expression>
+              <expression>30</expression>
             </inVariable>
             <block localId="56" typeName="GE" width="70" height="60" executionOrderId="0">
               <position x="470" y="1720"/>
@@ -3990,9 +3982,9 @@ If detected high pressure, reduce speed by 30% (0.3).]]></xhtml:p>
             <inVariable localId="62" width="40" height="30" negated="false" executionOrderId="0">
               <position x="360" y="1910"/>
               <connectionPointOut>
-                <relPosition x="40" y="20"/>
+                <relPosition x="40" y="10"/>
               </connectionPointOut>
-              <expression>0.6</expression>
+              <expression>60</expression>
             </inVariable>
             <coil localId="63" negated="false" width="21" height="20" executionOrderId="0">
               <position x="1158" y="2020"/>
@@ -4051,9 +4043,9 @@ If detected high pressure, reduce speed by 30% (0.3).]]></xhtml:p>
             <inVariable localId="66" width="40" height="30" negated="false" executionOrderId="0">
               <position x="360" y="2050"/>
               <connectionPointOut>
-                <relPosition x="40" y="20"/>
+                <relPosition x="40" y="10"/>
               </connectionPointOut>
-              <expression>0.6</expression>
+              <expression>60</expression>
             </inVariable>
             <inVariable localId="67" width="220" height="30" negated="false" executionOrderId="0">
               <position x="180" y="2150"/>
@@ -4065,9 +4057,9 @@ If detected high pressure, reduce speed by 30% (0.3).]]></xhtml:p>
             <inVariable localId="68" width="40" height="30" negated="false" executionOrderId="0">
               <position x="360" y="2190"/>
               <connectionPointOut>
-                <relPosition x="40" y="20"/>
+                <relPosition x="40" y="10"/>
               </connectionPointOut>
-              <expression>0.6</expression>
+              <expression>60</expression>
             </inVariable>
             <block localId="69" typeName="GE" width="70" height="60" executionOrderId="0">
               <position x="470" y="2140"/>
@@ -4175,9 +4167,9 @@ If detected high pressure, reduce speed by 30% (0.3).]]></xhtml:p>
             <inVariable localId="74" width="40" height="30" negated="false" executionOrderId="0">
               <position x="360" y="2320"/>
               <connectionPointOut>
-                <relPosition x="40" y="10"/>
+                <relPosition x="40" y="20"/>
               </connectionPointOut>
-              <expression>0.9</expression>
+              <expression>90</expression>
             </inVariable>
             <coil localId="75" negated="false" width="21" height="20" executionOrderId="0">
               <position x="1158" y="2430"/>
@@ -4238,9 +4230,9 @@ If detected high pressure, reduce speed by 30% (0.3).]]></xhtml:p>
             <inVariable localId="78" width="40" height="30" negated="false" executionOrderId="0">
               <position x="360" y="2460"/>
               <connectionPointOut>
-                <relPosition x="40" y="10"/>
+                <relPosition x="40" y="20"/>
               </connectionPointOut>
-              <expression>0.9</expression>
+              <expression>90</expression>
             </inVariable>
             <inVariable localId="79" width="220" height="30" negated="false" executionOrderId="0">
               <position x="180" y="2560"/>
@@ -4252,9 +4244,9 @@ If detected high pressure, reduce speed by 30% (0.3).]]></xhtml:p>
             <inVariable localId="80" width="40" height="30" negated="false" executionOrderId="0">
               <position x="360" y="2600"/>
               <connectionPointOut>
-                <relPosition x="40" y="10"/>
+                <relPosition x="40" y="20"/>
               </connectionPointOut>
-              <expression>0.9</expression>
+              <expression>90</expression>
             </inVariable>
             <block localId="81" typeName="GE" width="70" height="60" executionOrderId="0">
               <position x="470" y="2550"/>
@@ -4360,9 +4352,9 @@ If detected high pressure, reduce speed by 30% (0.3).]]></xhtml:p>
             <inVariable localId="85" width="40" height="30" negated="false">
               <position x="450" y="2750"/>
               <connectionPointOut>
-                <relPosition x="40" y="20"/>
+                <relPosition x="40" y="10"/>
               </connectionPointOut>
-              <expression>1.0</expression>
+              <expression>100</expression>
             </inVariable>
             <outVariable localId="86" width="170" height="30" negated="false">
               <position x="710" y="2750"/>
@@ -4460,9 +4452,9 @@ If detected high pressure, reduce speed by 30% (0.3).]]></xhtml:p>
             <inVariable localId="91" width="40" height="30" negated="false" executionOrderId="0">
               <position x="450" y="2890"/>
               <connectionPointOut>
-                <relPosition x="40" y="20"/>
+                <relPosition x="40" y="10"/>
               </connectionPointOut>
-              <expression>1.0</expression>
+              <expression>100</expression>
             </inVariable>
             <outVariable localId="92" width="170" height="30" negated="false" executionOrderId="0">
               <position x="710" y="2890"/>
@@ -4546,9 +4538,9 @@ If detected high pressure, reduce speed by 30% (0.3).]]></xhtml:p>
             <inVariable localId="96" width="40" height="30" negated="false" executionOrderId="0">
               <position x="450" y="3020"/>
               <connectionPointOut>
-                <relPosition x="40" y="10"/>
+                <relPosition x="40" y="20"/>
               </connectionPointOut>
-              <expression>1.0</expression>
+              <expression>100</expression>
             </inVariable>
             <outVariable localId="97" width="170" height="30" negated="false" executionOrderId="0">
               <position x="710" y="3020"/>
@@ -4996,7 +4988,7 @@ If detected high pressure, reduce speed by 30% (0.3).]]></xhtml:p>
               <connectionPointOut>
                 <relPosition x="40" y="20"/>
               </connectionPointOut>
-              <expression>0.0</expression>
+              <expression>0</expression>
             </inVariable>
             <outVariable localId="148" width="170" height="30" negated="false">
               <position x="548" y="4040"/>
@@ -5044,7 +5036,7 @@ If detected high pressure, reduce speed by 30% (0.3).]]></xhtml:p>
               <connectionPointOut>
                 <relPosition x="40" y="10"/>
               </connectionPointOut>
-              <expression>0.5</expression>
+              <expression>50</expression>
             </inVariable>
             <outVariable localId="154" width="240" height="30" negated="false">
               <position x="970" y="4600"/>
@@ -5694,9 +5686,9 @@ If detected high pressure, reduce speed by 30% (0.3).]]></xhtml:p>
             <inVariable localId="118" width="40" height="30" negated="false" executionOrderId="0">
               <position x="360" y="4180"/>
               <connectionPointOut>
-                <relPosition x="40" y="10"/>
+                <relPosition x="40" y="20"/>
               </connectionPointOut>
-              <expression>0.0</expression>
+              <expression>0</expression>
             </inVariable>
             <outVariable localId="119" width="170" height="30" negated="false" executionOrderId="0">
               <position x="548" y="4180"/>
@@ -5766,9 +5758,9 @@ If detected high pressure, reduce speed by 30% (0.3).]]></xhtml:p>
             <inVariable localId="133" width="40" height="30" negated="false" executionOrderId="0">
               <position x="350" y="4320"/>
               <connectionPointOut>
-                <relPosition x="40" y="10"/>
+                <relPosition x="40" y="20"/>
               </connectionPointOut>
-              <expression>0.0</expression>
+              <expression>0</expression>
             </inVariable>
             <outVariable localId="135" width="170" height="30" negated="false" executionOrderId="0">
               <position x="538" y="4320"/>
@@ -6042,7 +6034,7 @@ If detected high pressure, reduce speed by 30% (0.3).]]></xhtml:p>
               <connectionPointOut>
                 <relPosition x="40" y="10"/>
               </connectionPointOut>
-              <expression>1.0</expression>
+              <expression>100</expression>
             </inVariable>
             <outVariable localId="177" width="170" height="30" negated="false">
               <position x="930" y="4640"/>
@@ -6196,9 +6188,9 @@ If detected high pressure, reduce speed by 30% (0.3).]]></xhtml:p>
             <inVariable localId="181" width="40" height="30" negated="false">
               <position x="350" y="4740"/>
               <connectionPointOut>
-                <relPosition x="40" y="10"/>
+                <relPosition x="40" y="20"/>
               </connectionPointOut>
-              <expression>0.0</expression>
+              <expression>0</expression>
             </inVariable>
             <outVariable localId="7" width="170" height="30" negated="false" executionOrderId="0">
               <position x="970" y="4760"/>
@@ -6520,9 +6512,9 @@ Note: A Tank with 90% capcity will trigger the 60% capcity protocal too, but wit
             <inVariable localId="201" width="40" height="30" negated="false">
               <position x="220" y="5710"/>
               <connectionPointOut>
-                <relPosition x="40" y="20"/>
+                <relPosition x="40" y="10"/>
               </connectionPointOut>
-              <expression>0.0</expression>
+              <expression>0</expression>
             </inVariable>
             <inOutVariable localId="202" width="170" height="30" negatedOut="false" negatedIn="false">
               <position x="390" y="5720"/>
@@ -6638,9 +6630,9 @@ Note: A Tank with 90% capcity will trigger the 60% capcity protocal too, but wit
             <inVariable localId="121" width="40" height="30" negated="false" executionOrderId="0">
               <position x="230" y="5850"/>
               <connectionPointOut>
-                <relPosition x="40" y="20"/>
+                <relPosition x="40" y="10"/>
               </connectionPointOut>
-              <expression>0.0</expression>
+              <expression>0</expression>
             </inVariable>
             <inOutVariable localId="130" width="190" height="30" negatedOut="false" negatedIn="false" executionOrderId="0">
               <position x="400" y="5860"/>
@@ -6924,9 +6916,9 @@ Note: A Tank with 90% capcity will trigger the 60% capcity protocal too, but wit
             <inVariable localId="145" width="40" height="30" negated="false" executionOrderId="0">
               <position x="232" y="6680"/>
               <connectionPointOut>
-                <relPosition x="40" y="10"/>
+                <relPosition x="40" y="20"/>
               </connectionPointOut>
-              <expression>0.0</expression>
+              <expression>0</expression>
             </inVariable>
             <coil localId="152" negated="false" storage="reset" width="21" height="20" executionOrderId="0">
               <position x="1090" y="6800"/>
@@ -6997,9 +6989,9 @@ Note: A Tank with 90% capcity will trigger the 60% capcity protocal too, but wit
             <inVariable localId="158" width="40" height="30" negated="false" executionOrderId="0">
               <position x="242" y="6820"/>
               <connectionPointOut>
-                <relPosition x="40" y="10"/>
+                <relPosition x="40" y="20"/>
               </connectionPointOut>
-              <expression>0.0</expression>
+              <expression>0</expression>
             </inVariable>
             <coil localId="159" negated="false" storage="reset" width="21" height="20" executionOrderId="0">
               <position x="1090" y="6940"/>
@@ -7179,7 +7171,7 @@ Note: A Tank with 90% capcity will trigger the 60% capcity protocal too, but wit
       <pou name="SetDistributionPumpSpeed" pouType="function">
         <interface>
           <returnType>
-            <REAL/>
+            <INT/>
           </returnType>
           <inputVars>
             <variable name="isEductorValve0Open">
@@ -7239,14 +7231,14 @@ Note: A Tank with 90% capcity will trigger the 60% capcity protocal too, but wit
               <connectionPointOut>
                 <relPosition x="40" y="10"/>
               </connectionPointOut>
-              <expression>0.3</expression>
+              <expression>30</expression>
             </inVariable>
             <inVariable localId="5" width="50" height="30" negated="false" executionOrderId="0">
               <position x="240" y="310"/>
               <connectionPointOut>
                 <relPosition x="50" y="10"/>
               </connectionPointOut>
-              <expression>-0.3</expression>
+              <expression>-30</expression>
             </inVariable>
             <block localId="7" typeName="MOVE" width="60" height="60">
               <position x="400" y="10"/>
@@ -7554,7 +7546,7 @@ Note: A Tank with 90% capcity will trigger the 60% capcity protocal too, but wit
               <connectionPointOut>
                 <relPosition x="40" y="20"/>
               </connectionPointOut>
-              <expression>0.0</expression>
+              <expression>0</expression>
             </inVariable>
           </LD>
         </body>
@@ -7579,7 +7571,7 @@ Note: A Tank with 90% capcity will trigger the 60% capcity protocal too, but wit
             </variable>
             <variable name="EductorValveOut">
               <type>
-                <REAL/>
+                <INT/>
               </type>
             </variable>
           </outputVars>
@@ -7729,9 +7721,9 @@ Note: A Tank with 90% capcity will trigger the 60% capcity protocal too, but wit
             <inVariable localId="114" width="40" height="30" negated="false" executionOrderId="0">
               <position x="480" y="140"/>
               <connectionPointOut>
-                <relPosition x="40" y="10"/>
+                <relPosition x="40" y="20"/>
               </connectionPointOut>
-              <expression>0.0</expression>
+              <expression>0</expression>
             </inVariable>
             <inVariable localId="115" width="70" height="30" negated="false">
               <position x="130" y="90"/>
@@ -7780,12 +7772,12 @@ Note: A Tank with 90% capcity will trigger the 60% capcity protocal too, but wit
             </variable>
             <variable name="DistributionPumpSpeedIn">
               <type>
-                <REAL/>
+                <INT/>
               </type>
             </variable>
             <variable name="DisposalValveCommandIn">
               <type>
-                <REAL/>
+                <INT/>
               </type>
             </variable>
           </inputVars>
@@ -7797,12 +7789,12 @@ Note: A Tank with 90% capcity will trigger the 60% capcity protocal too, but wit
             </variable>
             <variable name="DistributionPumpSpeedOut">
               <type>
-                <REAL/>
+                <INT/>
               </type>
             </variable>
             <variable name="DisposalValveCommandOut">
               <type>
-                <REAL/>
+                <INT/>
               </type>
             </variable>
           </outputVars>

@@ -265,8 +265,6 @@ PROGRAM SCADATankLevelProgram
     HighPressureSwitch0 AT %IX0.5 : BOOL;
     HighPressureSwitch1 AT %IX0.6 : BOOL;
     HighPressureSwitch2 AT %IX0.7 : BOOL;
-    isContainmentUnitAttached AT %IX1.0 : BOOL;
-    isContainmentUnitFull AT %IX1.1 : BOOL;
     EductorValveCommand0 AT %QW3 : INT;
     EductorValveCommand1 AT %QW4 : INT;
     EductorValveCommand2 AT %QW5 : INT;
@@ -304,6 +302,9 @@ PROGRAM SCADATankLevelProgram
     ControlCenterHornStrobeAlarm AT %QX3.5 : BOOL;
     pHWarningHMI AT %QX3.6 : BOOL;
     pHCriticalHMI AT %QX3.7 : BOOL;
+    HMITankDisposalButton AT %QX4.0 : BOOL;
+    isContainmentUnitAttached AT %QX4.1 : BOOL;
+    isContainmentUnitFull AT %QX4.2 : BOOL;
   END_VAR
   VAR_EXTERNAL
     BoosterPumpCommand0 : BOOL;
@@ -473,9 +474,9 @@ PROGRAM SCADATankLevelProgram
   IF _TMP_MOVE132_ENO THEN
     DistributionPumpCommand := FALSE; (*reset*)
   END_IF;
-  isTank0DisposalReady := Tank60Capacity0 AND Tank30Capacity0;
-  isTank1DisposalReady := Tank60Capacity1 AND Tank30Capacity1;
-  isTank2DisposalReady := Tank60Capacity2 AND Tank30Capacity2;
+  isTank0DisposalReady := HMITankDisposalButton AND Tank60Capacity0 AND Tank30Capacity0;
+  isTank1DisposalReady := HMITankDisposalButton AND Tank60Capacity1 AND Tank30Capacity1;
+  isTank2DisposalReady := HMITankDisposalButton AND Tank60Capacity2 AND Tank30Capacity2;
   askHMIContainmentUnitAttached := isTank0DisposalReady OR isTank1DisposalReady OR isTank2DisposalReady;
   DisposalValveCommand := DisposalProtocol0.DisposalValveCommandOut;
   askHMIContainmentUnitFull := DisposalProtocol0.Out;

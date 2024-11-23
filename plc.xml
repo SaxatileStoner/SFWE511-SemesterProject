@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <project xmlns="http://www.plcopen.org/xml/tc6_0201" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:ns1="http://www.plcopen.org/xml/tc6_0201">
   <fileHeader companyName="Unknown" productName="RLW-PLC-Command" productVersion="0.0.1" creationDateTime="2024-10-23T22:26:44"/>
-  <contentHeader name="Semester-Project-RLW" modificationDateTime="2024-11-23T13:44:31" version="0.0.1">
+  <contentHeader name="Semester-Project-RLW" modificationDateTime="2024-11-23T14:33:06" version="0.0.1">
     <coordinateInfo>
       <fbd>
         <scaling x="10" y="10"/>
@@ -2741,16 +2741,6 @@ Set Isolation Valve to 0% (0) when general site alarm is high; override all othe
                 <BOOL/>
               </type>
             </variable>
-            <variable name="isContainmentUnitAttached" address="%IX1.0">
-              <type>
-                <BOOL/>
-              </type>
-            </variable>
-            <variable name="isContainmentUnitFull" address="%IX1.1">
-              <type>
-                <BOOL/>
-              </type>
-            </variable>
             <variable name="EductorValveCommand0" address="%QW3">
               <type>
                 <INT/>
@@ -2932,6 +2922,21 @@ Set Isolation Valve to 0% (0) when general site alarm is high; override all othe
               </type>
             </variable>
             <variable name="pHCriticalHMI" address="%QX3.7">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="HMITankDisposalButton" address="%QX4.0">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="isContainmentUnitAttached" address="%QX4.1">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="isContainmentUnitFull" address="%QX4.2">
               <type>
                 <BOOL/>
               </type>
@@ -5815,9 +5820,9 @@ If detected high pressure, reduce speed by 30% (0.3).]]></xhtml:p>
               <position x="1128" y="3580"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
-                <connection refLocalId="113">
+                <connection refLocalId="227">
                   <position x="1128" y="3590"/>
-                  <position x="371" y="3590"/>
+                  <position x="550" y="3590"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -5857,9 +5862,9 @@ If detected high pressure, reduce speed by 30% (0.3).]]></xhtml:p>
               <position x="1130" y="3720"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
-                <connection refLocalId="140">
+                <connection refLocalId="228">
                   <position x="1130" y="3730"/>
-                  <position x="371" y="3730"/>
+                  <position x="541" y="3730"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -5899,9 +5904,9 @@ If detected high pressure, reduce speed by 30% (0.3).]]></xhtml:p>
               <position x="1138" y="3860"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
-                <connection refLocalId="150">
+                <connection refLocalId="229">
                   <position x="1138" y="3870"/>
-                  <position x="371" y="3870"/>
+                  <position x="541" y="3870"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -7159,6 +7164,48 @@ Note: A Tank with 90% (90) capcity will trigger the 60% (60) capcity protocal to
               </connectionPointOut>
               <variable>ControlCenterHornStrobeAlarm</variable>
             </coil>
+            <contact localId="227" negated="false" width="21" height="20">
+              <position x="530" y="3580"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="113">
+                  <position x="530" y="3590"/>
+                  <position x="371" y="3590"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="21" y="10"/>
+              </connectionPointOut>
+              <variable>HMITankDisposalButton</variable>
+            </contact>
+            <contact localId="228" negated="false" width="21" height="20" executionOrderId="0">
+              <position x="520" y="3720"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="140">
+                  <position x="520" y="3730"/>
+                  <position x="371" y="3730"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="21" y="10"/>
+              </connectionPointOut>
+              <variable>HMITankDisposalButton</variable>
+            </contact>
+            <contact localId="229" negated="false" width="21" height="20" executionOrderId="0">
+              <position x="520" y="3860"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="150">
+                  <position x="520" y="3870"/>
+                  <position x="371" y="3870"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="21" y="10"/>
+              </connectionPointOut>
+              <variable>HMITankDisposalButton</variable>
+            </contact>
           </LD>
         </body>
       </pou>

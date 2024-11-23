@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <project xmlns="http://www.plcopen.org/xml/tc6_0201" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:ns1="http://www.plcopen.org/xml/tc6_0201">
   <fileHeader companyName="Unknown" productName="RLW-PLC-Command" productVersion="0.0.1" creationDateTime="2024-10-23T22:26:44"/>
-  <contentHeader name="Semester-Project-RLW" modificationDateTime="2024-11-22T14:40:45" version="0.0.1">
+  <contentHeader name="Semester-Project-RLW" modificationDateTime="2024-11-23T13:09:03" version="0.0.1">
     <coordinateInfo>
       <fbd>
         <scaling x="10" y="10"/>
@@ -70,26 +70,26 @@
             </variable>
             <variable name="IsolationValveStatus0" address="%ID3">
               <type>
-                <REAL/>
+                <INT/>
               </type>
               <initialValue>
-                <simpleValue value="0.5"/>
+                <simpleValue value="50"/>
               </initialValue>
             </variable>
             <variable name="IsolationValveStatus1" address="%ID4">
               <type>
-                <REAL/>
+                <INT/>
               </type>
               <initialValue>
-                <simpleValue value="0.5"/>
+                <simpleValue value="50"/>
               </initialValue>
             </variable>
             <variable name="IsolationValveStatus2" address="%ID5">
               <type>
-                <REAL/>
+                <INT/>
               </type>
               <initialValue>
-                <simpleValue value="0.5"/>
+                <simpleValue value="50"/>
               </initialValue>
             </variable>
             <variable name="GeneralSiteAlarm0" address="%IX0.3">
@@ -168,17 +168,17 @@
           <externalVars>
             <variable name="IsolationValveCommand0">
               <type>
-                <REAL/>
+                <INT/>
               </type>
             </variable>
             <variable name="IsolationValveCommand1">
               <type>
-                <REAL/>
+                <INT/>
               </type>
             </variable>
             <variable name="IsolationValveCommand2">
               <type>
-                <REAL/>
+                <INT/>
               </type>
             </variable>
           </externalVars>
@@ -1095,16 +1095,16 @@ Set Isolation Valve to 0% (0.0) when general site alarm is high; override all ot
             <inVariable localId="63" width="190" height="30" negated="false" executionOrderId="0">
               <position x="160" y="1390"/>
               <connectionPointOut>
-                <relPosition x="190" y="20"/>
+                <relPosition x="190" y="10"/>
               </connectionPointOut>
-              <expression>IsolationValveCommand1</expression>
+              <expression>IsolationValveCommand2</expression>
             </inVariable>
             <inVariable localId="64" width="180" height="30" negated="false" executionOrderId="0">
               <position x="170" y="1450"/>
               <connectionPointOut>
-                <relPosition x="180" y="20"/>
+                <relPosition x="180" y="10"/>
               </connectionPointOut>
-              <expression>IsolationValveStatus1</expression>
+              <expression>IsolationValveStatus2</expression>
             </inVariable>
             <coil localId="66" negated="false" width="21" height="20" executionOrderId="0">
               <position x="1168" y="1410"/>
@@ -1946,24 +1946,24 @@ Set Isolation Valve to 0% (0.0) when general site alarm is high; override all ot
           <inputVars>
             <variable name="In0">
               <type>
-                <REAL/>
+                <INT/>
               </type>
             </variable>
             <variable name="In1">
               <type>
-                <REAL/>
+                <INT/>
               </type>
             </variable>
           </inputVars>
           <localVars>
             <variable name="RangeHigh">
               <type>
-                <REAL/>
+                <INT/>
               </type>
             </variable>
             <variable name="RangeLow">
               <type>
-                <REAL/>
+                <INT/>
               </type>
             </variable>
             <variable name="In0IsLessThanHigh">
@@ -2025,7 +2025,7 @@ Set Isolation Valve to 0% (0.0) when general site alarm is high; override all ot
               <connectionPointOut>
                 <relPosition x="50" y="10"/>
               </connectionPointOut>
-              <expression>0.05</expression>
+              <expression>5</expression>
             </inVariable>
             <outVariable localId="5" width="90" height="30" negated="false" executionOrderId="0">
               <position x="500" y="50"/>
@@ -2050,7 +2050,7 @@ Set Isolation Valve to 0% (0.0) when general site alarm is high; override all ot
               <connectionPointOut>
                 <relPosition x="50" y="20"/>
               </connectionPointOut>
-              <expression>0.05</expression>
+              <expression>5</expression>
             </inVariable>
             <block localId="7" typeName="ADD" width="70" height="80" executionOrderId="0">
               <position x="200" y="130"/>
@@ -2329,21 +2329,15 @@ Set Isolation Valve to 0% (0.0) when general site alarm is high; override all ot
               <connectionPointOut>
                 <relPosition x="40" y="10"/>
               </connectionPointOut>
-              <expression>1.0</expression>
+              <expression>100</expression>
             </inVariable>
-            <comment localId="25" height="90" width="240">
-              <position x="620" y="60"/>
-              <content>
-                <xhtml:p><![CDATA[TODO: Change this function to utilize Integers instead of Real types]]></xhtml:p>
-              </content>
-            </comment>
           </LD>
         </body>
       </pou>
       <pou name="SelectIsolationValveValue" pouType="function">
         <interface>
           <returnType>
-            <REAL/>
+            <INT/>
           </returnType>
           <inputVars>
             <variable name="SiteAlarmOverride">
@@ -2506,30 +2500,24 @@ Set Isolation Valve to 0% (0.0) when general site alarm is high; override all ot
             <inVariable localId="8" width="40" height="30" negated="false">
               <position x="560" y="170"/>
               <connectionPointOut>
-                <relPosition x="40" y="20"/>
+                <relPosition x="40" y="10"/>
               </connectionPointOut>
-              <expression>0.0</expression>
+              <expression>0</expression>
             </inVariable>
             <inVariable localId="9" width="40" height="30" negated="false">
               <position x="340" y="160"/>
               <connectionPointOut>
                 <relPosition x="40" y="20"/>
               </connectionPointOut>
-              <expression>0.5</expression>
+              <expression>50</expression>
             </inVariable>
             <inVariable localId="10" width="40" height="30" negated="false">
               <position x="340" y="200"/>
               <connectionPointOut>
                 <relPosition x="40" y="20"/>
               </connectionPointOut>
-              <expression>1.0</expression>
+              <expression>100</expression>
             </inVariable>
-            <comment localId="11" height="60" width="200">
-              <position x="420" y="230"/>
-              <content>
-                <xhtml:p><![CDATA[TODO: Set these to an integer: 0.5 -> 50]]></xhtml:p>
-              </content>
-            </comment>
           </LD>
         </body>
         <documentation>
@@ -2544,7 +2532,7 @@ Set Isolation Valve to 0% (0.0) when general site alarm is high; override all ot
           <inputVars>
             <variable name="IsolationValveStatus">
               <type>
-                <REAL/>
+                <INT/>
               </type>
             </variable>
             <variable name="FlowRateSensor">
@@ -2557,34 +2545,34 @@ Set Isolation Valve to 0% (0.0) when general site alarm is high; override all ot
         <body>
           <LD>
             <inVariable localId="94" width="40" height="30" negated="false" executionOrderId="0">
-              <position x="200" y="380"/>
+              <position x="260" y="370"/>
               <connectionPointOut>
                 <relPosition x="40" y="20"/>
               </connectionPointOut>
-              <expression>0.0</expression>
+              <expression>0</expression>
             </inVariable>
             <block localId="95" typeName="GT" width="70" height="60" executionOrderId="0">
-              <position x="430" y="300"/>
+              <position x="470" y="300"/>
               <inputVariables>
                 <variable formalParameter="IN1">
                   <connectionPointIn>
                     <relPosition x="0" y="30"/>
                     <connection refLocalId="102">
-                      <position x="430" y="330"/>
-                      <position x="300" y="330"/>
+                      <position x="470" y="330"/>
+                      <position x="361" y="330"/>
+                      <position x="361" y="320"/>
+                      <position x="300" y="320"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
                 <variable formalParameter="IN2">
                   <connectionPointIn>
                     <relPosition x="0" y="50"/>
-                    <connection refLocalId="106" formalParameter="OUT">
-                      <position x="430" y="350"/>
-                      <position x="420" y="350"/>
-                      <position x="420" y="375"/>
-                      <position x="450" y="375"/>
-                      <position x="450" y="400"/>
-                      <position x="440" y="400"/>
+                    <connection refLocalId="94">
+                      <position x="470" y="350"/>
+                      <position x="400" y="350"/>
+                      <position x="400" y="390"/>
+                      <position x="300" y="390"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -2599,13 +2587,13 @@ Set Isolation Valve to 0% (0.0) when general site alarm is high; override all ot
               </outputVariables>
             </block>
             <block localId="97" typeName="EQ" width="70" height="60" executionOrderId="0">
-              <position x="430" y="220"/>
+              <position x="470" y="220"/>
               <inputVariables>
                 <variable formalParameter="IN1">
                   <connectionPointIn>
                     <relPosition x="0" y="30"/>
                     <connection refLocalId="99">
-                      <position x="430" y="250"/>
+                      <position x="470" y="250"/>
                       <position x="375" y="250"/>
                       <position x="375" y="260"/>
                       <position x="320" y="260"/>
@@ -2616,10 +2604,10 @@ Set Isolation Valve to 0% (0.0) when general site alarm is high; override all ot
                   <connectionPointIn>
                     <relPosition x="0" y="50"/>
                     <connection refLocalId="94">
-                      <position x="430" y="270"/>
-                      <position x="320" y="270"/>
-                      <position x="320" y="400"/>
-                      <position x="240" y="400"/>
+                      <position x="470" y="270"/>
+                      <position x="400" y="270"/>
+                      <position x="400" y="390"/>
+                      <position x="300" y="390"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -2641,7 +2629,7 @@ Set Isolation Valve to 0% (0.0) when general site alarm is high; override all ot
                     <relPosition x="0" y="30"/>
                     <connection refLocalId="97" formalParameter="OUT">
                       <position x="600" y="250"/>
-                      <position x="500" y="250"/>
+                      <position x="540" y="250"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -2650,9 +2638,9 @@ Set Isolation Valve to 0% (0.0) when general site alarm is high; override all ot
                     <relPosition x="0" y="50"/>
                     <connection refLocalId="95" formalParameter="OUT">
                       <position x="600" y="270"/>
-                      <position x="545" y="270"/>
-                      <position x="545" y="330"/>
-                      <position x="500" y="330"/>
+                      <position x="550" y="270"/>
+                      <position x="550" y="330"/>
+                      <position x="540" y="330"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -2704,28 +2692,6 @@ Set Isolation Valve to 0% (0.0) when general site alarm is high; override all ot
                 </connection>
               </connectionPointIn>
             </rightPowerRail>
-            <block localId="106" typeName="REAL_TO_INT" width="100" height="40">
-              <position x="340" y="370"/>
-              <inputVariables>
-                <variable formalParameter="IN">
-                  <connectionPointIn>
-                    <relPosition x="0" y="30"/>
-                    <connection refLocalId="94">
-                      <position x="340" y="400"/>
-                      <position x="240" y="400"/>
-                    </connection>
-                  </connectionPointIn>
-                </variable>
-              </inputVariables>
-              <inOutVariables/>
-              <outputVariables>
-                <variable formalParameter="OUT">
-                  <connectionPointOut>
-                    <relPosition x="100" y="30"/>
-                  </connectionPointOut>
-                </variable>
-              </outputVariables>
-            </block>
           </LD>
         </body>
       </pou>
@@ -2734,37 +2700,37 @@ Set Isolation Valve to 0% (0.0) when general site alarm is high; override all ot
           <localVars>
             <variable name="EductorValveStatus0" address="%ID6">
               <type>
-                <REAL/>
+                <INT/>
               </type>
             </variable>
             <variable name="EductorValveStatus1" address="%ID7">
               <type>
-                <REAL/>
+                <INT/>
               </type>
             </variable>
             <variable name="EductorValveStatus2" address="%ID8">
               <type>
-                <REAL/>
+                <INT/>
               </type>
             </variable>
             <variable name="UltrasonicTankLevelSensor0" address="%ID9">
               <type>
-                <REAL/>
+                <INT/>
               </type>
             </variable>
             <variable name="UltrasonicTankLevelSensor1" address="%ID10">
               <type>
-                <REAL/>
+                <INT/>
               </type>
             </variable>
             <variable name="UltrasonicTankLevelSensor2" address="%ID11">
               <type>
-                <REAL/>
+                <INT/>
               </type>
             </variable>
             <variable name="DisposalValveStatus" address="%ID12">
               <type>
-                <REAL/>
+                <INT/>
               </type>
             </variable>
             <variable name="DistributionPumpStatus" address="%IX0.4">
@@ -2799,17 +2765,17 @@ Set Isolation Valve to 0% (0.0) when general site alarm is high; override all ot
             </variable>
             <variable name="EductorValveCommand0" address="%QD3">
               <type>
-                <REAL/>
+                <INT/>
               </type>
             </variable>
             <variable name="EductorValveCommand1" address="%QD4">
               <type>
-                <REAL/>
+                <INT/>
               </type>
             </variable>
             <variable name="EductorValveCommand2" address="%QD5">
               <type>
-                <REAL/>
+                <INT/>
               </type>
             </variable>
             <variable name="EductorValveAlarm0" address="%QX1.6">
@@ -2834,12 +2800,12 @@ Set Isolation Valve to 0% (0.0) when general site alarm is high; override all ot
             </variable>
             <variable name="DistributionPumpSpeedCommand" address="%QD6">
               <type>
-                <REAL/>
+                <INT/>
               </type>
             </variable>
             <variable name="DisposalValveCommand" address="%QD7">
               <type>
-                <REAL/>
+                <INT/>
               </type>
             </variable>
             <variable name="DistributionPumpPressureReductionFlag" address="%MX0.2">
@@ -3004,17 +2970,17 @@ Set Isolation Valve to 0% (0.0) when general site alarm is high; override all ot
             </variable>
             <variable name="IsolationValveCommand0">
               <type>
-                <REAL/>
+                <INT/>
               </type>
             </variable>
             <variable name="IsolationValveCommand1">
               <type>
-                <REAL/>
+                <INT/>
               </type>
             </variable>
             <variable name="IsolationValveCommand2">
               <type>
-                <REAL/>
+                <INT/>
               </type>
             </variable>
             <variable name="pHAlertAlarm">
@@ -8009,12 +7975,12 @@ Note: A Tank with 90% capcity will trigger the 60% capcity protocal too, but wit
       <pou name="SCADApHTankMonitorProgram" pouType="program">
         <interface>
           <localVars>
-            <variable name="pHSensor" address="%ID13">
+            <variable name="pHSensor" address="%IW13">
               <type>
-                <REAL/>
+                <INT/>
               </type>
               <initialValue>
-                <simpleValue value="7.0"/>
+                <simpleValue value="7"/>
               </initialValue>
             </variable>
           </localVars>
@@ -8268,7 +8234,7 @@ Note: A Tank with 90% capcity will trigger the 60% capcity protocal too, but wit
           <inputVars>
             <variable name="EvalulateVarIn">
               <type>
-                <REAL/>
+                <INT/>
               </type>
             </variable>
             <variable name="BasicMax">
@@ -8288,7 +8254,7 @@ Note: A Tank with 90% capcity will trigger the 60% capcity protocal too, but wit
             <inVariable localId="1" width="130" height="30" negated="false">
               <position x="90" y="180"/>
               <connectionPointOut>
-                <relPosition x="130" y="10"/>
+                <relPosition x="130" y="20"/>
               </connectionPointOut>
               <expression>EvalulateVarIn</expression>
             </inVariable>
@@ -8307,16 +8273,16 @@ Note: A Tank with 90% capcity will trigger the 60% capcity protocal too, but wit
               <expression>AcidicMax</expression>
             </inVariable>
             <block localId="4" typeName="GT" width="70" height="60">
-              <position x="330" y="170"/>
+              <position x="520" y="180"/>
               <inputVariables>
                 <variable formalParameter="IN1">
                   <connectionPointIn>
                     <relPosition x="0" y="30"/>
-                    <connection refLocalId="1">
-                      <position x="330" y="200"/>
-                      <position x="275" y="200"/>
-                      <position x="275" y="190"/>
-                      <position x="220" y="190"/>
+                    <connection refLocalId="8" formalParameter="OUT">
+                      <position x="520" y="210"/>
+                      <position x="464" y="210"/>
+                      <position x="464" y="200"/>
+                      <position x="408" y="200"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -8324,10 +8290,10 @@ Note: A Tank with 90% capcity will trigger the 60% capcity protocal too, but wit
                   <connectionPointIn>
                     <relPosition x="0" y="50"/>
                     <connection refLocalId="2">
-                      <position x="330" y="220"/>
-                      <position x="277" y="220"/>
-                      <position x="277" y="250"/>
-                      <position x="224" y="250"/>
+                      <position x="520" y="230"/>
+                      <position x="277" y="230"/>
+                      <position x="277" y="260"/>
+                      <position x="224" y="260"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -8342,16 +8308,16 @@ Note: A Tank with 90% capcity will trigger the 60% capcity protocal too, but wit
               </outputVariables>
             </block>
             <block localId="5" typeName="LT" width="70" height="60">
-              <position x="330" y="80"/>
+              <position x="520" y="90"/>
               <inputVariables>
                 <variable formalParameter="IN1">
                   <connectionPointIn>
                     <relPosition x="0" y="30"/>
-                    <connection refLocalId="1">
-                      <position x="330" y="110"/>
-                      <position x="275" y="110"/>
-                      <position x="275" y="200"/>
-                      <position x="220" y="200"/>
+                    <connection refLocalId="8" formalParameter="OUT">
+                      <position x="520" y="120"/>
+                      <position x="464" y="120"/>
+                      <position x="464" y="200"/>
+                      <position x="408" y="200"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -8359,8 +8325,8 @@ Note: A Tank with 90% capcity will trigger the 60% capcity protocal too, but wit
                   <connectionPointIn>
                     <relPosition x="0" y="50"/>
                     <connection refLocalId="3">
-                      <position x="330" y="130"/>
-                      <position x="220" y="130"/>
+                      <position x="520" y="140"/>
+                      <position x="220" y="140"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -8375,16 +8341,16 @@ Note: A Tank with 90% capcity will trigger the 60% capcity protocal too, but wit
               </outputVariables>
             </block>
             <block localId="6" typeName="OR" width="70" height="60">
-              <position x="480" y="110"/>
+              <position x="670" y="120"/>
               <inputVariables>
                 <variable formalParameter="IN1">
                   <connectionPointIn>
                     <relPosition x="0" y="30"/>
                     <connection refLocalId="5" formalParameter="OUT">
-                      <position x="480" y="140"/>
-                      <position x="440" y="140"/>
-                      <position x="440" y="110"/>
-                      <position x="400" y="110"/>
+                      <position x="670" y="150"/>
+                      <position x="630" y="150"/>
+                      <position x="630" y="120"/>
+                      <position x="590" y="120"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -8392,10 +8358,10 @@ Note: A Tank with 90% capcity will trigger the 60% capcity protocal too, but wit
                   <connectionPointIn>
                     <relPosition x="0" y="50"/>
                     <connection refLocalId="4" formalParameter="OUT">
-                      <position x="480" y="160"/>
-                      <position x="440" y="160"/>
-                      <position x="440" y="200"/>
-                      <position x="400" y="200"/>
+                      <position x="670" y="170"/>
+                      <position x="630" y="170"/>
+                      <position x="630" y="210"/>
+                      <position x="590" y="210"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -8410,16 +8376,38 @@ Note: A Tank with 90% capcity will trigger the 60% capcity protocal too, but wit
               </outputVariables>
             </block>
             <outVariable localId="7" width="140" height="30" negated="false">
-              <position x="638" y="120"/>
+              <position x="828" y="130"/>
               <connectionPointIn>
                 <relPosition x="0" y="20"/>
                 <connection refLocalId="6" formalParameter="OUT">
-                  <position x="638" y="140"/>
-                  <position x="550" y="140"/>
+                  <position x="828" y="150"/>
+                  <position x="740" y="150"/>
                 </connection>
               </connectionPointIn>
               <expression>isOutsidePHRange</expression>
             </outVariable>
+            <block localId="8" typeName="INT_TO_REAL" width="100" height="40">
+              <position x="308" y="170"/>
+              <inputVariables>
+                <variable formalParameter="IN">
+                  <connectionPointIn>
+                    <relPosition x="0" y="30"/>
+                    <connection refLocalId="1">
+                      <position x="308" y="200"/>
+                      <position x="220" y="200"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+              </inputVariables>
+              <inOutVariables/>
+              <outputVariables>
+                <variable formalParameter="OUT">
+                  <connectionPointOut>
+                    <relPosition x="100" y="30"/>
+                  </connectionPointOut>
+                </variable>
+              </outputVariables>
+            </block>
           </LD>
         </body>
       </pou>
@@ -8455,19 +8443,19 @@ Note: A Tank with 90% capcity will trigger the 60% capcity protocal too, but wit
               <BOOL/>
             </type>
           </variable>
-          <variable name="IsolationValveCommand0" address="%QD10">
+          <variable name="IsolationValveCommand0" address="%QW10">
             <type>
-              <REAL/>
+              <INT/>
             </type>
           </variable>
-          <variable name="IsolationValveCommand1" address="%QD11">
+          <variable name="IsolationValveCommand1" address="%QW11">
             <type>
-              <REAL/>
+              <INT/>
             </type>
           </variable>
-          <variable name="IsolationValveCommand2" address="%QD12">
+          <variable name="IsolationValveCommand2" address="%QW12">
             <type>
-              <REAL/>
+              <INT/>
             </type>
           </variable>
           <variable name="pHAlertAlarm" address="%QX0.3">

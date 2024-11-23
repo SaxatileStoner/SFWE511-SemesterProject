@@ -1,39 +1,39 @@
-FUNCTION SelectIsolationValveValue : REAL
+FUNCTION SelectIsolationValveValue : INT
   VAR_INPUT
     SiteAlarmOverride : BOOL;
     BoosterPumpLogicalStatus : BOOL;
   END_VAR
   VAR
-    _TMP_SEL5_OUT : REAL;
-    _TMP_SEL6_OUT : REAL;
+    _TMP_SEL5_OUT : INT;
+    _TMP_SEL6_OUT : INT;
   END_VAR
 
-  _TMP_SEL5_OUT := SEL(BoosterPumpLogicalStatus, 0.5, 1.0);
-  _TMP_SEL6_OUT := SEL(SiteAlarmOverride, _TMP_SEL5_OUT, 0.0);
+  _TMP_SEL5_OUT := SEL(BoosterPumpLogicalStatus, 50, 100);
+  _TMP_SEL6_OUT := SEL(SiteAlarmOverride, _TMP_SEL5_OUT, 0);
   SelectIsolationValveValue := _TMP_SEL6_OUT;
 END_FUNCTION
 
 FUNCTION isWithin5Percent : BOOL
   VAR_INPUT
-    In0 : REAL;
-    In1 : REAL;
+    In0 : INT;
+    In1 : INT;
   END_VAR
   VAR
-    RangeHigh : REAL;
-    RangeLow : REAL;
+    RangeHigh : INT;
+    RangeLow : INT;
     In0IsLessThanHigh : BOOL;
     In0IsGreaterThanLow : BOOL;
-    _TMP_SUB3_OUT : REAL;
-    _TMP_ADD7_OUT : REAL;
-    _TMP_MIN23_OUT : REAL;
+    _TMP_SUB3_OUT : INT;
+    _TMP_ADD7_OUT : INT;
+    _TMP_MIN23_OUT : INT;
     _TMP_LE10_OUT : BOOL;
     _TMP_GE14_OUT : BOOL;
   END_VAR
 
-  _TMP_SUB3_OUT := SUB(In0, 0.05);
+  _TMP_SUB3_OUT := SUB(In0, 5);
   RangeLow := _TMP_SUB3_OUT;
-  _TMP_ADD7_OUT := ADD(In0, 0.05);
-  _TMP_MIN23_OUT := MIN(_TMP_ADD7_OUT, 1.0);
+  _TMP_ADD7_OUT := ADD(In0, 5);
+  _TMP_MIN23_OUT := MIN(_TMP_ADD7_OUT, 100);
   RangeHigh := _TMP_MIN23_OUT;
   _TMP_LE10_OUT := LE(In1, RangeHigh);
   In0IsLessThanHigh := _TMP_LE10_OUT;
@@ -44,19 +44,17 @@ END_FUNCTION
 
 FUNCTION SetFlowSensorAlarm : BOOL
   VAR_INPUT
-    IsolationValveStatus : REAL;
+    IsolationValveStatus : INT;
     FlowRateSensor : INT;
   END_VAR
   VAR
     _TMP_EQ97_OUT : BOOL;
-    _TMP_REAL_TO_INT106_OUT : INT;
     _TMP_GT95_OUT : BOOL;
     _TMP_AND98_OUT : BOOL;
   END_VAR
 
-  _TMP_EQ97_OUT := EQ(IsolationValveStatus, 0.0);
-  _TMP_REAL_TO_INT106_OUT := REAL_TO_INT(0.0);
-  _TMP_GT95_OUT := GT(FlowRateSensor, _TMP_REAL_TO_INT106_OUT);
+  _TMP_EQ97_OUT := EQ(IsolationValveStatus, 0);
+  _TMP_GT95_OUT := GT(FlowRateSensor, 0);
   _TMP_AND98_OUT := AND(_TMP_EQ97_OUT, _TMP_GT95_OUT);
   SetFlowSensorAlarm := _TMP_AND98_OUT;
 END_FUNCTION
@@ -69,9 +67,9 @@ PROGRAM DCSProgramSector
     BoosterPumpStatus0 AT %IX0.0 : BOOL := True;
     BoosterPumpStatus1 AT %IX0.1 : BOOL := False;
     BoosterPumpStatus2 AT %IX0.2 : BOOL := False;
-    IsolationValveStatus0 AT %ID3 : REAL := 0.5;
-    IsolationValveStatus1 AT %ID4 : REAL := 0.5;
-    IsolationValveStatus2 AT %ID5 : REAL := 0.5;
+    IsolationValveStatus0 AT %ID3 : INT := 50;
+    IsolationValveStatus1 AT %ID4 : INT := 50;
+    IsolationValveStatus2 AT %ID5 : INT := 50;
     GeneralSiteAlarm0 AT %IX0.3 : BOOL := False;
   END_VAR
   VAR_EXTERNAL
@@ -91,9 +89,9 @@ PROGRAM DCSProgramSector
     FlowSensorAlarm2 AT %QX1.5 : BOOL;
   END_VAR
   VAR_EXTERNAL
-    IsolationValveCommand0 : REAL;
-    IsolationValveCommand1 : REAL;
-    IsolationValveCommand2 : REAL;
+    IsolationValveCommand0 : INT;
+    IsolationValveCommand1 : INT;
+    IsolationValveCommand2 : INT;
   END_VAR
   VAR CONSTANT
     FlowSensorMaxCapacity AT %MD0 : REAL := 50.0;
@@ -110,8 +108,8 @@ PROGRAM DCSProgramSector
     _TMP_GT8_OUT : BOOL;
     _TMP_XOR24_OUT : BOOL;
     _TMP_XOR27_OUT : BOOL;
-    _TMP_SelectIsolationValveValue19_OUT : REAL;
-    _TMP_SelectIsolationValveValue25_OUT : REAL;
+    _TMP_SelectIsolationValveValue19_OUT : INT;
+    _TMP_SelectIsolationValveValue25_OUT : INT;
     _TMP_isWithin5Percent68_OUT : BOOL;
     _TMP_NOT79_OUT : BOOL;
     _TMP_isWithin5Percent57_OUT : BOOL;
@@ -119,7 +117,7 @@ PROGRAM DCSProgramSector
     _TMP_isWithin5Percent61_OUT : BOOL;
     _TMP_NOT81_OUT : BOOL;
     _TMP_XOR18_OUT : BOOL;
-    _TMP_SelectIsolationValveValue92_OUT : REAL;
+    _TMP_SelectIsolationValveValue92_OUT : INT;
     _TMP_SetFlowSensorAlarm100_OUT : BOOL;
     _TMP_SetFlowSensorAlarm44_OUT : BOOL;
     _TMP_SetFlowSensorAlarm46_OUT : BOOL;
@@ -151,7 +149,7 @@ PROGRAM DCSProgramSector
   _TMP_isWithin5Percent57_OUT := isWithin5Percent(IsolationValveCommand1, IsolationValveStatus1);
   _TMP_NOT80_OUT := NOT(_TMP_isWithin5Percent57_OUT);
   IsolationValveAlarm1 := _TMP_NOT80_OUT;
-  _TMP_isWithin5Percent61_OUT := isWithin5Percent(IsolationValveCommand1, IsolationValveStatus1);
+  _TMP_isWithin5Percent61_OUT := isWithin5Percent(IsolationValveCommand2, IsolationValveStatus2);
   _TMP_NOT81_OUT := NOT(_TMP_isWithin5Percent61_OUT);
   IsolationValveAlarm2 := _TMP_NOT81_OUT;
   _TMP_XOR18_OUT := XOR(BoosterPumpCommand1, BoosterPumpStatus1);
@@ -256,28 +254,28 @@ END_FUNCTION
 
 PROGRAM SCADATankLevelProgram
   VAR
-    EductorValveStatus0 AT %ID6 : REAL;
-    EductorValveStatus1 AT %ID7 : REAL;
-    EductorValveStatus2 AT %ID8 : REAL;
-    UltrasonicTankLevelSensor0 AT %ID9 : REAL;
-    UltrasonicTankLevelSensor1 AT %ID10 : REAL;
-    UltrasonicTankLevelSensor2 AT %ID11 : REAL;
-    DisposalValveStatus AT %ID12 : REAL;
+    EductorValveStatus0 AT %ID6 : INT;
+    EductorValveStatus1 AT %ID7 : INT;
+    EductorValveStatus2 AT %ID8 : INT;
+    UltrasonicTankLevelSensor0 AT %ID9 : INT;
+    UltrasonicTankLevelSensor1 AT %ID10 : INT;
+    UltrasonicTankLevelSensor2 AT %ID11 : INT;
+    DisposalValveStatus AT %ID12 : INT;
     DistributionPumpStatus AT %IX0.4 : BOOL;
     HighPressureSwitch0 AT %IX0.5 : BOOL;
     HighPressureSwitch1 AT %IX0.6 : BOOL;
     HighPressureSwitch2 AT %IX0.7 : BOOL;
     isContainmentUnitAttached AT %IX1.0 : BOOL;
     isContainmentUnitFull AT %IX1.1 : BOOL;
-    EductorValveCommand0 AT %QD3 : REAL;
-    EductorValveCommand1 AT %QD4 : REAL;
-    EductorValveCommand2 AT %QD5 : REAL;
+    EductorValveCommand0 AT %QD3 : INT;
+    EductorValveCommand1 AT %QD4 : INT;
+    EductorValveCommand2 AT %QD5 : INT;
     EductorValveAlarm0 AT %QX1.6 : BOOL;
     EductorValveAlarm1 AT %QX1.7 : BOOL;
     EductorValveAlarm2 AT %QX2.0 : BOOL;
     DistributionPumpCommand AT %QX2.1 : BOOL;
-    DistributionPumpSpeedCommand AT %QD6 : REAL;
-    DisposalValveCommand AT %QD7 : REAL;
+    DistributionPumpSpeedCommand AT %QD6 : INT;
+    DisposalValveCommand AT %QD7 : INT;
     DistributionPumpPressureReductionFlag AT %MX0.2 : BOOL;
     Tank30Capacity0 AT %MX0.3 : BOOL;
     Tank30Capacity1 AT %MX0.4 : BOOL;
@@ -311,9 +309,9 @@ PROGRAM SCADATankLevelProgram
     BoosterPumpCommand0 : BOOL;
     BoosterPumpCommand1 : BOOL;
     BoosterPumpCommand2 : BOOL;
-    IsolationValveCommand0 : REAL;
-    IsolationValveCommand1 : REAL;
-    IsolationValveCommand2 : REAL;
+    IsolationValveCommand0 : INT;
+    IsolationValveCommand1 : INT;
+    IsolationValveCommand2 : INT;
     pHAlertAlarm : BOOL;
     pHCriticalAlarm : BOOL;
   END_VAR
@@ -333,7 +331,7 @@ PROGRAM SCADATankLevelProgram
     _TMP_isWithin5Percent42_OUT : BOOL;
     _TMP_isWithin5Percent30_OUT : BOOL;
     _TMP_isWithin5Percent31_OUT : BOOL;
-    _TMP_SetDistributionPumpSpeed48_OUT : REAL;
+    _TMP_SetDistributionPumpSpeed48_OUT : INT;
     _TMP_GE52_OUT : BOOL;
     _TMP_GE34_OUT : BOOL;
     _TMP_GE56_OUT : BOOL;
@@ -345,31 +343,31 @@ PROGRAM SCADATankLevelProgram
     _TMP_GE81_OUT : BOOL;
     R_TRIG1 : R_TRIG;
     _TMP_MOVE84_ENO : BOOL;
-    _TMP_MOVE84_OUT : REAL;
+    _TMP_MOVE84_OUT : INT;
     R_TRIG2 : R_TRIG;
     _TMP_MOVE89_ENO : BOOL;
-    _TMP_MOVE89_OUT : REAL;
+    _TMP_MOVE89_OUT : INT;
     R_TRIG3 : R_TRIG;
     _TMP_MOVE94_ENO : BOOL;
-    _TMP_MOVE94_OUT : REAL;
+    _TMP_MOVE94_OUT : INT;
     R_TRIG4 : R_TRIG;
     R_TRIG5 : R_TRIG;
     R_TRIG6 : R_TRIG;
     _TMP_MOVE146_ENO : BOOL;
-    _TMP_MOVE146_OUT : REAL;
+    _TMP_MOVE146_OUT : INT;
     _TMP_MOVE117_ENO : BOOL;
-    _TMP_MOVE117_OUT : REAL;
+    _TMP_MOVE117_OUT : INT;
     _TMP_MOVE132_ENO : BOOL;
-    _TMP_MOVE132_OUT : REAL;
+    _TMP_MOVE132_OUT : INT;
     _TMP_NE184_OUT : BOOL;
     _TMP_MOVE200_ENO : BOOL;
-    _TMP_MOVE200_OUT : REAL;
+    _TMP_MOVE200_OUT : INT;
     _TMP_MOVE111_ENO : BOOL;
-    _TMP_MOVE111_OUT : REAL;
+    _TMP_MOVE111_OUT : INT;
     _TMP_MOVE143_ENO : BOOL;
-    _TMP_MOVE143_OUT : REAL;
+    _TMP_MOVE143_OUT : INT;
     _TMP_MOVE156_ENO : BOOL;
-    _TMP_MOVE156_OUT : REAL;
+    _TMP_MOVE156_OUT : INT;
   END_VAR
 
   _TMP_isWithin5Percent3_OUT := isWithin5Percent(EductorValveCommand0, EductorValveStatus0);
@@ -547,25 +545,27 @@ END_PROGRAM
 
 FUNCTION isOutsidePHRange : BOOL
   VAR_INPUT
-    EvalulateVarIn : REAL;
+    EvalulateVarIn : INT;
     BasicMax : REAL;
     AcidicMax : REAL;
   END_VAR
   VAR
+    _TMP_INT_TO_REAL8_OUT : REAL;
     _TMP_LT5_OUT : BOOL;
     _TMP_GT4_OUT : BOOL;
     _TMP_OR6_OUT : BOOL;
   END_VAR
 
-  _TMP_LT5_OUT := LT(EvalulateVarIn, AcidicMax);
-  _TMP_GT4_OUT := GT(EvalulateVarIn, BasicMax);
+  _TMP_INT_TO_REAL8_OUT := INT_TO_REAL(EvalulateVarIn);
+  _TMP_LT5_OUT := LT(_TMP_INT_TO_REAL8_OUT, AcidicMax);
+  _TMP_GT4_OUT := GT(_TMP_INT_TO_REAL8_OUT, BasicMax);
   _TMP_OR6_OUT := OR(_TMP_LT5_OUT, _TMP_GT4_OUT);
   isOutsidePHRange := _TMP_OR6_OUT;
 END_FUNCTION
 
 PROGRAM SCADApHTankMonitorProgram
   VAR
-    pHSensor AT %ID13 : REAL := 7.0;
+    pHSensor AT %IW13 : INT := 7;
   END_VAR
   VAR CONSTANT
     AcidicLevel AT %MD2.1 : REAL := 4.0;
@@ -594,9 +594,9 @@ CONFIGURATION Config0
     BoosterPumpCommand0 AT %QX0.0 : BOOL;
     BoosterPumpCommand1 AT %QX0.1 : BOOL;
     BoosterPumpCommand2 AT %QX0.2 : BOOL;
-    IsolationValveCommand0 AT %QD10 : REAL;
-    IsolationValveCommand1 AT %QD11 : REAL;
-    IsolationValveCommand2 AT %QD12 : REAL;
+    IsolationValveCommand0 AT %QW10 : INT;
+    IsolationValveCommand1 AT %QW11 : INT;
+    IsolationValveCommand2 AT %QW12 : INT;
     pHAlertAlarm AT %QX0.3 : BOOL;
     pHCriticalAlarm AT %QX0.4 : BOOL;
   END_VAR

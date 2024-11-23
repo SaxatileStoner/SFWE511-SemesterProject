@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <project xmlns="http://www.plcopen.org/xml/tc6_0201" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:ns1="http://www.plcopen.org/xml/tc6_0201">
   <fileHeader companyName="Unknown" productName="RLW-PLC-Command" productVersion="0.0.1" creationDateTime="2024-10-23T22:26:44"/>
-  <contentHeader name="Semester-Project-RLW" modificationDateTime="2024-11-23T13:38:30" version="0.0.1">
+  <contentHeader name="Semester-Project-RLW" modificationDateTime="2024-11-23T13:44:31" version="0.0.1">
     <coordinateInfo>
       <fbd>
         <scaling x="10" y="10"/>
@@ -1029,11 +1029,11 @@
             <comment localId="43" height="180" width="460">
               <position x="1380" y="790"/>
               <content>
-                <xhtml:p><![CDATA[Set Isolation Valve to 100% (1.0) when associated booster pump status is high and no alarm is trigger for associated booster pump.
+                <xhtml:p><![CDATA[Set Isolation Valve to 100% (100) when associated booster pump status is high and no alarm is trigger for associated booster pump.
 
-Set Isolation Valve to 50% (0.5) when associated booster pump status is low and no alarm is trigger for associated booster pump.
+Set Isolation Valve to 50% (50) when associated booster pump status is low and no alarm is trigger for associated booster pump.
 
-Set Isolation Valve to 0% (0.0) when general site alarm is high; override all other conditions.]]></xhtml:p>
+Set Isolation Valve to 0% (0) when general site alarm is high; override all other conditions.]]></xhtml:p>
               </content>
             </comment>
             <inVariable localId="55" width="190" height="30" negated="false">
@@ -1123,7 +1123,7 @@ Set Isolation Valve to 0% (0.0) when general site alarm is high; override all ot
             <comment localId="67" height="80" width="460">
               <position x="1380" y="1170"/>
               <content>
-                <xhtml:p><![CDATA[If the Isolation Valve's Status is not within 5% (0.05) of the isolation valve command, isolation valve alarm high for associated isolation valve.]]></xhtml:p>
+                <xhtml:p><![CDATA[If the Isolation Valve's Status is not within 5% (5) of the isolation valve command, isolation valve alarm high for associated isolation valve.]]></xhtml:p>
               </content>
             </comment>
             <block localId="68" typeName="isWithin5Percent" width="140" height="60">
@@ -1848,7 +1848,7 @@ Set Isolation Valve to 0% (0.0) when general site alarm is high; override all ot
             <comment localId="101" height="80" width="450">
               <position x="1380" y="1520"/>
               <content>
-                <xhtml:p><![CDATA[While sensing positive flow from flow rate sensor, and isolation valve status is 0% (0.0) (closed), FlowSensorAlarm is set high.]]></xhtml:p>
+                <xhtml:p><![CDATA[While sensing positive flow from flow rate sensor, and isolation valve status is 0% (0) (closed), FlowSensorAlarm is set high.]]></xhtml:p>
               </content>
             </comment>
             <block localId="102" typeName="REAL_TO_INT" width="100" height="40">
@@ -3325,7 +3325,7 @@ Set Isolation Valve to 0% (0.0) when general site alarm is high; override all ot
             <comment localId="24" height="100" width="390">
               <position x="1370" y="60"/>
               <content>
-                <xhtml:p><![CDATA[If eductor valve command is not within 5% (0.05) of eductor valve status, then associated eductor valve alarm is set high.]]></xhtml:p>
+                <xhtml:p><![CDATA[If eductor valve command is not within 5% (5) of eductor valve status, then associated eductor valve alarm is set high.]]></xhtml:p>
               </content>
             </comment>
             <comment localId="25" height="80" width="400">
@@ -3916,7 +3916,7 @@ If detected high pressure, reduce speed by 30% (0.3).]]></xhtml:p>
             <comment localId="58" height="80" width="320">
               <position x="1380" y="1460"/>
               <content>
-                <xhtml:p><![CDATA[Evaluate how full the tanks are utilizing boolean flags in memory at 30%, 60%, and 90%.]]></xhtml:p>
+                <xhtml:p><![CDATA[Evaluate how full the tanks are utilizing boolean flags in memory at 30% (30), 60% (60), and 90% (90).]]></xhtml:p>
               </content>
             </comment>
             <coil localId="59" negated="false" width="21" height="20" executionOrderId="0">
@@ -4713,7 +4713,7 @@ If detected high pressure, reduce speed by 30% (0.3).]]></xhtml:p>
             <comment localId="134" height="150" width="400">
               <position x="1380" y="2690"/>
               <content>
-                <xhtml:p><![CDATA[When a tank is greater than 30% capcity (but less than 60% and 90%) start the distribution pump and open eductor valve to 100% (1.0). After 15 minutes, turn off the distribution pump and set associated eductor valve to 0% (0.0).]]></xhtml:p>
+                <xhtml:p><![CDATA[When a tank is greater than 30% (30) capcity (but less than 60% (60) and 90% (90)) start the distribution pump and open eductor valve to 100% (100). After 15 minutes, turn off the distribution pump and set associated eductor valve to 0% (0).]]></xhtml:p>
               </content>
             </comment>
             <contact localId="108" negated="false" width="21" height="20" edge="rising" executionOrderId="0">
@@ -6274,15 +6274,15 @@ If detected high pressure, reduce speed by 30% (0.3).]]></xhtml:p>
             <comment localId="186" height="370" width="450">
               <position x="1380" y="3590"/>
               <content>
-                <xhtml:p><![CDATA[When tank reaches 60% capacity, it is ready for disposal. Close associated tank's eductor nozzle to 0% (0.0) and set the distribution pump to low.
+                <xhtml:p><![CDATA[When tank reaches 60% (60) capacity, it is ready for disposal. Close associated tank's eductor nozzle to 0% (0) and set the distribution pump to low.
 
-After, the system will await the instructions from the HMI to confirm disposal into containment unit. After confirmation, disposal valve opens to 100% (1.0) and distribution pump commanded to 50% (0.5) speed.
+After, the system will await the instructions from the HMI to confirm disposal into containment unit. After confirmation, disposal valve opens to 100% (100) and distribution pump commanded to 50% (50) speed.
 
-Operator will confirm when disposal containment unit is full with HMI. When confirmed, distribution pump speed is set to 0% (0.0) and disposal valve is closed to 0% (0.0).
+Operator will confirm when disposal containment unit is full with HMI. When confirmed, distribution pump speed is set to 0% (0) and disposal valve is closed to 0% (0).
 
 Checks if disposal valve status is not equal to the command, if so, set off disposal valve alarm. 
 
-Note: A Tank with 90% capcity will trigger the 60% capcity protocal too, but with an added alarm to the HMI.]]></xhtml:p>
+Note: A Tank with 90% (90) capcity will trigger the 60% (60) capcity protocal too, but with an added alarm to the HMI.]]></xhtml:p>
               </content>
             </comment>
             <contact localId="187" negated="false" width="21" height="20">
@@ -6770,13 +6770,13 @@ Note: A Tank with 90% capcity will trigger the 60% capcity protocal too, but wit
             <comment localId="214" height="130" width="340">
               <position x="1370" y="5000"/>
               <content>
-                <xhtml:p><![CDATA[Checks to see if a tank has reached 90% capacity. If so, alarm for associated tank is set high and protocol is followed as if it were at a 60% capacity.]]></xhtml:p>
+                <xhtml:p><![CDATA[Checks to see if a tank has reached 90% capacity. If so, alarm for associated tank is set high and protocol is followed as if it were at a 60% (60) capacity.]]></xhtml:p>
               </content>
             </comment>
             <comment localId="215" height="170" width="360">
               <position x="1380" y="5400"/>
               <content>
-                <xhtml:p><![CDATA[Checks for the critical state of if all tanks are at 90% capacity. This starts the emergency shutdown protocol which closes all valves and set all pumps to low, including the DCS valves and pumps utilzing global variables. This also engages associated alarms and horns for the critical condition.]]></xhtml:p>
+                <xhtml:p><![CDATA[Checks for the critical state of if all tanks are at 90% (90) capacity. This starts the emergency shutdown protocol which closes all valves and set all pumps to low, including the DCS valves and pumps utilzing global variables. This also engages associated alarms and horns for the critical condition.]]></xhtml:p>
               </content>
             </comment>
             <contact localId="216" negated="false" width="21" height="20">

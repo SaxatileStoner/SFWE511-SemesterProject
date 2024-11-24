@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <project xmlns="http://www.plcopen.org/xml/tc6_0201" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:ns1="http://www.plcopen.org/xml/tc6_0201">
   <fileHeader companyName="Unknown" productName="RLW-PLC-Command" productVersion="0.0.1" creationDateTime="2024-10-23T22:26:44"/>
-  <contentHeader name="Semester-Project-RLW" modificationDateTime="2024-11-23T23:37:16" version="0.0.1">
+  <contentHeader name="Semester-Project-RLW" modificationDateTime="2024-11-23T23:42:25" version="0.0.1">
     <coordinateInfo>
       <fbd>
         <scaling x="10" y="10"/>
@@ -434,8 +434,8 @@
                 <connection refLocalId="21">
                   <position x="1350" y="680"/>
                   <position x="1255" y="680"/>
-                  <position x="1255" y="710"/>
-                  <position x="1161" y="710"/>
+                  <position x="1255" y="690"/>
+                  <position x="1161" y="690"/>
                 </connection>
               </connectionPointIn>
               <connectionPointIn>
@@ -520,7 +520,7 @@
                   <position x="1350" y="2060"/>
                   <position x="1239" y="2060"/>
                   <position x="1239" y="2080"/>
-                  <position x="1128" y="2080"/>
+                  <position x="1129" y="2080"/>
                 </connection>
               </connectionPointIn>
               <connectionPointIn>
@@ -636,9 +636,7 @@
                     <relPosition x="0" y="30"/>
                     <connection refLocalId="3">
                       <position x="690" y="50"/>
-                      <position x="340" y="50"/>
-                      <position x="340" y="40"/>
-                      <position x="300" y="40"/>
+                      <position x="290" y="50"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -664,7 +662,7 @@
               </outputVariables>
             </block>
             <inVariable localId="3" width="130" height="30" negated="false" executionOrderId="0">
-              <position x="170" y="30"/>
+              <position x="160" y="40"/>
               <connectionPointOut>
                 <relPosition x="130" y="10"/>
               </connectionPointOut>
@@ -692,9 +690,7 @@
                     <relPosition x="0" y="30"/>
                     <connection refLocalId="9">
                       <position x="690" y="210"/>
-                      <position x="485" y="210"/>
-                      <position x="485" y="200"/>
-                      <position x="300" y="200"/>
+                      <position x="290" y="210"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -720,9 +716,9 @@
               </outputVariables>
             </block>
             <inVariable localId="9" width="130" height="30" negated="false" executionOrderId="0">
-              <position x="170" y="190"/>
+              <position x="160" y="200"/>
               <connectionPointOut>
-                <relPosition x="130" y="20"/>
+                <relPosition x="130" y="10"/>
               </connectionPointOut>
               <expression>FlowRateSensor1</expression>
             </inVariable>
@@ -761,7 +757,7 @@
                       <position x="740" y="370"/>
                       <position x="715" y="370"/>
                       <position x="715" y="400"/>
-                      <position x="700" y="400"/>
+                      <position x="680" y="400"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -891,12 +887,12 @@
               </outputVariables>
             </block>
             <coil localId="21" negated="false" width="21" height="20" executionOrderId="0">
-              <position x="1140" y="700"/>
+              <position x="1140" y="680"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="27" formalParameter="OUT">
-                  <position x="1140" y="710"/>
-                  <position x="630" y="710"/>
+                  <position x="1140" y="690"/>
+                  <position x="630" y="690"/>
                 </connection>
               </connectionPointIn>
               <connectionPointOut>
@@ -905,16 +901,14 @@
               <variable>BoosterPumpAlarm2</variable>
             </coil>
             <block localId="27" typeName="XOR" width="70" height="60" executionOrderId="0">
-              <position x="560" y="680"/>
+              <position x="560" y="660"/>
               <inputVariables>
                 <variable formalParameter="IN1">
                   <connectionPointIn>
                     <relPosition x="0" y="30"/>
                     <connection refLocalId="28">
-                      <position x="560" y="710"/>
-                      <position x="365" y="710"/>
-                      <position x="365" y="700"/>
-                      <position x="340" y="700"/>
+                      <position x="560" y="690"/>
+                      <position x="340" y="690"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -922,10 +916,10 @@
                   <connectionPointIn>
                     <relPosition x="0" y="50"/>
                     <connection refLocalId="29">
-                      <position x="560" y="730"/>
-                      <position x="365" y="730"/>
-                      <position x="365" y="760"/>
-                      <position x="340" y="760"/>
+                      <position x="560" y="710"/>
+                      <position x="365" y="710"/>
+                      <position x="365" y="740"/>
+                      <position x="340" y="740"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -940,14 +934,14 @@
               </outputVariables>
             </block>
             <inVariable localId="28" width="170" height="30" negated="false" executionOrderId="0">
-              <position x="170" y="690"/>
+              <position x="170" y="680"/>
               <connectionPointOut>
                 <relPosition x="170" y="10"/>
               </connectionPointOut>
               <expression>BoosterPumpCommand2</expression>
             </inVariable>
             <inVariable localId="29" width="160" height="30" negated="false" executionOrderId="0">
-              <position x="180" y="740"/>
+              <position x="180" y="720"/>
               <connectionPointOut>
                 <relPosition x="160" y="20"/>
               </connectionPointOut>
@@ -1037,9 +1031,9 @@
               <variable>BoosterPumpStatus1</variable>
             </contact>
             <outVariable localId="32" width="190" height="30" negated="false" executionOrderId="0">
-              <position x="1070" y="1010"/>
+              <position x="1070" y="1020"/>
               <connectionPointIn>
-                <relPosition x="0" y="20"/>
+                <relPosition x="0" y="10"/>
                 <connection refLocalId="25" formalParameter="OUT">
                   <position x="1070" y="1030"/>
                   <position x="890" y="1030"/>
@@ -1391,14 +1385,14 @@ Set Isolation Valve to 0% (0) when general site alarm is high; override all othe
               <expression>0.2</expression>
             </inVariable>
             <block localId="11" typeName="MUL" width="70" height="60" executionOrderId="0">
-              <position x="500" y="370"/>
+              <position x="480" y="370"/>
               <inputVariables>
                 <variable formalParameter="IN1">
                   <connectionPointIn>
                     <relPosition x="0" y="30"/>
                     <connection refLocalId="114" formalParameter="OUT">
-                      <position x="500" y="400"/>
                       <position x="480" y="400"/>
+                      <position x="460" y="400"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -1406,10 +1400,10 @@ Set Isolation Valve to 0% (0) when general site alarm is high; override all othe
                   <connectionPointIn>
                     <relPosition x="0" y="50"/>
                     <connection refLocalId="73">
-                      <position x="500" y="420"/>
+                      <position x="480" y="420"/>
                       <position x="395" y="420"/>
                       <position x="395" y="440"/>
-                      <position x="350" y="440"/>
+                      <position x="300" y="440"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -1424,16 +1418,16 @@ Set Isolation Valve to 0% (0) when general site alarm is high; override all othe
               </outputVariables>
             </block>
             <inVariable localId="13" width="180" height="30" negated="false" executionOrderId="0">
-              <position x="170" y="390"/>
+              <position x="120" y="390"/>
               <connectionPointOut>
                 <relPosition x="180" y="10"/>
               </connectionPointOut>
               <expression>FlowSensorMaxCapacity</expression>
             </inVariable>
             <inVariable localId="73" width="40" height="30" negated="false" executionOrderId="0">
-              <position x="310" y="430"/>
+              <position x="260" y="430"/>
               <connectionPointOut>
-                <relPosition x="40" y="20"/>
+                <relPosition x="40" y="10"/>
               </connectionPointOut>
               <expression>0.2</expression>
             </inVariable>
@@ -1557,13 +1551,11 @@ Set Isolation Valve to 0% (0) when general site alarm is high; override all othe
               <variable>GeneralSiteAlarm0</variable>
             </contact>
             <contact localId="85" negated="false" width="21" height="20">
-              <position x="370" y="790"/>
+              <position x="370" y="800"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="1">
-                  <position x="370" y="800"/>
-                  <position x="150" y="800"/>
-                  <position x="150" y="810"/>
+                  <position x="370" y="810"/>
                   <position x="90" y="810"/>
                 </connection>
               </connectionPointIn>
@@ -1573,13 +1565,11 @@ Set Isolation Valve to 0% (0) when general site alarm is high; override all othe
               <variable>GeneralSiteAlarm0</variable>
             </contact>
             <contact localId="87" negated="false" width="21" height="20">
-              <position x="370" y="920"/>
+              <position x="370" y="910"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="1">
-                  <position x="370" y="930"/>
-                  <position x="230" y="930"/>
-                  <position x="230" y="920"/>
+                  <position x="370" y="920"/>
                   <position x="90" y="920"/>
                 </connection>
               </connectionPointIn>
@@ -1589,13 +1579,11 @@ Set Isolation Valve to 0% (0) when general site alarm is high; override all othe
               <variable>GeneralSiteAlarm0</variable>
             </contact>
             <contact localId="89" negated="false" width="21" height="20">
-              <position x="370" y="1030"/>
+              <position x="370" y="1020"/>
               <connectionPointIn>
                 <relPosition x="0" y="10"/>
                 <connection refLocalId="1">
-                  <position x="370" y="1040"/>
-                  <position x="234" y="1040"/>
-                  <position x="234" y="1030"/>
+                  <position x="370" y="1030"/>
                   <position x="90" y="1030"/>
                 </connection>
               </connectionPointIn>
@@ -1613,8 +1601,8 @@ Set Isolation Valve to 0% (0) when general site alarm is high; override all othe
                     <connection refLocalId="85">
                       <position x="650" y="820"/>
                       <position x="520" y="820"/>
-                      <position x="520" y="800"/>
-                      <position x="391" y="800"/>
+                      <position x="520" y="810"/>
+                      <position x="391" y="810"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -1647,9 +1635,7 @@ Set Isolation Valve to 0% (0) when general site alarm is high; override all othe
                     <relPosition x="0" y="30"/>
                     <connection refLocalId="87">
                       <position x="650" y="920"/>
-                      <position x="520" y="920"/>
-                      <position x="520" y="930"/>
-                      <position x="391" y="930"/>
+                      <position x="391" y="920"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -1682,9 +1668,7 @@ Set Isolation Valve to 0% (0) when general site alarm is high; override all othe
                     <relPosition x="0" y="30"/>
                     <connection refLocalId="89">
                       <position x="650" y="1030"/>
-                      <position x="520" y="1030"/>
-                      <position x="520" y="1040"/>
-                      <position x="391" y="1040"/>
+                      <position x="391" y="1030"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -1981,13 +1965,13 @@ Set Isolation Valve to 0% (0) when general site alarm is high; override all othe
               <expression>IsolationValveStatus1</expression>
             </outVariable>
             <outVariable localId="109" width="180" height="30" negated="false">
-              <position x="1070" y="970"/>
+              <position x="1070" y="980"/>
               <connectionPointIn>
-                <relPosition x="0" y="20"/>
+                <relPosition x="0" y="10"/>
                 <connection refLocalId="25" formalParameter="OUT">
                   <position x="1070" y="990"/>
-                  <position x="984" y="990"/>
-                  <position x="984" y="1030"/>
+                  <position x="980" y="990"/>
+                  <position x="980" y="1030"/>
                   <position x="890" y="1030"/>
                 </connection>
               </connectionPointIn>
@@ -2048,14 +2032,14 @@ Set Isolation Valve to 0% (0) when general site alarm is high; override all othe
               <variable>BoosterPumpStatus2</variable>
             </coil>
             <block localId="114" typeName="INT_TO_REAL" width="100" height="40">
-              <position x="380" y="370"/>
+              <position x="360" y="370"/>
               <inputVariables>
                 <variable formalParameter="IN">
                   <connectionPointIn>
                     <relPosition x="0" y="30"/>
                     <connection refLocalId="13">
-                      <position x="380" y="400"/>
-                      <position x="350" y="400"/>
+                      <position x="360" y="400"/>
+                      <position x="300" y="400"/>
                     </connection>
                   </connectionPointIn>
                 </variable>
@@ -2070,14 +2054,14 @@ Set Isolation Valve to 0% (0) when general site alarm is high; override all othe
               </outputVariables>
             </block>
             <block localId="50" typeName="REAL_TO_INT" width="100" height="40" executionOrderId="0">
-              <position x="600" y="370"/>
+              <position x="580" y="370"/>
               <inputVariables>
                 <variable formalParameter="IN">
                   <connectionPointIn>
                     <relPosition x="0" y="30"/>
                     <connection refLocalId="11" formalParameter="OUT">
-                      <position x="600" y="400"/>
-                      <position x="570" y="400"/>
+                      <position x="580" y="400"/>
+                      <position x="550" y="400"/>
                     </connection>
                   </connectionPointIn>
                 </variable>

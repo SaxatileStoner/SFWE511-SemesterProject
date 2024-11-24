@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <project xmlns="http://www.plcopen.org/xml/tc6_0201" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:ns1="http://www.plcopen.org/xml/tc6_0201">
   <fileHeader companyName="Unknown" productName="RLW-PLC-Command" productVersion="0.0.1" creationDateTime="2024-10-23T22:26:44"/>
-  <contentHeader name="Semester-Project-RLW" modificationDateTime="2024-11-23T14:33:06" version="0.0.1">
+  <contentHeader name="Semester-Project-RLW" modificationDateTime="2024-11-23T19:40:08" version="0.0.1">
     <coordinateInfo>
       <fbd>
         <scaling x="10" y="10"/>
@@ -2705,21 +2705,33 @@ Set Isolation Valve to 0% (0) when general site alarm is high; override all othe
               <type>
                 <INT/>
               </type>
+              <initialValue>
+                <simpleValue value="20"/>
+              </initialValue>
             </variable>
             <variable name="UltrasonicTankLevelSensor1" address="%IW10">
               <type>
                 <INT/>
               </type>
+              <initialValue>
+                <simpleValue value="15"/>
+              </initialValue>
             </variable>
             <variable name="UltrasonicTankLevelSensor2" address="%IW11">
               <type>
                 <INT/>
               </type>
+              <initialValue>
+                <simpleValue value="17"/>
+              </initialValue>
             </variable>
             <variable name="DisposalValveStatus" address="%IW12">
               <type>
                 <INT/>
               </type>
+              <initialValue>
+                <simpleValue value="0"/>
+              </initialValue>
             </variable>
             <variable name="DistributionPumpStatus" address="%IX0.4">
               <type>
@@ -2745,16 +2757,25 @@ Set Isolation Valve to 0% (0) when general site alarm is high; override all othe
               <type>
                 <INT/>
               </type>
+              <initialValue>
+                <simpleValue value="0"/>
+              </initialValue>
             </variable>
             <variable name="EductorValveCommand1" address="%QW4">
               <type>
                 <INT/>
               </type>
+              <initialValue>
+                <simpleValue value="0"/>
+              </initialValue>
             </variable>
             <variable name="EductorValveCommand2" address="%QW5">
               <type>
                 <INT/>
               </type>
+              <initialValue>
+                <simpleValue value="0"/>
+              </initialValue>
             </variable>
             <variable name="EductorValveAlarm0" address="%QX1.6">
               <type>
@@ -2780,11 +2801,17 @@ Set Isolation Valve to 0% (0) when general site alarm is high; override all othe
               <type>
                 <INT/>
               </type>
+              <initialValue>
+                <simpleValue value="0"/>
+              </initialValue>
             </variable>
             <variable name="DisposalValveCommand" address="%QW7">
               <type>
                 <INT/>
               </type>
+              <initialValue>
+                <simpleValue value="0"/>
+              </initialValue>
             </variable>
             <variable name="DistributionPumpPressureReductionFlag" address="%MX0.2">
               <type>

@@ -87,6 +87,9 @@ PROGRAM DCSProgramSector
     FlowSensorAlarm0 AT %QX1.3 : BOOL;
     FlowSensorAlarm1 AT %QX1.4 : BOOL;
     FlowSensorAlarm2 AT %QX1.5 : BOOL;
+    FlowRateAlarm0 AT %QX4.3 : BOOL;
+    FlowRateAlarm1 AT %QX4.4 : BOOL;
+    FlowRateAlarm2 AT %QX4.5 : BOOL;
   END_VAR
   VAR_EXTERNAL
     IsolationValveCommand0 : INT;
@@ -94,15 +97,18 @@ PROGRAM DCSProgramSector
     IsolationValveCommand2 : INT;
   END_VAR
   VAR CONSTANT
-    FlowSensorMaxCapacity AT %MD0 : REAL := 50.0;
+    FlowSensorMaxCapacity AT %MW0 : INT := 50;
   END_VAR
   VAR
+    _TMP_INT_TO_REAL52_OUT : REAL;
     _TMP_MUL69_OUT : REAL;
     _TMP_REAL_TO_INT102_OUT : INT;
     _TMP_GT4_OUT : BOOL;
+    _TMP_INT_TO_REAL51_OUT : REAL;
     _TMP_MUL5_OUT : REAL;
     _TMP_REAL_TO_INT49_OUT : INT;
     _TMP_GT10_OUT : BOOL;
+    _TMP_INT_TO_REAL114_OUT : REAL;
     _TMP_MUL11_OUT : REAL;
     _TMP_REAL_TO_INT50_OUT : INT;
     _TMP_GT8_OUT : BOOL;
@@ -121,17 +127,23 @@ PROGRAM DCSProgramSector
     _TMP_SetFlowSensorAlarm100_OUT : BOOL;
     _TMP_SetFlowSensorAlarm44_OUT : BOOL;
     _TMP_SetFlowSensorAlarm46_OUT : BOOL;
+    _TMP_GT117_OUT : BOOL;
+    _TMP_GT74_OUT : BOOL;
+    _TMP_GT78_OUT : BOOL;
   END_VAR
 
-  _TMP_MUL69_OUT := MUL(FlowSensorMaxCapacity, 0.2);
+  _TMP_INT_TO_REAL52_OUT := INT_TO_REAL(FlowSensorMaxCapacity);
+  _TMP_MUL69_OUT := MUL(_TMP_INT_TO_REAL52_OUT, 0.2);
   _TMP_REAL_TO_INT102_OUT := REAL_TO_INT(_TMP_MUL69_OUT);
   _TMP_GT4_OUT := GT(FlowRateSensor0, _TMP_REAL_TO_INT102_OUT);
   BoosterPumpCommand0 := NOT(GeneralSiteAlarm0) AND _TMP_GT4_OUT;
-  _TMP_MUL5_OUT := MUL(FlowSensorMaxCapacity, 0.2);
+  _TMP_INT_TO_REAL51_OUT := INT_TO_REAL(FlowSensorMaxCapacity);
+  _TMP_MUL5_OUT := MUL(_TMP_INT_TO_REAL51_OUT, 0.2);
   _TMP_REAL_TO_INT49_OUT := REAL_TO_INT(_TMP_MUL5_OUT);
   _TMP_GT10_OUT := GT(FlowRateSensor1, _TMP_REAL_TO_INT49_OUT);
   BoosterPumpCommand1 := NOT(GeneralSiteAlarm0) AND _TMP_GT10_OUT;
-  _TMP_MUL11_OUT := MUL(FlowSensorMaxCapacity, 0.2);
+  _TMP_INT_TO_REAL114_OUT := INT_TO_REAL(FlowSensorMaxCapacity);
+  _TMP_MUL11_OUT := MUL(_TMP_INT_TO_REAL114_OUT, 0.2);
   _TMP_REAL_TO_INT50_OUT := REAL_TO_INT(_TMP_MUL11_OUT);
   _TMP_GT8_OUT := GT(FlowRateSensor2, _TMP_REAL_TO_INT50_OUT);
   BoosterPumpCommand2 := NOT(GeneralSiteAlarm0) AND _TMP_GT8_OUT;
@@ -168,6 +180,12 @@ PROGRAM DCSProgramSector
   BoosterPumpStatus0 := NOT(GeneralSiteAlarm0) AND _TMP_GT4_OUT;
   BoosterPumpStatus1 := NOT(GeneralSiteAlarm0) AND _TMP_GT10_OUT;
   BoosterPumpStatus2 := NOT(GeneralSiteAlarm0) AND _TMP_GT8_OUT;
+  _TMP_GT117_OUT := GT(FlowRateSensor0, FlowSensorMaxCapacity);
+  FlowRateAlarm0 := _TMP_GT117_OUT;
+  _TMP_GT74_OUT := GT(FlowRateSensor1, FlowSensorMaxCapacity);
+  FlowRateAlarm1 := _TMP_GT74_OUT;
+  _TMP_GT78_OUT := GT(FlowRateSensor2, FlowSensorMaxCapacity);
+  FlowRateAlarm2 := _TMP_GT78_OUT;
 END_PROGRAM
 
 FUNCTION_BLOCK Tank15MinuteReset

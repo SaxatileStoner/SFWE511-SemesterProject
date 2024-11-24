@@ -9,7 +9,7 @@
                "dataPointXid":"DP_534611",
                "imageSet":"Tanque-Nivel-med",
                "bkgdColorOverride":"",
-               "displayControls":true,
+               "displayControls":false,
                "displayText":true,
                "max":100.0,
                "min":0.0,
@@ -23,7 +23,7 @@
                "dataPointXid":"DP_218858",
                "imageSet":"Tanque-Nivel-med",
                "bkgdColorOverride":"",
-               "displayControls":true,
+               "displayControls":false,
                "displayText":true,
                "max":100.0,
                "min":0.0,
@@ -37,7 +37,7 @@
                "dataPointXid":"DP_675786",
                "imageSet":"Tanque-Nivel-med",
                "bkgdColorOverride":"",
-               "displayControls":true,
+               "displayControls":false,
                "displayText":true,
                "max":100.0,
                "min":0.0,
@@ -52,12 +52,12 @@
                "imageSet":"Leds32",
                "bkgdColorOverride":"",
                "displayControls":true,
-               "displayText":true,
+               "displayText":false,
                "nameOverride":"Booster Pump 0 Status",
                "oneImageIndex":4,
                "settableOverride":false,
                "x":165,
-               "y":175,
+               "y":133,
                "zeroImageIndex":3
             },
             {
@@ -66,12 +66,12 @@
                "imageSet":"BlinkingLights",
                "bkgdColorOverride":"",
                "displayControls":true,
-               "displayText":true,
+               "displayText":false,
                "nameOverride":"Booster Pump 0 Alarm",
                "oneImageIndex":2,
                "settableOverride":false,
-               "x":200,
-               "y":177,
+               "x":202,
+               "y":135,
                "zeroImageIndex":3
             },
             {
@@ -80,12 +80,12 @@
                "imageSet":"Leds32",
                "bkgdColorOverride":"",
                "displayControls":true,
-               "displayText":true,
+               "displayText":false,
                "nameOverride":"Tank0 Max Capacity",
                "oneImageIndex":8,
                "settableOverride":false,
-               "x":165,
-               "y":14,
+               "x":67,
+               "y":16,
                "zeroImageIndex":6
             },
             {
@@ -94,12 +94,12 @@
                "imageSet":"Leds24",
                "bkgdColorOverride":"",
                "displayControls":true,
-               "displayText":true,
+               "displayText":false,
                "nameOverride":"pH Alert",
-               "oneImageIndex":13,
+               "oneImageIndex":14,
                "settableOverride":false,
-               "x":4,
-               "y":447,
+               "x":20,
+               "y":453,
                "zeroImageIndex":12
             },
             {
@@ -108,12 +108,12 @@
                "imageSet":"Leds24",
                "bkgdColorOverride":"",
                "displayControls":true,
-               "displayText":true,
+               "displayText":false,
                "nameOverride":"pH Critical",
-               "oneImageIndex":7,
+               "oneImageIndex":8,
                "settableOverride":false,
-               "x":36,
-               "y":447,
+               "x":50,
+               "y":453,
                "zeroImageIndex":6
             },
             {
@@ -122,12 +122,12 @@
                "imageSet":"Leds32",
                "bkgdColorOverride":"",
                "displayControls":true,
-               "displayText":true,
+               "displayText":false,
                "nameOverride":"Eductor Valve 0 Alarm",
                "oneImageIndex":7,
                "settableOverride":false,
                "x":2,
-               "y":316,
+               "y":290,
                "zeroImageIndex":6
             },
             {
@@ -136,13 +136,13 @@
                "imageSet":"Leds48",
                "bkgdColorOverride":"",
                "displayControls":true,
-               "displayText":true,
+               "displayText":false,
                "nameOverride":"",
-               "oneImageIndex":8,
+               "oneImageIndex":14,
                "settableOverride":false,
-               "x":687,
-               "y":430,
-               "zeroImageIndex":6
+               "x":680,
+               "y":360,
+               "zeroImageIndex":12
             },
             {
                "type":"BINARY_GRAPHIC",
@@ -150,12 +150,12 @@
                "imageSet":"Leds32",
                "bkgdColorOverride":"",
                "displayControls":true,
-               "displayText":true,
+               "displayText":false,
                "nameOverride":"Isolation Valve 0 Alarm",
                "oneImageIndex":7,
                "settableOverride":false,
                "x":4,
-               "y":237,
+               "y":210,
                "zeroImageIndex":6
             },
             {
@@ -169,8 +169,8 @@
                "min":10.0,
                "nameOverride":"",
                "settableOverride":false,
-               "x":162,
-               "y":75
+               "x":160,
+               "y":49
             },
             {
                "type":"DYNAMIC_GRAPHIC",
@@ -184,7 +184,7 @@
                "nameOverride":"",
                "settableOverride":false,
                "x":36,
-               "y":228
+               "y":210
             },
             {
                "type":"DYNAMIC_GRAPHIC",
@@ -198,7 +198,7 @@
                "nameOverride":"",
                "settableOverride":false,
                "x":37,
-               "y":314
+               "y":290
             },
             {
                "type":"DYNAMIC_GRAPHIC",
@@ -212,7 +212,7 @@
                "nameOverride":"",
                "settableOverride":false,
                "x":119,
-               "y":228
+               "y":210
             },
             {
                "type":"DYNAMIC_GRAPHIC",
@@ -226,7 +226,7 @@
                "nameOverride":"",
                "settableOverride":false,
                "x":119,
-               "y":314
+               "y":290
             },
             {
                "type":"BINARY_GRAPHIC",
@@ -234,12 +234,12 @@
                "imageSet":"BlinkingLights",
                "bkgdColorOverride":"",
                "displayControls":true,
-               "displayText":true,
+               "displayText":false,
                "nameOverride":"",
                "oneImageIndex":2,
                "settableOverride":false,
-               "x":202,
-               "y":16,
+               "x":220,
+               "y":30,
                "zeroImageIndex":3
             },
             {
@@ -254,7 +254,7 @@
                "nameOverride":"",
                "settableOverride":false,
                "x":404,
-               "y":75
+               "y":49
             },
             {
                "type":"DYNAMIC_GRAPHIC",
@@ -268,7 +268,7 @@
                "nameOverride":"",
                "settableOverride":false,
                "x":645,
-               "y":75
+               "y":49
             },
             {
                "type":"BINARY_GRAPHIC",
@@ -276,12 +276,12 @@
                "imageSet":"Leds32",
                "bkgdColorOverride":"",
                "displayControls":true,
-               "displayText":true,
+               "displayText":false,
                "nameOverride":"",
                "oneImageIndex":4,
                "settableOverride":false,
                "x":405,
-               "y":175,
+               "y":133,
                "zeroImageIndex":3
             },
             {
@@ -290,12 +290,12 @@
                "imageSet":"BlinkingLights",
                "bkgdColorOverride":"",
                "displayControls":true,
-               "displayText":true,
+               "displayText":false,
                "nameOverride":"",
                "oneImageIndex":2,
                "settableOverride":false,
                "x":441,
-               "y":177,
+               "y":135,
                "zeroImageIndex":3
             },
             {
@@ -304,12 +304,12 @@
                "imageSet":"Leds32",
                "bkgdColorOverride":"",
                "displayControls":true,
-               "displayText":true,
+               "displayText":false,
                "nameOverride":"",
                "oneImageIndex":8,
                "settableOverride":false,
-               "x":403,
-               "y":14,
+               "x":310,
+               "y":16,
                "zeroImageIndex":6
             },
             {
@@ -318,12 +318,12 @@
                "imageSet":"BlinkingLights",
                "bkgdColorOverride":"",
                "displayControls":true,
-               "displayText":true,
+               "displayText":false,
                "nameOverride":"",
                "oneImageIndex":2,
                "settableOverride":false,
-               "x":441,
-               "y":16,
+               "x":462,
+               "y":30,
                "zeroImageIndex":3
             },
             {
@@ -332,12 +332,12 @@
                "imageSet":"Leds32",
                "bkgdColorOverride":"",
                "displayControls":true,
-               "displayText":true,
+               "displayText":false,
                "nameOverride":"",
                "oneImageIndex":4,
                "settableOverride":false,
                "x":644,
-               "y":175,
+               "y":133,
                "zeroImageIndex":3
             },
             {
@@ -346,12 +346,12 @@
                "imageSet":"BlinkingLights",
                "bkgdColorOverride":"",
                "displayControls":true,
-               "displayText":true,
+               "displayText":false,
                "nameOverride":"",
                "oneImageIndex":2,
                "settableOverride":false,
-               "x":682,
-               "y":177,
+               "x":679,
+               "y":135,
                "zeroImageIndex":3
             },
             {
@@ -360,12 +360,12 @@
                "imageSet":"Leds32",
                "bkgdColorOverride":"",
                "displayControls":true,
-               "displayText":true,
+               "displayText":false,
                "nameOverride":"",
                "oneImageIndex":8,
                "settableOverride":false,
-               "x":644,
-               "y":14,
+               "x":553,
+               "y":16,
                "zeroImageIndex":6
             },
             {
@@ -374,12 +374,12 @@
                "imageSet":"BlinkingLights",
                "bkgdColorOverride":"",
                "displayControls":true,
-               "displayText":true,
+               "displayText":false,
                "nameOverride":"",
                "oneImageIndex":2,
                "settableOverride":false,
-               "x":680,
-               "y":16,
+               "x":703,
+               "y":30,
                "zeroImageIndex":3
             },
             {
@@ -388,12 +388,12 @@
                "imageSet":"Leds32",
                "bkgdColorOverride":"",
                "displayControls":true,
-               "displayText":true,
+               "displayText":false,
                "nameOverride":"",
                "oneImageIndex":7,
                "settableOverride":false,
                "x":240,
-               "y":237,
+               "y":210,
                "zeroImageIndex":6
             },
             {
@@ -402,12 +402,12 @@
                "imageSet":"Leds32",
                "bkgdColorOverride":"",
                "displayControls":true,
-               "displayText":true,
+               "displayText":false,
                "nameOverride":"",
                "oneImageIndex":7,
                "settableOverride":false,
                "x":240,
-               "y":316,
+               "y":290,
                "zeroImageIndex":6
             },
             {
@@ -422,7 +422,7 @@
                "nameOverride":"",
                "settableOverride":false,
                "x":274,
-               "y":228
+               "y":210
             },
             {
                "type":"DYNAMIC_GRAPHIC",
@@ -436,7 +436,7 @@
                "nameOverride":"",
                "settableOverride":false,
                "x":357,
-               "y":228
+               "y":210
             },
             {
                "type":"DYNAMIC_GRAPHIC",
@@ -450,7 +450,7 @@
                "nameOverride":"",
                "settableOverride":false,
                "x":274,
-               "y":314
+               "y":290
             },
             {
                "type":"DYNAMIC_GRAPHIC",
@@ -464,7 +464,7 @@
                "nameOverride":"",
                "settableOverride":false,
                "x":357,
-               "y":314
+               "y":290
             },
             {
                "type":"BINARY_GRAPHIC",
@@ -472,12 +472,12 @@
                "imageSet":"Leds32",
                "bkgdColorOverride":"",
                "displayControls":true,
-               "displayText":true,
+               "displayText":false,
                "nameOverride":"",
                "oneImageIndex":7,
                "settableOverride":false,
                "x":476,
-               "y":237,
+               "y":210,
                "zeroImageIndex":6
             },
             {
@@ -486,12 +486,12 @@
                "imageSet":"Leds32",
                "bkgdColorOverride":"",
                "displayControls":true,
-               "displayText":true,
+               "displayText":false,
                "nameOverride":"",
                "oneImageIndex":7,
                "settableOverride":false,
                "x":476,
-               "y":316,
+               "y":290,
                "zeroImageIndex":6
             },
             {
@@ -506,7 +506,7 @@
                "nameOverride":"",
                "settableOverride":false,
                "x":509,
-               "y":228
+               "y":210
             },
             {
                "type":"DYNAMIC_GRAPHIC",
@@ -520,7 +520,7 @@
                "nameOverride":"",
                "settableOverride":false,
                "x":592,
-               "y":228
+               "y":210
             },
             {
                "type":"DYNAMIC_GRAPHIC",
@@ -534,7 +534,7 @@
                "nameOverride":"",
                "settableOverride":false,
                "x":509,
-               "y":314
+               "y":290
             },
             {
                "type":"DYNAMIC_GRAPHIC",
@@ -548,13 +548,167 @@
                "nameOverride":"",
                "settableOverride":false,
                "x":592,
-               "y":314
+               "y":290
+            },
+            {
+               "type":"BINARY_GRAPHIC",
+               "dataPointXid":"DP_617353",
+               "imageSet":"Leds24",
+               "bkgdColorOverride":"",
+               "displayControls":true,
+               "displayText":false,
+               "nameOverride":"",
+               "oneImageIndex":8,
+               "settableOverride":false,
+               "x":164,
+               "y":173,
+               "zeroImageIndex":6
+            },
+            {
+               "type":"BINARY_GRAPHIC",
+               "dataPointXid":"DP_817704",
+               "imageSet":"Leds24",
+               "bkgdColorOverride":"",
+               "displayControls":true,
+               "displayText":false,
+               "nameOverride":"",
+               "oneImageIndex":8,
+               "settableOverride":false,
+               "x":404,
+               "y":173,
+               "zeroImageIndex":6
+            },
+            {
+               "type":"BINARY_GRAPHIC",
+               "dataPointXid":"DP_151048",
+               "imageSet":"Leds24",
+               "bkgdColorOverride":"",
+               "displayControls":true,
+               "displayText":false,
+               "nameOverride":"",
+               "oneImageIndex":8,
+               "settableOverride":false,
+               "x":644,
+               "y":173,
+               "zeroImageIndex":6
+            },
+            {
+               "type":"DYNAMIC_GRAPHIC",
+               "dataPointXid":"DP_053429",
+               "dynamicImage":"HorizontalLevel",
+               "bkgdColorOverride":"",
+               "displayControls":true,
+               "displayText":true,
+               "max":11.0,
+               "min":3.0,
+               "nameOverride":"",
+               "settableOverride":false,
+               "x":0,
+               "y":480
+            },
+            {
+               "type":"DYNAMIC_GRAPHIC",
+               "dataPointXid":"DP_176817",
+               "dynamicImage":"SmallDial",
+               "bkgdColorOverride":"",
+               "displayControls":true,
+               "displayText":true,
+               "max":100.0,
+               "min":0.0,
+               "nameOverride":"",
+               "settableOverride":false,
+               "x":470,
+               "y":397
+            },
+            {
+               "type":"DYNAMIC_GRAPHIC",
+               "dataPointXid":"DP_298210",
+               "dynamicImage":"SmallDial",
+               "bkgdColorOverride":"",
+               "displayControls":true,
+               "displayText":true,
+               "max":100.0,
+               "min":0.0,
+               "nameOverride":"",
+               "settableOverride":false,
+               "x":170,
+               "y":397
+            },
+            {
+               "type":"DYNAMIC_GRAPHIC",
+               "dataPointXid":"DP_142101",
+               "dynamicImage":"SmallDial",
+               "bkgdColorOverride":"",
+               "displayControls":true,
+               "displayText":true,
+               "max":100.0,
+               "min":0.0,
+               "nameOverride":"",
+               "settableOverride":false,
+               "x":250,
+               "y":397
+            },
+            {
+               "type":"BINARY_GRAPHIC",
+               "dataPointXid":"DP_704457",
+               "imageSet":"Leds24",
+               "bkgdColorOverride":"",
+               "displayControls":true,
+               "displayText":false,
+               "nameOverride":"",
+               "oneImageIndex":8,
+               "settableOverride":false,
+               "x":150,
+               "y":396,
+               "zeroImageIndex":6
+            },
+            {
+               "type":"BINARY_GRAPHIC",
+               "dataPointXid":"DP_347700",
+               "imageSet":"Leds32",
+               "bkgdColorOverride":"",
+               "displayControls":true,
+               "displayText":false,
+               "nameOverride":"",
+               "oneImageIndex":4,
+               "settableOverride":false,
+               "x":441,
+               "y":394,
+               "zeroImageIndex":3
+            },
+            {
+               "type":"BINARY_GRAPHIC",
+               "dataPointXid":"DP_465969",
+               "imageSet":"BlinkingLights",
+               "bkgdColorOverride":"",
+               "displayControls":true,
+               "displayText":false,
+               "nameOverride":"",
+               "oneImageIndex":2,
+               "settableOverride":false,
+               "x":443,
+               "y":430,
+               "zeroImageIndex":3
+            },
+            {
+               "type":"BINARY_GRAPHIC",
+               "dataPointXid":"DP_999376",
+               "imageSet":"Leds48",
+               "bkgdColorOverride":"",
+               "displayControls":true,
+               "displayText":false,
+               "nameOverride":"",
+               "oneImageIndex":7,
+               "settableOverride":false,
+               "x":680,
+               "y":415,
+               "zeroImageIndex":6
             }
          ],
          "sharingUsers":[
          ],
          "backgroundFilename":null,
-         "name":"Tank Leveling",
+         "name":"Field Site Overview",
          "xid":"GV_730434"
       }
    ],
@@ -3292,6 +3446,88 @@
             "suffix":""
          },
          "tolerance":0.0
+      },
+      {
+         "xid":"DP_176817",
+         "loggingType":"ON_CHANGE",
+         "intervalLoggingPeriodType":"MINUTES",
+         "intervalLoggingType":"INSTANT",
+         "purgeType":"YEARS",
+         "pointLocator":{
+            "range":"HOLDING_REGISTER",
+            "modbusDataType":"TWO_BYTE_INT_SIGNED",
+            "additive":0.0,
+            "bit":0,
+            "charset":"ASCII",
+            "multiplier":1.0,
+            "offset":6,
+            "registerCount":0,
+            "settableOverride":false,
+            "slaveId":1,
+            "slaveMonitor":false,
+            "socketMonitor":false
+         },
+         "eventDetectors":[
+         ],
+         "engineeringUnits":"",
+         "chartColour":null,
+         "chartRenderer":null,
+         "dataSourceXid":"DS_713456",
+         "defaultCacheSize":1,
+         "deviceName":"RLW Semester Project",
+         "discardExtremeValues":false,
+         "discardHighLimit":1.7976931348623157E308,
+         "discardLowLimit":-1.7976931348623157E308,
+         "enabled":true,
+         "intervalLoggingPeriod":15,
+         "name":"DistributionPumpSpeedCommand",
+         "purgePeriod":1,
+         "textRenderer":{
+            "type":"PLAIN",
+            "suffix":""
+         },
+         "tolerance":0.0
+      },
+      {
+         "xid":"DP_142101",
+         "loggingType":"ON_CHANGE",
+         "intervalLoggingPeriodType":"MINUTES",
+         "intervalLoggingType":"INSTANT",
+         "purgeType":"YEARS",
+         "pointLocator":{
+            "range":"HOLDING_REGISTER",
+            "modbusDataType":"TWO_BYTE_INT_SIGNED",
+            "additive":0.0,
+            "bit":0,
+            "charset":"ASCII",
+            "multiplier":1.0,
+            "offset":7,
+            "registerCount":0,
+            "settableOverride":false,
+            "slaveId":1,
+            "slaveMonitor":false,
+            "socketMonitor":false
+         },
+         "eventDetectors":[
+         ],
+         "engineeringUnits":"",
+         "chartColour":null,
+         "chartRenderer":null,
+         "dataSourceXid":"DS_713456",
+         "defaultCacheSize":1,
+         "deviceName":"RLW Semester Project",
+         "discardExtremeValues":false,
+         "discardHighLimit":1.7976931348623157E308,
+         "discardLowLimit":-1.7976931348623157E308,
+         "enabled":true,
+         "intervalLoggingPeriod":15,
+         "name":"DisposalValveCommand",
+         "purgePeriod":1,
+         "textRenderer":{
+            "type":"PLAIN",
+            "suffix":""
+         },
+         "tolerance":0.0
       }
    ],
    "scheduledEvents":[
@@ -4176,6 +4412,16 @@
          "pointXid":"DP_481449",
          "timestamp":1732437121446,
          "value":"false"
+      },
+      {
+         "pointXid":"DP_176817",
+         "timestamp":1732478256260,
+         "value":"0.0"
+      },
+      {
+         "pointXid":"DP_142101",
+         "timestamp":1732478256260,
+         "value":"0.0"
       }
    ],
    "systemSettings":[

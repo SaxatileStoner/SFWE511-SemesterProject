@@ -61,9 +61,9 @@ END_FUNCTION
 
 PROGRAM DCSProgramSector
   VAR
-    FlowRateSensor0 AT %IW0 : INT := 60;
-    FlowRateSensor1 AT %IW1 : INT := 5;
-    FlowRateSensor2 AT %IW2 : INT := 5;
+    FlowRateSensor0 AT %IW0 : INT := 20;
+    FlowRateSensor1 AT %IW1 : INT := 33;
+    FlowRateSensor2 AT %IW2 : INT := 46;
     BoosterPumpStatus0 AT %IX0.0 : BOOL := True;
     BoosterPumpStatus1 AT %IX0.1 : BOOL := False;
     BoosterPumpStatus2 AT %IX0.2 : BOOL := False;
@@ -162,6 +162,12 @@ PROGRAM DCSProgramSector
   FlowSensorAlarm1 := _TMP_SetFlowSensorAlarm44_OUT;
   _TMP_SetFlowSensorAlarm46_OUT := SetFlowSensorAlarm(IsolationValveStatus2, FlowRateSensor2);
   FlowSensorAlarm2 := _TMP_SetFlowSensorAlarm46_OUT;
+  IsolationValveStatus0 := _TMP_SelectIsolationValveValue92_OUT;
+  IsolationValveStatus1 := _TMP_SelectIsolationValveValue19_OUT;
+  IsolationValveStatus2 := _TMP_SelectIsolationValveValue25_OUT;
+  BoosterPumpStatus0 := NOT(GeneralSiteAlarm0) AND _TMP_GT4_OUT;
+  BoosterPumpStatus1 := NOT(GeneralSiteAlarm0) AND _TMP_GT10_OUT;
+  BoosterPumpStatus2 := NOT(GeneralSiteAlarm0) AND _TMP_GT8_OUT;
 END_PROGRAM
 
 FUNCTION_BLOCK Tank15MinuteReset
@@ -257,23 +263,23 @@ PROGRAM SCADATankLevelProgram
     EductorValveStatus0 AT %IW6 : INT;
     EductorValveStatus1 AT %IW7 : INT;
     EductorValveStatus2 AT %IW8 : INT;
-    UltrasonicTankLevelSensor0 AT %IW9 : INT;
-    UltrasonicTankLevelSensor1 AT %IW10 : INT;
-    UltrasonicTankLevelSensor2 AT %IW11 : INT;
-    DisposalValveStatus AT %IW12 : INT;
+    UltrasonicTankLevelSensor0 AT %IW9 : INT := 20;
+    UltrasonicTankLevelSensor1 AT %IW10 : INT := 15;
+    UltrasonicTankLevelSensor2 AT %IW11 : INT := 17;
+    DisposalValveStatus AT %IW12 : INT := 0;
     DistributionPumpStatus AT %IX0.4 : BOOL;
     HighPressureSwitch0 AT %IX0.5 : BOOL;
     HighPressureSwitch1 AT %IX0.6 : BOOL;
     HighPressureSwitch2 AT %IX0.7 : BOOL;
-    EductorValveCommand0 AT %QW3 : INT;
-    EductorValveCommand1 AT %QW4 : INT;
-    EductorValveCommand2 AT %QW5 : INT;
+    EductorValveCommand0 AT %QW3 : INT := 0;
+    EductorValveCommand1 AT %QW4 : INT := 0;
+    EductorValveCommand2 AT %QW5 : INT := 0;
     EductorValveAlarm0 AT %QX1.6 : BOOL;
     EductorValveAlarm1 AT %QX1.7 : BOOL;
     EductorValveAlarm2 AT %QX2.0 : BOOL;
     DistributionPumpCommand AT %QX2.1 : BOOL;
-    DistributionPumpSpeedCommand AT %QW6 : INT;
-    DisposalValveCommand AT %QW7 : INT;
+    DistributionPumpSpeedCommand AT %QW6 : INT := 0;
+    DisposalValveCommand AT %QW7 : INT := 0;
     DistributionPumpPressureReductionFlag AT %MX0.2 : BOOL;
     Tank30Capacity0 AT %MX0.3 : BOOL;
     Tank30Capacity1 AT %MX0.4 : BOOL;

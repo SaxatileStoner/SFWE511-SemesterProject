@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <project xmlns="http://www.plcopen.org/xml/tc6_0201" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:ns1="http://www.plcopen.org/xml/tc6_0201">
   <fileHeader companyName="Unknown" productName="RLW-PLC-Command" productVersion="0.0.1" creationDateTime="2024-10-23T22:26:44"/>
-  <contentHeader name="Semester-Project-RLW" modificationDateTime="2024-11-23T19:40:08" version="0.0.1">
+  <contentHeader name="Semester-Project-RLW" modificationDateTime="2024-11-23T21:43:15" version="0.0.1">
     <coordinateInfo>
       <fbd>
         <scaling x="10" y="10"/>
@@ -25,7 +25,7 @@
                 <INT/>
               </type>
               <initialValue>
-                <simpleValue value="60"/>
+                <simpleValue value="20"/>
               </initialValue>
             </variable>
             <variable name="FlowRateSensor1" address="%IW1">
@@ -33,7 +33,7 @@
                 <INT/>
               </type>
               <initialValue>
-                <simpleValue value="5"/>
+                <simpleValue value="33"/>
               </initialValue>
             </variable>
             <variable name="FlowRateSensor2" address="%IW2">
@@ -41,7 +41,7 @@
                 <INT/>
               </type>
               <initialValue>
-                <simpleValue value="5"/>
+                <simpleValue value="46"/>
               </initialValue>
             </variable>
             <variable name="BoosterPumpStatus0" address="%IX0.0">
@@ -356,6 +356,12 @@
                   <position x="1350" y="50"/>
                   <position x="1151" y="50"/>
                 </connection>
+                <connection refLocalId="110">
+                  <position x="1350" y="50"/>
+                  <position x="1249" y="50"/>
+                  <position x="1249" y="90"/>
+                  <position x="1148" y="90"/>
+                </connection>
               </connectionPointIn>
               <connectionPointIn>
                 <relPosition x="0" y="130"/>
@@ -365,6 +371,12 @@
                   <position x="1250" y="210"/>
                   <position x="1151" y="210"/>
                 </connection>
+                <connection refLocalId="112">
+                  <position x="1350" y="160"/>
+                  <position x="1249" y="160"/>
+                  <position x="1249" y="250"/>
+                  <position x="1148" y="250"/>
+                </connection>
               </connectionPointIn>
               <connectionPointIn>
                 <relPosition x="0" y="230"/>
@@ -373,6 +385,12 @@
                   <position x="1250" y="260"/>
                   <position x="1250" y="350"/>
                   <position x="1151" y="350"/>
+                </connection>
+                <connection refLocalId="113">
+                  <position x="1350" y="260"/>
+                  <position x="1250" y="260"/>
+                  <position x="1250" y="400"/>
+                  <position x="1150" y="400"/>
                 </connection>
               </connectionPointIn>
               <connectionPointIn>
@@ -460,7 +478,7 @@
                 <relPosition x="0" y="1710"/>
                 <connection refLocalId="45">
                   <position x="1350" y="1740"/>
-                  <position x="1190" y="1740"/>
+                  <position x="1191" y="1740"/>
                 </connection>
               </connectionPointIn>
               <connectionPointIn>
@@ -986,9 +1004,9 @@
               <variable>BoosterPumpStatus1</variable>
             </contact>
             <outVariable localId="32" width="190" height="30" negated="false" executionOrderId="0">
-              <position x="1070" y="1020"/>
+              <position x="1070" y="1010"/>
               <connectionPointIn>
-                <relPosition x="0" y="10"/>
+                <relPosition x="0" y="20"/>
                 <connection refLocalId="25" formalParameter="OUT">
                   <position x="1070" y="1030"/>
                   <position x="890" y="1030"/>
@@ -1917,12 +1935,111 @@ Set Isolation Valve to 0% (0) when general site alarm is high; override all othe
                 </variable>
               </outputVariables>
             </block>
-            <comment localId="104" height="60" width="280">
-              <position x="1020" y="760"/>
+            <comment localId="105" height="90" width="370">
+              <position x="1370" y="160"/>
               <content>
-                <xhtml:p><![CDATA[TODO: Change External Values Here to Integer]]></xhtml:p>
+                <xhtml:p><![CDATA[TODO: Add check if flow rate is surpassing max flow capacity. Create max flow rate alarm for each tank.]]></xhtml:p>
               </content>
             </comment>
+            <outVariable localId="106" width="180" height="30" negated="false">
+              <position x="1070" y="770"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="92" formalParameter="OUT">
+                  <position x="1070" y="780"/>
+                  <position x="984" y="780"/>
+                  <position x="984" y="820"/>
+                  <position x="890" y="820"/>
+                </connection>
+              </connectionPointIn>
+              <expression>IsolationValveStatus0</expression>
+            </outVariable>
+            <comment localId="107" height="80" width="400">
+              <position x="1380" y="980"/>
+              <content>
+                <xhtml:p><![CDATA[Status must be set to command value to simulate correct working hardware. If real inputs are given, then remove changes to status.]]></xhtml:p>
+              </content>
+            </comment>
+            <outVariable localId="108" width="180" height="30" negated="false">
+              <position x="1070" y="870"/>
+              <connectionPointIn>
+                <relPosition x="0" y="20"/>
+                <connection refLocalId="19" formalParameter="OUT">
+                  <position x="1070" y="890"/>
+                  <position x="984" y="890"/>
+                  <position x="984" y="920"/>
+                  <position x="890" y="920"/>
+                </connection>
+              </connectionPointIn>
+              <expression>IsolationValveStatus1</expression>
+            </outVariable>
+            <outVariable localId="109" width="180" height="30" negated="false">
+              <position x="1070" y="970"/>
+              <connectionPointIn>
+                <relPosition x="0" y="20"/>
+                <connection refLocalId="25" formalParameter="OUT">
+                  <position x="1070" y="990"/>
+                  <position x="984" y="990"/>
+                  <position x="984" y="1030"/>
+                  <position x="890" y="1030"/>
+                </connection>
+              </connectionPointIn>
+              <expression>IsolationValveStatus2</expression>
+            </outVariable>
+            <coil localId="110" negated="false" width="20" height="20">
+              <position x="1128" y="80"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="82">
+                  <position x="1128" y="90"/>
+                  <position x="1009" y="90"/>
+                  <position x="1009" y="50"/>
+                  <position x="891" y="50"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="20" y="10"/>
+              </connectionPointOut>
+              <variable>BoosterPumpStatus0</variable>
+            </coil>
+            <comment localId="111" height="100" width="380">
+              <position x="1370" y="260"/>
+              <content>
+                <xhtml:p><![CDATA[To simulate hardware, status is affected by output to command within logic. If connected to real hardware, remove this logic.]]></xhtml:p>
+              </content>
+            </comment>
+            <coil localId="112" negated="false" width="20" height="20">
+              <position x="1128" y="240"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="83">
+                  <position x="1128" y="250"/>
+                  <position x="1009" y="250"/>
+                  <position x="1009" y="210"/>
+                  <position x="891" y="210"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="20" y="10"/>
+              </connectionPointOut>
+              <variable>BoosterPumpStatus1</variable>
+            </coil>
+            <coil localId="113" negated="false" width="20" height="20">
+              <position x="1130" y="390"/>
+              <connectionPointIn>
+                <relPosition x="0" y="10"/>
+                <connection refLocalId="84">
+                  <position x="1130" y="400"/>
+                  <position x="1009" y="400"/>
+                  <position x="1009" y="350"/>
+                  <position x="891" y="350"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="20" y="10"/>
+              </connectionPointOut>
+              <variable>BoosterPumpStatus2</variable>
+            </coil>
           </LD>
         </body>
       </pou>

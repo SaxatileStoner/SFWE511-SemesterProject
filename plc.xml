@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <project xmlns="http://www.plcopen.org/xml/tc6_0201" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:ns1="http://www.plcopen.org/xml/tc6_0201">
   <fileHeader companyName="Unknown" productName="RLW-PLC-Command" productVersion="0.0.1" creationDateTime="2024-10-23T22:26:44"/>
-  <contentHeader name="Semester-Project-RLW" modificationDateTime="2024-11-24T20:17:46" version="0.0.1">
+  <contentHeader name="Semester-Project-RLW" modificationDateTime="2024-11-25T15:55:31" version="0.0.1">
     <coordinateInfo>
       <fbd>
         <scaling x="10" y="10"/>
@@ -19,89 +19,57 @@
     <pous>
       <pou name="DCSProgramSector" pouType="program">
         <interface>
-          <localVars>
-            <variable name="FlowRateSensor0" address="%IW0">
-              <type>
-                <INT/>
-              </type>
-              <initialValue>
-                <simpleValue value="20"/>
-              </initialValue>
-            </variable>
-            <variable name="FlowRateSensor1" address="%IW1">
-              <type>
-                <INT/>
-              </type>
-              <initialValue>
-                <simpleValue value="33"/>
-              </initialValue>
-            </variable>
-            <variable name="FlowRateSensor2" address="%IW2">
-              <type>
-                <INT/>
-              </type>
-              <initialValue>
-                <simpleValue value="46"/>
-              </initialValue>
-            </variable>
-            <variable name="BoosterPumpStatus0" address="%IX0.0">
-              <type>
-                <BOOL/>
-              </type>
-              <initialValue>
-                <simpleValue value="True"/>
-              </initialValue>
-            </variable>
-            <variable name="BoosterPumpStatus1" address="%IX0.1">
-              <type>
-                <BOOL/>
-              </type>
-              <initialValue>
-                <simpleValue value="False"/>
-              </initialValue>
-            </variable>
-            <variable name="BoosterPumpStatus2" address="%IX0.2">
-              <type>
-                <BOOL/>
-              </type>
-              <initialValue>
-                <simpleValue value="False"/>
-              </initialValue>
-            </variable>
-            <variable name="IsolationValveStatus0" address="%IW3">
-              <type>
-                <INT/>
-              </type>
-              <initialValue>
-                <simpleValue value="50"/>
-              </initialValue>
-            </variable>
-            <variable name="IsolationValveStatus1" address="%IW4">
-              <type>
-                <INT/>
-              </type>
-              <initialValue>
-                <simpleValue value="50"/>
-              </initialValue>
-            </variable>
-            <variable name="IsolationValveStatus2" address="%IW5">
-              <type>
-                <INT/>
-              </type>
-              <initialValue>
-                <simpleValue value="50"/>
-              </initialValue>
-            </variable>
-            <variable name="GeneralSiteAlarm0" address="%IX0.3">
-              <type>
-                <BOOL/>
-              </type>
-              <initialValue>
-                <simpleValue value="False"/>
-              </initialValue>
-            </variable>
-          </localVars>
           <externalVars>
+            <variable name="FlowRateSensor0">
+              <type>
+                <INT/>
+              </type>
+            </variable>
+            <variable name="FlowRateSensor1">
+              <type>
+                <INT/>
+              </type>
+            </variable>
+            <variable name="FlowRateSensor2">
+              <type>
+                <INT/>
+              </type>
+            </variable>
+            <variable name="BoosterPumpStatus0">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="BoosterPumpStatus1">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="BoosterPumpStatus2">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="IsolationValveStatus0">
+              <type>
+                <INT/>
+              </type>
+            </variable>
+            <variable name="IsolationValveStatus1">
+              <type>
+                <INT/>
+              </type>
+            </variable>
+            <variable name="IsolationValveStatus2">
+              <type>
+                <INT/>
+              </type>
+            </variable>
+            <variable name="GeneralSiteAlarm0">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
             <variable name="BoosterPumpCommand0">
               <type>
                 <BOOL/>
@@ -117,70 +85,66 @@
                 <BOOL/>
               </type>
             </variable>
-          </externalVars>
-          <localVars>
-            <variable name="BoosterPumpAlarm0" address="%QX0.5">
+            <variable name="BoosterPumpAlarm0">
               <type>
                 <BOOL/>
               </type>
             </variable>
-            <variable name="BoosterPumpAlarm1" address="%QX0.6">
+            <variable name="BoosterPumpAlarm1">
               <type>
                 <BOOL/>
               </type>
             </variable>
-            <variable name="BoosterPumpAlarm2" address="%QX0.7">
+            <variable name="BoosterPumpAlarm2">
               <type>
                 <BOOL/>
               </type>
             </variable>
-            <variable name="IsolationValveAlarm0" address="%QX1.0">
+            <variable name="IsolationValveAlarm0">
               <type>
                 <BOOL/>
               </type>
             </variable>
-            <variable name="IsolationValveAlarm1" address="%QX1.1">
+            <variable name="IsolationValveAlarm1">
               <type>
                 <BOOL/>
               </type>
             </variable>
-            <variable name="IsolationValveAlarm2" address="%QX1.2">
+            <variable name="IsolationValveAlarm2">
               <type>
                 <BOOL/>
               </type>
             </variable>
-            <variable name="FlowSensorAlarm0" address="%QX1.3">
+            <variable name="FlowSensorAlarm0">
               <type>
                 <BOOL/>
               </type>
             </variable>
-            <variable name="FlowSensorAlarm1" address="%QX1.4">
+            <variable name="FlowSensorAlarm1">
               <type>
                 <BOOL/>
               </type>
             </variable>
-            <variable name="FlowSensorAlarm2" address="%QX1.5">
+            <variable name="FlowSensorAlarm2">
               <type>
                 <BOOL/>
               </type>
             </variable>
-            <variable name="FlowRateAlarm0" address="%QX4.3">
+            <variable name="ExcessiveFlowAlarm0">
               <type>
                 <BOOL/>
               </type>
             </variable>
-            <variable name="FlowRateAlarm1" address="%QX4.4">
+            <variable name="ExcessiveFlowAlarm1">
               <type>
                 <BOOL/>
               </type>
             </variable>
-            <variable name="FlowRateAlarm2" address="%QX4.5">
+            <variable name="ExcessiveFlowAlarm2">
               <type>
                 <BOOL/>
               </type>
             </variable>
-          </localVars>
-          <externalVars>
             <variable name="IsolationValveCommand0">
               <type>
                 <INT/>
@@ -197,16 +161,13 @@
               </type>
             </variable>
           </externalVars>
-          <localVars constant="true">
-            <variable name="FlowSensorMaxCapacity" address="%MW0">
+          <externalVars constant="true">
+            <variable name="FLOW_SENSOR_MAX_CAPACITY">
               <type>
                 <INT/>
               </type>
-              <initialValue>
-                <simpleValue value="50"/>
-              </initialValue>
             </variable>
-          </localVars>
+          </externalVars>
         </interface>
         <body>
           <LD>
@@ -1309,12 +1270,12 @@ Set Isolation Valve to 0% (0) when general site alarm is high; override all othe
                 </variable>
               </outputVariables>
             </block>
-            <inVariable localId="70" width="180" height="30" negated="false">
+            <inVariable localId="70" width="202" height="30" negated="false">
               <position x="110" y="100"/>
               <connectionPointOut>
-                <relPosition x="180" y="20"/>
+                <relPosition x="202" y="20"/>
               </connectionPointOut>
-              <expression>FlowSensorMaxCapacity</expression>
+              <expression>FLOW_SENSOR_MAX_CAPACITY</expression>
             </inVariable>
             <inVariable localId="71" width="40" height="30" negated="false">
               <position x="250" y="140"/>
@@ -1370,12 +1331,12 @@ Set Isolation Valve to 0% (0) when general site alarm is high; override all othe
                 </variable>
               </outputVariables>
             </block>
-            <inVariable localId="15" width="180" height="30" negated="false" executionOrderId="0">
+            <inVariable localId="15" width="202" height="30" negated="false" executionOrderId="0">
               <position x="110" y="250"/>
               <connectionPointOut>
-                <relPosition x="180" y="10"/>
+                <relPosition x="202" y="10"/>
               </connectionPointOut>
-              <expression>FlowSensorMaxCapacity</expression>
+              <expression>FLOW_SENSOR_MAX_CAPACITY</expression>
             </inVariable>
             <inVariable localId="65" width="40" height="30" negated="false" executionOrderId="0">
               <position x="250" y="290"/>
@@ -1417,12 +1378,12 @@ Set Isolation Valve to 0% (0) when general site alarm is high; override all othe
                 </variable>
               </outputVariables>
             </block>
-            <inVariable localId="13" width="180" height="30" negated="false" executionOrderId="0">
+            <inVariable localId="13" width="202" height="30" negated="false" executionOrderId="0">
               <position x="120" y="390"/>
               <connectionPointOut>
-                <relPosition x="180" y="10"/>
+                <relPosition x="202" y="10"/>
               </connectionPointOut>
-              <expression>FlowSensorMaxCapacity</expression>
+              <expression>FLOW_SENSOR_MAX_CAPACITY</expression>
             </inVariable>
             <inVariable localId="73" width="40" height="30" negated="false" executionOrderId="0">
               <position x="260" y="430"/>
@@ -2126,12 +2087,12 @@ Set Isolation Valve to 0% (0) when general site alarm is high; override all othe
               </connectionPointOut>
               <expression>FlowRateSensor0</expression>
             </inVariable>
-            <inVariable localId="116" width="180" height="30" negated="false">
+            <inVariable localId="116" width="202" height="30" negated="false">
               <position x="170" y="1890"/>
               <connectionPointOut>
-                <relPosition x="180" y="20"/>
+                <relPosition x="202" y="10"/>
               </connectionPointOut>
-              <expression>FlowSensorMaxCapacity</expression>
+              <expression>FLOW_SENSOR_MAX_CAPACITY</expression>
             </inVariable>
             <block localId="117" typeName="GT" width="70" height="60">
               <position x="440" y="1830"/>
@@ -2178,12 +2139,12 @@ Set Isolation Valve to 0% (0) when general site alarm is high; override all othe
               <connectionPointOut>
                 <relPosition x="21" y="10"/>
               </connectionPointOut>
-              <variable>FlowRateAlarm0</variable>
+              <variable>ExcessiveFlowAlarm0</variable>
             </coil>
             <comment localId="119" height="80" width="430">
               <position x="1370" y="1820"/>
               <content>
-                <xhtml:p><![CDATA[Sets FlowRateAlarm to TRUE if detected flow rate is larger than FlowSensorMaxCapacity. Alerts HMI if flowrate is higher than the max.]]></xhtml:p>
+                <xhtml:p><![CDATA[Sets FlowRateAlarm to TRUE if detected flow rate is larger than FLOW_SENSOR_MAX_CAPACITY. Alerts HMI if flowrate is higher than the max.]]></xhtml:p>
               </content>
             </comment>
             <inVariable localId="53" width="130" height="30" negated="false" executionOrderId="0">
@@ -2193,12 +2154,12 @@ Set Isolation Valve to 0% (0) when general site alarm is high; override all othe
               </connectionPointOut>
               <expression>FlowRateSensor1</expression>
             </inVariable>
-            <inVariable localId="54" width="180" height="30" negated="false" executionOrderId="0">
+            <inVariable localId="54" width="202" height="30" negated="false" executionOrderId="0">
               <position x="170" y="2000"/>
               <connectionPointOut>
-                <relPosition x="180" y="10"/>
+                <relPosition x="202" y="20"/>
               </connectionPointOut>
-              <expression>FlowSensorMaxCapacity</expression>
+              <expression>FLOW_SENSOR_MAX_CAPACITY</expression>
             </inVariable>
             <block localId="74" typeName="GT" width="70" height="60" executionOrderId="0">
               <position x="440" y="1940"/>
@@ -2245,7 +2206,7 @@ Set Isolation Valve to 0% (0) when general site alarm is high; override all othe
               <connectionPointOut>
                 <relPosition x="21" y="10"/>
               </connectionPointOut>
-              <variable>FlowRateAlarm1</variable>
+              <variable>ExcessiveFlowAlarm1</variable>
             </coil>
             <inVariable localId="76" width="130" height="30" negated="false" executionOrderId="0">
               <position x="220" y="2060"/>
@@ -2254,12 +2215,12 @@ Set Isolation Valve to 0% (0) when general site alarm is high; override all othe
               </connectionPointOut>
               <expression>FlowRateSensor2</expression>
             </inVariable>
-            <inVariable localId="77" width="180" height="30" negated="false" executionOrderId="0">
+            <inVariable localId="77" width="202" height="30" negated="false" executionOrderId="0">
               <position x="170" y="2110"/>
               <connectionPointOut>
-                <relPosition x="180" y="10"/>
+                <relPosition x="202" y="10"/>
               </connectionPointOut>
-              <expression>FlowSensorMaxCapacity</expression>
+              <expression>FLOW_SENSOR_MAX_CAPACITY</expression>
             </inVariable>
             <block localId="78" typeName="GT" width="70" height="60" executionOrderId="0">
               <position x="440" y="2050"/>
@@ -2306,7 +2267,7 @@ Set Isolation Valve to 0% (0) when general site alarm is high; override all othe
               <connectionPointOut>
                 <relPosition x="21" y="10"/>
               </connectionPointOut>
-              <variable>FlowRateAlarm2</variable>
+              <variable>ExcessiveFlowAlarm2</variable>
             </coil>
           </LD>
         </body>
@@ -3070,327 +3031,298 @@ Set Isolation Valve to 0% (0) when general site alarm is high; override all othe
       </pou>
       <pou name="SCADATankLevelProgram" pouType="program">
         <interface>
-          <localVars>
-            <variable name="EductorValveStatus0" address="%IW6">
-              <type>
-                <INT/>
-              </type>
-            </variable>
-            <variable name="EductorValveStatus1" address="%IW7">
-              <type>
-                <INT/>
-              </type>
-            </variable>
-            <variable name="EductorValveStatus2" address="%IW8">
-              <type>
-                <INT/>
-              </type>
-            </variable>
-            <variable name="UltrasonicTankLevelSensor0" address="%IW9">
-              <type>
-                <INT/>
-              </type>
-              <initialValue>
-                <simpleValue value="40"/>
-              </initialValue>
-            </variable>
-            <variable name="UltrasonicTankLevelSensor1" address="%IW10">
-              <type>
-                <INT/>
-              </type>
-              <initialValue>
-                <simpleValue value="15"/>
-              </initialValue>
-            </variable>
-            <variable name="UltrasonicTankLevelSensor2" address="%IW11">
-              <type>
-                <INT/>
-              </type>
-              <initialValue>
-                <simpleValue value="17"/>
-              </initialValue>
-            </variable>
-            <variable name="DisposalValveStatus" address="%IW12">
-              <type>
-                <INT/>
-              </type>
-              <initialValue>
-                <simpleValue value="0"/>
-              </initialValue>
-            </variable>
-            <variable name="DistributionPumpStatus" address="%IX0.4">
-              <type>
-                <BOOL/>
-              </type>
-            </variable>
-            <variable name="HighPressureSwitch0" address="%IX0.5">
-              <type>
-                <BOOL/>
-              </type>
-            </variable>
-            <variable name="HighPressureSwitch1" address="%IX0.6">
-              <type>
-                <BOOL/>
-              </type>
-            </variable>
-            <variable name="HighPressureSwitch2" address="%IX0.7">
-              <type>
-                <BOOL/>
-              </type>
-            </variable>
-            <variable name="EductorValveCommand0" address="%QW3">
-              <type>
-                <INT/>
-              </type>
-              <initialValue>
-                <simpleValue value="0"/>
-              </initialValue>
-            </variable>
-            <variable name="EductorValveCommand1" address="%QW4">
-              <type>
-                <INT/>
-              </type>
-              <initialValue>
-                <simpleValue value="0"/>
-              </initialValue>
-            </variable>
-            <variable name="EductorValveCommand2" address="%QW5">
-              <type>
-                <INT/>
-              </type>
-              <initialValue>
-                <simpleValue value="0"/>
-              </initialValue>
-            </variable>
-            <variable name="EductorValveAlarm0" address="%QX1.6">
-              <type>
-                <BOOL/>
-              </type>
-            </variable>
-            <variable name="EductorValveAlarm1" address="%QX1.7">
-              <type>
-                <BOOL/>
-              </type>
-            </variable>
-            <variable name="EductorValveAlarm2" address="%QX2.0">
-              <type>
-                <BOOL/>
-              </type>
-            </variable>
-            <variable name="DistributionPumpCommand" address="%QX2.1">
-              <type>
-                <BOOL/>
-              </type>
-            </variable>
-            <variable name="DistributionPumpSpeedCommand" address="%QW6">
-              <type>
-                <INT/>
-              </type>
-              <initialValue>
-                <simpleValue value="0"/>
-              </initialValue>
-            </variable>
-            <variable name="DisposalValveCommand" address="%QW7">
-              <type>
-                <INT/>
-              </type>
-              <initialValue>
-                <simpleValue value="0"/>
-              </initialValue>
-            </variable>
-            <variable name="DistributionPumpPressureReductionFlag" address="%MX0.2">
-              <type>
-                <BOOL/>
-              </type>
-            </variable>
-            <variable name="Tank30Capacity0" address="%MX0.3">
-              <type>
-                <BOOL/>
-              </type>
-            </variable>
-            <variable name="Tank30Capacity1" address="%MX0.4">
-              <type>
-                <BOOL/>
-              </type>
-            </variable>
-            <variable name="Tank30Capacity2" address="%MX0.5">
-              <type>
-                <BOOL/>
-              </type>
-            </variable>
-            <variable name="Tank60Capacity0" address="%MX0.6">
-              <type>
-                <BOOL/>
-              </type>
-            </variable>
-            <variable name="Tank60Capacity1" address="%MX0.7">
-              <type>
-                <BOOL/>
-              </type>
-            </variable>
-            <variable name="Tank60Capacity2" address="%MX1.0">
-              <type>
-                <BOOL/>
-              </type>
-            </variable>
-            <variable name="Tank90Capacity0" address="%MX1.2">
-              <type>
-                <BOOL/>
-              </type>
-            </variable>
-            <variable name="Tank90Capacity1" address="%MX1.3">
-              <type>
-                <BOOL/>
-              </type>
-            </variable>
-            <variable name="Tank90Capacity2" address="%MX1.4">
-              <type>
-                <BOOL/>
-              </type>
-            </variable>
-            <variable name="isTank0DisposalReady" address="%MX1.5">
-              <type>
-                <BOOL/>
-              </type>
-            </variable>
-            <variable name="isTank1DisposalReady" address="%MX1.6">
-              <type>
-                <BOOL/>
-              </type>
-            </variable>
-            <variable name="isTank2DisposalReady" address="%MX1.7">
-              <type>
-                <BOOL/>
-              </type>
-            </variable>
-            <variable name="AllTanksNearCapacity" address="%MX2.0">
-              <type>
-                <BOOL/>
-              </type>
-            </variable>
-            <variable name="DistributionPumpAlarm" address="%QX2.2">
-              <type>
-                <BOOL/>
-              </type>
-            </variable>
-            <variable name="HighPressureSwitchAlarm0" address="%QX2.3">
-              <type>
-                <BOOL/>
-              </type>
-            </variable>
-            <variable name="HighPressureSwitchAlarm1" address="%QX2.4">
-              <type>
-                <BOOL/>
-              </type>
-            </variable>
-            <variable name="HighPressureSwitchAlarm2" address="%QX2.5">
-              <type>
-                <BOOL/>
-              </type>
-            </variable>
-            <variable name="askHMIContainmentUnitAttached" address="%QX2.6">
-              <type>
-                <BOOL/>
-              </type>
-            </variable>
-            <variable name="askHMIContainmentUnitFull" address="%QX2.7">
-              <type>
-                <BOOL/>
-              </type>
-            </variable>
-            <variable name="DisposalValveAlarm" address="%QX3.0">
-              <type>
-                <BOOL/>
-              </type>
-            </variable>
-            <variable name="TankCapacityAlarm0" address="%QX3.1">
-              <type>
-                <BOOL/>
-              </type>
-            </variable>
-            <variable name="TankCapacityAlarm1" address="%QX3.2">
-              <type>
-                <BOOL/>
-              </type>
-            </variable>
-            <variable name="TankCapacityAlarm2" address="%QX3.3">
-              <type>
-                <BOOL/>
-              </type>
-            </variable>
-            <variable name="CentralTankAlarmSwitch" address="%QX3.4">
-              <type>
-                <BOOL/>
-              </type>
-            </variable>
-            <variable name="ControlCenterHornStrobeAlarm" address="%QX3.5">
-              <type>
-                <BOOL/>
-              </type>
-            </variable>
-            <variable name="pHWarningHMI" address="%QX3.6">
-              <type>
-                <BOOL/>
-              </type>
-            </variable>
-            <variable name="pHCriticalHMI" address="%QX3.7">
-              <type>
-                <BOOL/>
-              </type>
-            </variable>
-            <variable name="HMITankDisposalButton" address="%QX4.0">
-              <type>
-                <BOOL/>
-              </type>
-            </variable>
-            <variable name="isContainmentUnitAttached" address="%QX4.1">
-              <type>
-                <BOOL/>
-              </type>
-            </variable>
-            <variable name="isContainmentUnitFull" address="%QX4.2">
-              <type>
-                <BOOL/>
-              </type>
-            </variable>
-            <variable name="startStirProtocol0" address="%MX10.0">
-              <type>
-                <BOOL/>
-              </type>
-            </variable>
-            <variable name="startStirProtocol1" address="%MX10.1">
-              <type>
-                <BOOL/>
-              </type>
-            </variable>
-            <variable name="startStirProtocol2" address="%MX10.2">
-              <type>
-                <BOOL/>
-              </type>
-            </variable>
-            <variable name="stopStirProtocol0" address="%MX10.3">
-              <type>
-                <BOOL/>
-              </type>
-            </variable>
-            <variable name="stopStirProtocol1" address="%MX10.4">
-              <type>
-                <BOOL/>
-              </type>
-            </variable>
-            <variable name="stopStirProtocol2" address="%MX10.5">
-              <type>
-                <BOOL/>
-              </type>
-            </variable>
-          </localVars>
           <externalVars>
+            <variable name="EductorValveStatus0">
+              <type>
+                <INT/>
+              </type>
+            </variable>
+            <variable name="EductorValveStatus1">
+              <type>
+                <INT/>
+              </type>
+            </variable>
+            <variable name="EductorValveStatus2">
+              <type>
+                <INT/>
+              </type>
+            </variable>
+            <variable name="UltrasonicTankLevelSensor0">
+              <type>
+                <INT/>
+              </type>
+            </variable>
+            <variable name="UltrasonicTankLevelSensor1">
+              <type>
+                <INT/>
+              </type>
+            </variable>
+            <variable name="UltrasonicTankLevelSensor2">
+              <type>
+                <INT/>
+              </type>
+            </variable>
+            <variable name="DisposalValveStatus">
+              <type>
+                <INT/>
+              </type>
+            </variable>
+            <variable name="DistributionPumpStatus">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="HighPressureSwitch0">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="HighPressureSwitch1">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="HighPressureSwitch2">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="EductorValveCommand0">
+              <type>
+                <INT/>
+              </type>
+            </variable>
+            <variable name="EductorValveCommand1">
+              <type>
+                <INT/>
+              </type>
+            </variable>
+            <variable name="EductorValveCommand2">
+              <type>
+                <INT/>
+              </type>
+            </variable>
+            <variable name="EductorValveAlarm0">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="EductorValveAlarm1">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="EductorValveAlarm2">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="DistributionPumpCommand">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="DistributionPumpSpeedCommand">
+              <type>
+                <INT/>
+              </type>
+            </variable>
+            <variable name="DisposalValveCommand">
+              <type>
+                <INT/>
+              </type>
+            </variable>
+            <variable name="DistributionPumpPressureReductionFlag">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="Tank0_30Capacity">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="Tank1_30Capacity">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="Tank2_30Capacity">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="Tank0_60Capacity">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="Tank1_60Capacity">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="Tank2_60Capacity">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="Tank0_90Capacity">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="Tank1_90Capacity">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="Tank2_90Capacity">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="Tank0_DisposalReady">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="Tank1_DisposalReady">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="Tank2_DisposalReady">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="AllTanksNearCapacity">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="DistributionPumpAlarm">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="HighPressureSwitchAlarm0">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="HighPressureSwitchAlarm1">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="HighPressureSwitchAlarm2">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="askHMIContainmentUnitAttached">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="askHMIContainmentUnitFull">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="DisposalValveAlarm">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="Tank0_CapacityAlarm">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="Tank1_CapacityAlarm">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="Tank2_CapacityAlarm">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="CentralTankAlarmSwitch">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="ControlCenterHornStrobeAlarm">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="pHWarningHMI">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="pHCriticalHMI">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="HMITankDisposalButton">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="isContainmentUnitAttached">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="isContainmentUnitFull">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="startStirProtocol0">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="startStirProtocol1">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="startStirProtocol2">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="stopStirProtocol0">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="stopStirProtocol1">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="stopStirProtocol2">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
             <variable name="BoosterPumpCommand0">
               <type>
                 <BOOL/>
               </type>
               <documentation>
-                <xhtml:p><![CDATA[External Global Variable Utilized by the DCS Program]]></xhtml:p>
+                <xhtml:p><![CDATA[Vars Utilized by DCS]]></xhtml:p>
               </documentation>
             </variable>
             <variable name="BoosterPumpCommand1">
@@ -4266,7 +4198,7 @@ If detected high pressure, reduce speed by 30% (0.3).]]></xhtml:p>
               <connectionPointOut>
                 <relPosition x="21" y="10"/>
               </connectionPointOut>
-              <variable>Tank30Capacity0</variable>
+              <variable>Tank0_30Capacity</variable>
             </coil>
             <inVariable localId="32" width="220" height="30" negated="false" executionOrderId="0">
               <position x="180" y="1600"/>
@@ -4327,7 +4259,7 @@ If detected high pressure, reduce speed by 30% (0.3).]]></xhtml:p>
               <connectionPointOut>
                 <relPosition x="21" y="10"/>
               </connectionPointOut>
-              <variable>Tank30Capacity1</variable>
+              <variable>Tank1_30Capacity</variable>
             </coil>
             <inVariable localId="54" width="220" height="30" negated="false" executionOrderId="0">
               <position x="180" y="1730"/>
@@ -4388,7 +4320,7 @@ If detected high pressure, reduce speed by 30% (0.3).]]></xhtml:p>
               <connectionPointOut>
                 <relPosition x="21" y="10"/>
               </connectionPointOut>
-              <variable>Tank30Capacity2</variable>
+              <variable>Tank2_30Capacity</variable>
             </coil>
             <comment localId="58" height="80" width="320">
               <position x="1380" y="1460"/>
@@ -4408,7 +4340,7 @@ If detected high pressure, reduce speed by 30% (0.3).]]></xhtml:p>
               <connectionPointOut>
                 <relPosition x="21" y="10"/>
               </connectionPointOut>
-              <variable>Tank60Capacity0</variable>
+              <variable>Tank0_60Capacity</variable>
             </coil>
             <block localId="60" typeName="GE" width="70" height="60" executionOrderId="0">
               <position x="470" y="1860"/>
@@ -4469,7 +4401,7 @@ If detected high pressure, reduce speed by 30% (0.3).]]></xhtml:p>
               <connectionPointOut>
                 <relPosition x="21" y="10"/>
               </connectionPointOut>
-              <variable>Tank60Capacity1</variable>
+              <variable>Tank1_60Capacity</variable>
             </coil>
             <block localId="64" typeName="GE" width="70" height="60" executionOrderId="0">
               <position x="470" y="2000"/>
@@ -4577,7 +4509,7 @@ If detected high pressure, reduce speed by 30% (0.3).]]></xhtml:p>
               <connectionPointOut>
                 <relPosition x="21" y="10"/>
               </connectionPointOut>
-              <variable>Tank60Capacity2</variable>
+              <variable>Tank2_60Capacity</variable>
             </coil>
             <coil localId="71" negated="false" width="21" height="20" executionOrderId="0">
               <position x="1158" y="2290"/>
@@ -4591,7 +4523,7 @@ If detected high pressure, reduce speed by 30% (0.3).]]></xhtml:p>
               <connectionPointOut>
                 <relPosition x="21" y="10"/>
               </connectionPointOut>
-              <variable>Tank90Capacity0</variable>
+              <variable>Tank0_90Capacity</variable>
             </coil>
             <block localId="72" typeName="GE" width="70" height="60" executionOrderId="0">
               <position x="470" y="2270"/>
@@ -4654,7 +4586,7 @@ If detected high pressure, reduce speed by 30% (0.3).]]></xhtml:p>
               <connectionPointOut>
                 <relPosition x="21" y="10"/>
               </connectionPointOut>
-              <variable>Tank90Capacity1</variable>
+              <variable>Tank1_90Capacity</variable>
             </coil>
             <block localId="76" typeName="GE" width="70" height="60" executionOrderId="0">
               <position x="470" y="2410"/>
@@ -4766,7 +4698,7 @@ If detected high pressure, reduce speed by 30% (0.3).]]></xhtml:p>
               <connectionPointOut>
                 <relPosition x="21" y="10"/>
               </connectionPointOut>
-              <variable>Tank90Capacity2</variable>
+              <variable>Tank2_90Capacity</variable>
             </coil>
             <contact localId="83" negated="false" width="21" height="20">
               <position x="460" y="2710"/>
@@ -4780,7 +4712,7 @@ If detected high pressure, reduce speed by 30% (0.3).]]></xhtml:p>
               <connectionPointOut>
                 <relPosition x="21" y="10"/>
               </connectionPointOut>
-              <variable>Tank30Capacity0</variable>
+              <variable>Tank0_30Capacity</variable>
             </contact>
             <contact localId="122" negated="true" width="21" height="20">
               <position x="320" y="2710"/>
@@ -4794,7 +4726,7 @@ If detected high pressure, reduce speed by 30% (0.3).]]></xhtml:p>
               <connectionPointOut>
                 <relPosition x="21" y="10"/>
               </connectionPointOut>
-              <variable>Tank60Capacity0</variable>
+              <variable>Tank0_60Capacity</variable>
             </contact>
             <contact localId="123" negated="true" width="21" height="20">
               <position x="190" y="2710"/>
@@ -4810,7 +4742,7 @@ If detected high pressure, reduce speed by 30% (0.3).]]></xhtml:p>
               <connectionPointOut>
                 <relPosition x="21" y="10"/>
               </connectionPointOut>
-              <variable>Tank90Capacity0</variable>
+              <variable>Tank0_90Capacity</variable>
             </contact>
             <comment localId="134" height="150" width="400">
               <position x="1360" y="2730"/>
@@ -5678,7 +5610,7 @@ If detected high pressure, reduce speed by 30% (0.3).]]></xhtml:p>
               <connectionPointOut>
                 <relPosition x="21" y="10"/>
               </connectionPointOut>
-              <variable>Tank30Capacity0</variable>
+              <variable>Tank0_30Capacity</variable>
             </contact>
             <contact localId="113" negated="false" width="21" height="20" executionOrderId="0">
               <position x="331" y="5130"/>
@@ -5692,7 +5624,7 @@ If detected high pressure, reduce speed by 30% (0.3).]]></xhtml:p>
               <connectionPointOut>
                 <relPosition x="21" y="10"/>
               </connectionPointOut>
-              <variable>Tank60Capacity0</variable>
+              <variable>Tank0_60Capacity</variable>
             </contact>
             <coil localId="166" negated="false" width="21" height="20">
               <position x="1109" y="5130"/>
@@ -5706,7 +5638,7 @@ If detected high pressure, reduce speed by 30% (0.3).]]></xhtml:p>
               <connectionPointOut>
                 <relPosition x="21" y="10"/>
               </connectionPointOut>
-              <variable>isTank0DisposalReady</variable>
+              <variable>Tank0_DisposalReady</variable>
             </coil>
             <contact localId="139" negated="false" width="21" height="20" executionOrderId="0">
               <position x="211" y="5270"/>
@@ -5720,7 +5652,7 @@ If detected high pressure, reduce speed by 30% (0.3).]]></xhtml:p>
               <connectionPointOut>
                 <relPosition x="21" y="10"/>
               </connectionPointOut>
-              <variable>Tank30Capacity1</variable>
+              <variable>Tank1_30Capacity</variable>
             </contact>
             <contact localId="140" negated="false" width="21" height="20" executionOrderId="0">
               <position x="331" y="5270"/>
@@ -5734,7 +5666,7 @@ If detected high pressure, reduce speed by 30% (0.3).]]></xhtml:p>
               <connectionPointOut>
                 <relPosition x="21" y="10"/>
               </connectionPointOut>
-              <variable>Tank60Capacity1</variable>
+              <variable>Tank1_60Capacity</variable>
             </contact>
             <coil localId="141" negated="false" width="21" height="20" executionOrderId="0">
               <position x="1111" y="5270"/>
@@ -5748,7 +5680,7 @@ If detected high pressure, reduce speed by 30% (0.3).]]></xhtml:p>
               <connectionPointOut>
                 <relPosition x="21" y="10"/>
               </connectionPointOut>
-              <variable>isTank1DisposalReady</variable>
+              <variable>Tank1_DisposalReady</variable>
             </coil>
             <contact localId="150" negated="false" width="21" height="20" executionOrderId="0">
               <position x="331" y="5410"/>
@@ -5762,7 +5694,7 @@ If detected high pressure, reduce speed by 30% (0.3).]]></xhtml:p>
               <connectionPointOut>
                 <relPosition x="21" y="10"/>
               </connectionPointOut>
-              <variable>Tank60Capacity2</variable>
+              <variable>Tank2_60Capacity</variable>
             </contact>
             <contact localId="155" negated="false" width="21" height="20" executionOrderId="0">
               <position x="211" y="5410"/>
@@ -5776,7 +5708,7 @@ If detected high pressure, reduce speed by 30% (0.3).]]></xhtml:p>
               <connectionPointOut>
                 <relPosition x="21" y="10"/>
               </connectionPointOut>
-              <variable>Tank30Capacity2</variable>
+              <variable>Tank2_30Capacity</variable>
             </contact>
             <coil localId="167" negated="false" width="21" height="20">
               <position x="1119" y="5410"/>
@@ -5790,7 +5722,7 @@ If detected high pressure, reduce speed by 30% (0.3).]]></xhtml:p>
               <connectionPointOut>
                 <relPosition x="21" y="10"/>
               </connectionPointOut>
-              <variable>isTank2DisposalReady</variable>
+              <variable>Tank2_DisposalReady</variable>
             </coil>
             <contact localId="168" negated="false" width="21" height="20">
               <position x="291" y="5550"/>
@@ -5804,7 +5736,7 @@ If detected high pressure, reduce speed by 30% (0.3).]]></xhtml:p>
               <connectionPointOut>
                 <relPosition x="21" y="10"/>
               </connectionPointOut>
-              <variable>isTank0DisposalReady</variable>
+              <variable>Tank0_DisposalReady</variable>
             </contact>
             <contact localId="169" negated="false" width="21" height="20">
               <position x="291" y="5690"/>
@@ -5818,7 +5750,7 @@ If detected high pressure, reduce speed by 30% (0.3).]]></xhtml:p>
               <connectionPointOut>
                 <relPosition x="21" y="10"/>
               </connectionPointOut>
-              <variable>isTank1DisposalReady</variable>
+              <variable>Tank1_DisposalReady</variable>
             </contact>
             <contact localId="170" negated="false" width="21" height="20">
               <position x="291" y="5830"/>
@@ -5832,7 +5764,7 @@ If detected high pressure, reduce speed by 30% (0.3).]]></xhtml:p>
               <connectionPointOut>
                 <relPosition x="21" y="10"/>
               </connectionPointOut>
-              <variable>isTank2DisposalReady</variable>
+              <variable>Tank2_DisposalReady</variable>
             </contact>
             <contact localId="171" negated="false" width="21" height="20">
               <position x="251" y="5970"/>
@@ -5846,7 +5778,7 @@ If detected high pressure, reduce speed by 30% (0.3).]]></xhtml:p>
               <connectionPointOut>
                 <relPosition x="21" y="10"/>
               </connectionPointOut>
-              <variable>isTank0DisposalReady</variable>
+              <variable>Tank0_DisposalReady</variable>
             </contact>
             <contact localId="172" negated="false" width="21" height="20">
               <position x="251" y="6010"/>
@@ -5862,7 +5794,7 @@ If detected high pressure, reduce speed by 30% (0.3).]]></xhtml:p>
               <connectionPointOut>
                 <relPosition x="21" y="10"/>
               </connectionPointOut>
-              <variable>isTank1DisposalReady</variable>
+              <variable>Tank1_DisposalReady</variable>
             </contact>
             <contact localId="173" negated="false" width="21" height="20">
               <position x="251" y="6050"/>
@@ -5878,7 +5810,7 @@ If detected high pressure, reduce speed by 30% (0.3).]]></xhtml:p>
               <connectionPointOut>
                 <relPosition x="21" y="10"/>
               </connectionPointOut>
-              <variable>isTank2DisposalReady</variable>
+              <variable>Tank2_DisposalReady</variable>
             </contact>
             <coil localId="174" negated="false" width="21" height="20">
               <position x="1101" y="5970"/>
@@ -6182,7 +6114,7 @@ Note: A Tank with 90% (90) capcity will trigger the 60% (60) capcity protocal to
               <connectionPointOut>
                 <relPosition x="21" y="10"/>
               </connectionPointOut>
-              <variable>Tank90Capacity0</variable>
+              <variable>Tank0_90Capacity</variable>
             </contact>
             <coil localId="188" negated="false" width="21" height="20">
               <position x="1059" y="6530"/>
@@ -6196,7 +6128,7 @@ Note: A Tank with 90% (90) capcity will trigger the 60% (60) capcity protocal to
               <connectionPointOut>
                 <relPosition x="21" y="10"/>
               </connectionPointOut>
-              <variable>TankCapacityAlarm0</variable>
+              <variable>Tank0_CapacityAlarm</variable>
             </coil>
             <contact localId="189" negated="false" width="21" height="20">
               <position x="259" y="6680"/>
@@ -6212,7 +6144,7 @@ Note: A Tank with 90% (90) capcity will trigger the 60% (60) capcity protocal to
               <connectionPointOut>
                 <relPosition x="21" y="10"/>
               </connectionPointOut>
-              <variable>Tank90Capacity1</variable>
+              <variable>Tank1_90Capacity</variable>
             </contact>
             <coil localId="190" negated="false" width="21" height="20">
               <position x="1059" y="6680"/>
@@ -6226,7 +6158,7 @@ Note: A Tank with 90% (90) capcity will trigger the 60% (60) capcity protocal to
               <connectionPointOut>
                 <relPosition x="21" y="10"/>
               </connectionPointOut>
-              <variable>TankCapacityAlarm1</variable>
+              <variable>Tank1_CapacityAlarm</variable>
             </coil>
             <contact localId="191" negated="false" width="21" height="20">
               <position x="261" y="6820"/>
@@ -6242,7 +6174,7 @@ Note: A Tank with 90% (90) capcity will trigger the 60% (60) capcity protocal to
               <connectionPointOut>
                 <relPosition x="21" y="10"/>
               </connectionPointOut>
-              <variable>Tank90Capacity2</variable>
+              <variable>Tank2_90Capacity</variable>
             </contact>
             <coil localId="192" negated="false" width="21" height="20">
               <position x="1070" y="6820"/>
@@ -6256,7 +6188,7 @@ Note: A Tank with 90% (90) capcity will trigger the 60% (60) capcity protocal to
               <connectionPointOut>
                 <relPosition x="21" y="10"/>
               </connectionPointOut>
-              <variable>TankCapacityAlarm2</variable>
+              <variable>Tank2_CapacityAlarm</variable>
             </coil>
             <contact localId="193" negated="false" width="21" height="20">
               <position x="129" y="6960"/>
@@ -6272,7 +6204,7 @@ Note: A Tank with 90% (90) capcity will trigger the 60% (60) capcity protocal to
               <connectionPointOut>
                 <relPosition x="21" y="10"/>
               </connectionPointOut>
-              <variable>Tank90Capacity0</variable>
+              <variable>Tank0_90Capacity</variable>
             </contact>
             <contact localId="194" negated="false" width="21" height="20">
               <position x="269" y="6960"/>
@@ -6286,7 +6218,7 @@ Note: A Tank with 90% (90) capcity will trigger the 60% (60) capcity protocal to
               <connectionPointOut>
                 <relPosition x="21" y="10"/>
               </connectionPointOut>
-              <variable>Tank90Capacity1</variable>
+              <variable>Tank1_90Capacity</variable>
             </contact>
             <contact localId="195" negated="false" width="21" height="20">
               <position x="389" y="6960"/>
@@ -6300,7 +6232,7 @@ Note: A Tank with 90% (90) capcity will trigger the 60% (60) capcity protocal to
               <connectionPointOut>
                 <relPosition x="21" y="10"/>
               </connectionPointOut>
-              <variable>Tank90Capacity2</variable>
+              <variable>Tank2_90Capacity</variable>
             </contact>
             <coil localId="196" negated="false" width="21" height="20">
               <position x="1070" y="6960"/>
@@ -7453,7 +7385,7 @@ Note: A Tank with 90% (90) capcity will trigger the 60% (60) capcity protocal to
               <connectionPointOut>
                 <relPosition x="21" y="10"/>
               </connectionPointOut>
-              <variable>Tank30Capacity1</variable>
+              <variable>Tank1_30Capacity</variable>
             </contact>
             <contact localId="88" negated="true" width="21" height="20" executionOrderId="0">
               <position x="290" y="3440"/>
@@ -7467,7 +7399,7 @@ Note: A Tank with 90% (90) capcity will trigger the 60% (60) capcity protocal to
               <connectionPointOut>
                 <relPosition x="21" y="10"/>
               </connectionPointOut>
-              <variable>Tank60Capacity1</variable>
+              <variable>Tank1_60Capacity</variable>
             </contact>
             <contact localId="89" negated="true" width="21" height="20" executionOrderId="0">
               <position x="160" y="3440"/>
@@ -7481,7 +7413,7 @@ Note: A Tank with 90% (90) capcity will trigger the 60% (60) capcity protocal to
               <connectionPointOut>
                 <relPosition x="21" y="10"/>
               </connectionPointOut>
-              <variable>Tank90Capacity1</variable>
+              <variable>Tank1_90Capacity</variable>
             </contact>
             <block localId="90" typeName="Tank15MinuteReset" instanceName="Tank15MinuteReset1" width="290" height="60" executionOrderId="0">
               <position x="460" y="3690"/>
@@ -7872,7 +7804,7 @@ Note: A Tank with 90% (90) capcity will trigger the 60% (60) capcity protocal to
               <connectionPointOut>
                 <relPosition x="21" y="10"/>
               </connectionPointOut>
-              <variable>Tank30Capacity2</variable>
+              <variable>Tank2_30Capacity</variable>
             </contact>
             <contact localId="120" negated="true" width="21" height="20" executionOrderId="0">
               <position x="310" y="4280"/>
@@ -7886,7 +7818,7 @@ Note: A Tank with 90% (90) capcity will trigger the 60% (60) capcity protocal to
               <connectionPointOut>
                 <relPosition x="21" y="10"/>
               </connectionPointOut>
-              <variable>Tank60Capacity2</variable>
+              <variable>Tank2_60Capacity</variable>
             </contact>
             <contact localId="124" negated="true" width="21" height="20" executionOrderId="0">
               <position x="180" y="4280"/>
@@ -7900,7 +7832,7 @@ Note: A Tank with 90% (90) capcity will trigger the 60% (60) capcity protocal to
               <connectionPointOut>
                 <relPosition x="21" y="10"/>
               </connectionPointOut>
-              <variable>Tank90Capacity2</variable>
+              <variable>Tank2_90Capacity</variable>
             </contact>
             <block localId="125" typeName="Tank15MinuteReset" instanceName="Tank15MinuteReset2" width="290" height="60" executionOrderId="0">
               <position x="480" y="4530"/>
@@ -9296,50 +9228,35 @@ Note: A Tank with 90% (90) capcity will trigger the 60% (60) capcity protocal to
       </pou>
       <pou name="SCADApHTankMonitorProgram" pouType="program">
         <interface>
-          <localVars>
-            <variable name="pHSensor" address="%IW13">
+          <externalVars>
+            <variable name="pHSensor">
               <type>
                 <INT/>
               </type>
-              <initialValue>
-                <simpleValue value="7"/>
-              </initialValue>
             </variable>
-          </localVars>
-          <localVars constant="true">
-            <variable name="AcidicLevel" address="%MW3">
+          </externalVars>
+          <externalVars constant="true">
+            <variable name="WARNING_ACIDIC_LEVEL">
               <type>
                 <INT/>
               </type>
-              <initialValue>
-                <simpleValue value="4"/>
-              </initialValue>
             </variable>
-            <variable name="CriticalAcidicLevel" address="%MW4">
+            <variable name="CRITICAL_ACIDIC_LEVEL">
               <type>
                 <INT/>
               </type>
-              <initialValue>
-                <simpleValue value="3"/>
-              </initialValue>
             </variable>
-            <variable name="BasicLevel" address="%MW5">
+            <variable name="WARNING_BASIC_LEVEL">
               <type>
                 <INT/>
               </type>
-              <initialValue>
-                <simpleValue value="10"/>
-              </initialValue>
             </variable>
-            <variable name="CriticalBasicLevel" address="%MW6">
+            <variable name="CRITICAL_BASIC_LEVEL">
               <type>
                 <INT/>
               </type>
-              <initialValue>
-                <simpleValue value="11"/>
-              </initialValue>
             </variable>
-          </localVars>
+          </externalVars>
           <externalVars>
             <variable name="pHAlertAlarm">
               <type>
@@ -9406,19 +9323,19 @@ Note: A Tank with 90% (90) capcity will trigger the 60% (60) capcity protocal to
                 </variable>
               </outputVariables>
             </block>
-            <inVariable localId="5" width="90" height="30" negated="false">
+            <inVariable localId="5" width="162" height="30" negated="false">
               <position x="170" y="100"/>
               <connectionPointOut>
-                <relPosition x="90" y="20"/>
+                <relPosition x="162" y="20"/>
               </connectionPointOut>
-              <expression>BasicLevel</expression>
+              <expression>WARNING_BASIC_LEVEL</expression>
             </inVariable>
-            <inVariable localId="6" width="100" height="30" negated="false">
+            <inVariable localId="6" width="170" height="30" negated="false">
               <position x="170" y="140"/>
               <connectionPointOut>
-                <relPosition x="100" y="20"/>
+                <relPosition x="170" y="20"/>
               </connectionPointOut>
-              <expression>AcidicLevel</expression>
+              <expression>WARNING_ACIDIC_LEVEL</expression>
             </inVariable>
             <coil localId="7" negated="false" width="21" height="20">
               <position x="970" y="70"/>
@@ -9487,19 +9404,19 @@ Note: A Tank with 90% (90) capcity will trigger the 60% (60) capcity protocal to
                 </variable>
               </outputVariables>
             </block>
-            <inVariable localId="10" width="160" height="30" negated="false" executionOrderId="0">
+            <inVariable localId="10" width="170" height="30" negated="false" executionOrderId="0">
               <position x="130" y="290"/>
-              <connectionPointOut>
-                <relPosition x="160" y="10"/>
-              </connectionPointOut>
-              <expression>CriticalBasicLevel</expression>
-            </inVariable>
-            <inVariable localId="11" width="170" height="30" negated="false" executionOrderId="0">
-              <position x="130" y="330"/>
               <connectionPointOut>
                 <relPosition x="170" y="10"/>
               </connectionPointOut>
-              <expression>CriticalAcidicLevel</expression>
+              <expression>CRITICAL_BASIC_LEVEL</expression>
+            </inVariable>
+            <inVariable localId="11" width="178" height="30" negated="false" executionOrderId="0">
+              <position x="130" y="330"/>
+              <connectionPointOut>
+                <relPosition x="178" y="10"/>
+              </connectionPointOut>
+              <expression>CRITICAL_ACIDIC_LEVEL</expression>
             </inVariable>
             <coil localId="12" negated="false" width="21" height="20" executionOrderId="0">
               <position x="970" y="260"/>
@@ -9728,10 +9645,253 @@ Note: A Tank with 90% (90) capcity will trigger the 60% (60) capcity protocal to
           </task>
         </resource>
         <globalVars>
+          <variable name="FlowRateSensor0" address="%IW0">
+            <type>
+              <INT/>
+            </type>
+            <initialValue>
+              <simpleValue value="4"/>
+            </initialValue>
+            <documentation>
+              <xhtml:p><![CDATA[Flow Rate Sensors for Tanks]]></xhtml:p>
+            </documentation>
+          </variable>
+          <variable name="FlowRateSensor1" address="%IW1">
+            <type>
+              <INT/>
+            </type>
+            <initialValue>
+              <simpleValue value="23"/>
+            </initialValue>
+          </variable>
+          <variable name="FlowRateSensor2" address="%IW2">
+            <type>
+              <INT/>
+            </type>
+            <initialValue>
+              <simpleValue value="42"/>
+            </initialValue>
+          </variable>
+          <variable name="IsolationValveStatus0" address="%IW3">
+            <type>
+              <INT/>
+            </type>
+            <initialValue>
+              <simpleValue value="0"/>
+            </initialValue>
+            <documentation>
+              <xhtml:p><![CDATA[Isolation Valve Status Between Tanks]]></xhtml:p>
+            </documentation>
+          </variable>
+          <variable name="IsolationValveStatus1" address="%IW4">
+            <type>
+              <INT/>
+            </type>
+            <initialValue>
+              <simpleValue value="0"/>
+            </initialValue>
+          </variable>
+          <variable name="IsolationValveStatus2" address="%IW5">
+            <type>
+              <INT/>
+            </type>
+            <initialValue>
+              <simpleValue value="0"/>
+            </initialValue>
+          </variable>
+          <variable name="EductorValveStatus0" address="%IW6">
+            <type>
+              <INT/>
+            </type>
+            <initialValue>
+              <simpleValue value="0"/>
+            </initialValue>
+            <documentation>
+              <xhtml:p><![CDATA[Eductor Valve Status In Tanks]]></xhtml:p>
+            </documentation>
+          </variable>
+          <variable name="EductorValveStatus1" address="%IW7">
+            <type>
+              <INT/>
+            </type>
+            <initialValue>
+              <simpleValue value="0"/>
+            </initialValue>
+          </variable>
+          <variable name="EductorValveStatus2" address="%IW8">
+            <type>
+              <INT/>
+            </type>
+            <initialValue>
+              <simpleValue value="0"/>
+            </initialValue>
+          </variable>
+          <variable name="UltrasonicTankLevelSensor0" address="%IW9">
+            <type>
+              <INT/>
+            </type>
+            <initialValue>
+              <simpleValue value="35"/>
+            </initialValue>
+            <documentation>
+              <xhtml:p><![CDATA[Ultrasonic Tank Level Detection Sensor]]></xhtml:p>
+            </documentation>
+          </variable>
+          <variable name="UltrasonicTankLevelSensor1" address="%IW10">
+            <type>
+              <INT/>
+            </type>
+            <initialValue>
+              <simpleValue value="57"/>
+            </initialValue>
+          </variable>
+          <variable name="UltrasonicTankLevelSensor2" address="%IW11">
+            <type>
+              <INT/>
+            </type>
+            <initialValue>
+              <simpleValue value="12"/>
+            </initialValue>
+          </variable>
+          <variable name="DisposalValveStatus" address="%IW12">
+            <type>
+              <INT/>
+            </type>
+            <initialValue>
+              <simpleValue value="0"/>
+            </initialValue>
+            <documentation>
+              <xhtml:p><![CDATA[Status of Disposal Valve; All tanks connected to drain into disposal medium.]]></xhtml:p>
+            </documentation>
+          </variable>
+          <variable name="pHSensor" address="%IW13">
+            <type>
+              <INT/>
+            </type>
+            <initialValue>
+              <simpleValue value="7"/>
+            </initialValue>
+            <documentation>
+              <xhtml:p><![CDATA[Sensor for pH Level in Tank System]]></xhtml:p>
+            </documentation>
+          </variable>
+          <variable name="BoosterPumpStatus0" address="%IX0.0">
+            <type>
+              <BOOL/>
+            </type>
+            <documentation>
+              <xhtml:p><![CDATA[Booster Pump Status in each tank]]></xhtml:p>
+            </documentation>
+          </variable>
+          <variable name="BoosterPumpStatus1" address="%IX0.1">
+            <type>
+              <BOOL/>
+            </type>
+          </variable>
+          <variable name="BoosterPumpStatus2" address="%IX0.2">
+            <type>
+              <BOOL/>
+            </type>
+          </variable>
+          <variable name="GeneralSiteAlarm0" address="%IX0.3">
+            <type>
+              <BOOL/>
+            </type>
+            <documentation>
+              <xhtml:p><![CDATA[Field Site Alarm for large site errors]]></xhtml:p>
+            </documentation>
+          </variable>
+          <variable name="DistributionPumpStatus" address="%IX0.4">
+            <type>
+              <BOOL/>
+            </type>
+            <documentation>
+              <xhtml:p><![CDATA[Status of Distribution Pump connected to all tanks]]></xhtml:p>
+            </documentation>
+          </variable>
+          <variable name="HighPressureSwitch0" address="%IX0.5">
+            <type>
+              <BOOL/>
+            </type>
+            <documentation>
+              <xhtml:p><![CDATA[Detects if associated tank is overpressurized]]></xhtml:p>
+            </documentation>
+          </variable>
+          <variable name="HighPressureSwitch1" address="%IX0.6">
+            <type>
+              <BOOL/>
+            </type>
+          </variable>
+          <variable name="HighPressureSwitch2" address="%IX0.7">
+            <type>
+              <BOOL/>
+            </type>
+          </variable>
+          <variable name="IsolationValveCommand0" address="%QW0">
+            <type>
+              <INT/>
+            </type>
+            <documentation>
+              <xhtml:p><![CDATA[Isolation Valve Command Between Tanks]]></xhtml:p>
+            </documentation>
+          </variable>
+          <variable name="IsolationValveCommand1" address="%QW1">
+            <type>
+              <INT/>
+            </type>
+          </variable>
+          <variable name="IsolationValveCommand2" address="%QW2">
+            <type>
+              <INT/>
+            </type>
+          </variable>
+          <variable name="EductorValveCommand0" address="%QW3">
+            <type>
+              <INT/>
+            </type>
+            <documentation>
+              <xhtml:p><![CDATA[Eductor Valve Command in each tank]]></xhtml:p>
+            </documentation>
+          </variable>
+          <variable name="EductorValveCommand1" address="%QW4">
+            <type>
+              <INT/>
+            </type>
+          </variable>
+          <variable name="EductorValveCommand2" address="%QW5">
+            <type>
+              <INT/>
+            </type>
+          </variable>
+          <variable name="DistributionPumpSpeedCommand" address="%QW6">
+            <type>
+              <INT/>
+            </type>
+            <initialValue>
+              <simpleValue value="0"/>
+            </initialValue>
+            <documentation>
+              <xhtml:p><![CDATA[Speed Setting of Distribution Pump]]></xhtml:p>
+            </documentation>
+          </variable>
+          <variable name="DisposalValveCommand" address="%QW7">
+            <type>
+              <INT/>
+            </type>
+            <initialValue>
+              <simpleValue value="0"/>
+            </initialValue>
+            <documentation>
+              <xhtml:p><![CDATA[Command Setting of Disposal Valve]]></xhtml:p>
+            </documentation>
+          </variable>
           <variable name="BoosterPumpCommand0" address="%QX0.0">
             <type>
               <BOOL/>
             </type>
+            <documentation>
+              <xhtml:p><![CDATA[Booster Pump Command in each tank]]></xhtml:p>
+            </documentation>
           </variable>
           <variable name="BoosterPumpCommand1" address="%QX0.1">
             <type>
@@ -9743,27 +9903,420 @@ Note: A Tank with 90% (90) capcity will trigger the 60% (60) capcity protocal to
               <BOOL/>
             </type>
           </variable>
-          <variable name="IsolationValveCommand0" address="%QW10">
-            <type>
-              <INT/>
-            </type>
-          </variable>
-          <variable name="IsolationValveCommand1" address="%QW11">
-            <type>
-              <INT/>
-            </type>
-          </variable>
-          <variable name="IsolationValveCommand2" address="%QW12">
-            <type>
-              <INT/>
-            </type>
-          </variable>
           <variable name="pHAlertAlarm" address="%QX0.3">
             <type>
               <BOOL/>
             </type>
+            <documentation>
+              <xhtml:p><![CDATA[pH Alert for Tank pH Level, starting to reach dangerous levels]]></xhtml:p>
+            </documentation>
           </variable>
           <variable name="pHCriticalAlarm" address="%QX0.4">
+            <type>
+              <BOOL/>
+            </type>
+            <documentation>
+              <xhtml:p><![CDATA[pH Alarm for Tank pH Level, pH is in dangerous levels and shutdown is needed]]></xhtml:p>
+            </documentation>
+          </variable>
+          <variable name="BoosterPumpAlarm0" address="%QX0.5">
+            <type>
+              <BOOL/>
+            </type>
+            <documentation>
+              <xhtml:p><![CDATA[Booster Pump Alarm in each tank for booster pump errors]]></xhtml:p>
+            </documentation>
+          </variable>
+          <variable name="BoosterPumpAlarm1" address="%QX0.6">
+            <type>
+              <BOOL/>
+            </type>
+          </variable>
+          <variable name="BoosterPumpAlarm2" address="%QX0.7">
+            <type>
+              <BOOL/>
+            </type>
+          </variable>
+          <variable name="IsolationValveAlarm0" address="%QX1.0">
+            <type>
+              <BOOL/>
+            </type>
+            <documentation>
+              <xhtml:p><![CDATA[Isolation Valve Alarm between each tank for isolation valve errors]]></xhtml:p>
+            </documentation>
+          </variable>
+          <variable name="IsolationValveAlarm1" address="%QX1.1">
+            <type>
+              <BOOL/>
+            </type>
+          </variable>
+          <variable name="IsolationValveAlarm2" address="%QX1.2">
+            <type>
+              <BOOL/>
+            </type>
+          </variable>
+          <variable name="FlowSensorAlarm0" address="%QX1.3">
+            <type>
+              <BOOL/>
+            </type>
+          </variable>
+          <variable name="FlowSensorAlarm1" address="%QX1.4">
+            <type>
+              <BOOL/>
+            </type>
+          </variable>
+          <variable name="FlowSensorAlarm2" address="%QX1.5">
+            <type>
+              <BOOL/>
+            </type>
+          </variable>
+          <variable name="ExcessiveFlowAlarm0" address="%QX1.6">
+            <type>
+              <BOOL/>
+            </type>
+            <documentation>
+              <xhtml:p><![CDATA[Alarm if flow rate detected is above max capacity]]></xhtml:p>
+            </documentation>
+          </variable>
+          <variable name="ExcessiveFlowAlarm1" address="%QX1.7">
+            <type>
+              <BOOL/>
+            </type>
+          </variable>
+          <variable name="ExcessiveFlowAlarm2" address="%QX2.0">
+            <type>
+              <BOOL/>
+            </type>
+          </variable>
+          <variable name="EductorValveAlarm0" address="%QX2.1">
+            <type>
+              <BOOL/>
+            </type>
+            <documentation>
+              <xhtml:p><![CDATA[Eductor Valve Alarm in each tank for eductor valve errors]]></xhtml:p>
+            </documentation>
+          </variable>
+          <variable name="EductorValveAlarm1" address="%QX2.2">
+            <type>
+              <BOOL/>
+            </type>
+          </variable>
+          <variable name="EductorValveAlarm2" address="%QX2.3">
+            <type>
+              <BOOL/>
+            </type>
+          </variable>
+          <variable name="DistributionPumpCommand" address="%QX2.4">
+            <type>
+              <BOOL/>
+            </type>
+            <documentation>
+              <xhtml:p><![CDATA[Command Setting for Distribution Pump]]></xhtml:p>
+            </documentation>
+          </variable>
+          <variable name="DistributionPumpAlarm" address="%QX2.5">
+            <type>
+              <BOOL/>
+            </type>
+            <documentation>
+              <xhtml:p><![CDATA[Alarm for Distribution Pump Errors]]></xhtml:p>
+            </documentation>
+          </variable>
+          <variable name="HighPressureSwitchAlarm0" address="%QX2.6">
+            <type>
+              <BOOL/>
+            </type>
+            <documentation>
+              <xhtml:p><![CDATA[Alarm Output to Signal High Pressure]]></xhtml:p>
+            </documentation>
+          </variable>
+          <variable name="HighPressureSwitchAlarm1" address="%QX2.7">
+            <type>
+              <BOOL/>
+            </type>
+            <documentation>
+              <xhtml:p><![CDATA[Alarm Output to Signal High Pressure]]></xhtml:p>
+            </documentation>
+          </variable>
+          <variable name="HighPressureSwitchAlarm2" address="%QX3.0">
+            <type>
+              <BOOL/>
+            </type>
+            <documentation>
+              <xhtml:p><![CDATA[Alarm Output to Signal High Pressure]]></xhtml:p>
+            </documentation>
+          </variable>
+          <variable name="askHMIContainmentUnitAttached" address="%QX3.1">
+            <type>
+              <BOOL/>
+            </type>
+            <documentation>
+              <xhtml:p><![CDATA[Ask HMI operator if Containment Unit is Attached to Disposal Valve]]></xhtml:p>
+            </documentation>
+          </variable>
+          <variable name="askHMIContainmentUnitFull" address="%QX3.2">
+            <type>
+              <BOOL/>
+            </type>
+            <documentation>
+              <xhtml:p><![CDATA[Ask HMI operator if the Containment Unit Attached is Full]]></xhtml:p>
+            </documentation>
+          </variable>
+          <variable name="DisposalValveAlarm" address="%QX3.3">
+            <type>
+              <BOOL/>
+            </type>
+            <documentation>
+              <xhtml:p><![CDATA[Alarm for Disposal Valve Errors]]></xhtml:p>
+            </documentation>
+          </variable>
+          <variable name="Tank0_CapacityAlarm" address="%QX3.4">
+            <type>
+              <BOOL/>
+            </type>
+            <documentation>
+              <xhtml:p><![CDATA[Alarm for specific tank has reached max capacity]]></xhtml:p>
+            </documentation>
+          </variable>
+          <variable name="Tank1_CapacityAlarm" address="%QX3.5">
+            <type>
+              <BOOL/>
+            </type>
+          </variable>
+          <variable name="Tank2_CapacityAlarm" address="%QX3.6">
+            <type>
+              <BOOL/>
+            </type>
+          </variable>
+          <variable name="CentralTankAlarmSwitch" address="%QX3.7">
+            <type>
+              <BOOL/>
+            </type>
+            <documentation>
+              <xhtml:p><![CDATA[Alarm for Central Command]]></xhtml:p>
+            </documentation>
+          </variable>
+          <variable name="ControlCenterHornStrobeAlarm" address="%QX4.0">
+            <type>
+              <BOOL/>
+            </type>
+            <documentation>
+              <xhtml:p><![CDATA[Horn and Strobe Light Output for Central Command]]></xhtml:p>
+            </documentation>
+          </variable>
+          <variable name="pHWarningHMI" address="%QX4.1">
+            <type>
+              <BOOL/>
+            </type>
+            <documentation>
+              <xhtml:p><![CDATA[pH Warning Output to HMI]]></xhtml:p>
+            </documentation>
+          </variable>
+          <variable name="pHCriticalHMI" address="%QX4.2">
+            <type>
+              <BOOL/>
+            </type>
+            <documentation>
+              <xhtml:p><![CDATA[pH Critical Output to HMI]]></xhtml:p>
+            </documentation>
+          </variable>
+          <variable name="HMITankDisposalButton" address="%QX4.3">
+            <type>
+              <BOOL/>
+            </type>
+            <documentation>
+              <xhtml:p><![CDATA[Button to HMI to continue disposal process]]></xhtml:p>
+            </documentation>
+          </variable>
+          <variable name="isContainmentUnitAttached" address="%QX4.4">
+            <type>
+              <BOOL/>
+            </type>
+            <documentation>
+              <xhtml:p><![CDATA[Boolean to determine if containment unit is attached (redudant with askHMI, should remove or replace)]]></xhtml:p>
+            </documentation>
+          </variable>
+          <variable name="isContainmentUnitFull" address="%QX4.5">
+            <type>
+              <BOOL/>
+            </type>
+            <documentation>
+              <xhtml:p><![CDATA[Boolean to determine if containment unit is full (redudant with askHMI, should remove or replace)]]></xhtml:p>
+            </documentation>
+          </variable>
+        </globalVars>
+        <globalVars constant="true">
+          <variable name="FLOW_SENSOR_MAX_CAPACITY" address="%MW0">
+            <type>
+              <INT/>
+            </type>
+            <initialValue>
+              <simpleValue value="50"/>
+            </initialValue>
+            <documentation>
+              <xhtml:p><![CDATA[Assigned max flow that tank can handle]]></xhtml:p>
+            </documentation>
+          </variable>
+          <variable name="WARNING_ACIDIC_LEVEL" address="%MW1">
+            <type>
+              <INT/>
+            </type>
+            <initialValue>
+              <simpleValue value="4"/>
+            </initialValue>
+            <documentation>
+              <xhtml:p><![CDATA[Warning Acidic Level]]></xhtml:p>
+            </documentation>
+          </variable>
+          <variable name="CRITICAL_ACIDIC_LEVEL" address="%MW2">
+            <type>
+              <INT/>
+            </type>
+            <initialValue>
+              <simpleValue value="3"/>
+            </initialValue>
+            <documentation>
+              <xhtml:p><![CDATA[Critical Acidic Level]]></xhtml:p>
+            </documentation>
+          </variable>
+          <variable name="WARNING_BASIC_LEVEL" address="%MW3">
+            <type>
+              <INT/>
+            </type>
+            <initialValue>
+              <simpleValue value="10"/>
+            </initialValue>
+            <documentation>
+              <xhtml:p><![CDATA[Warning Basic Level]]></xhtml:p>
+            </documentation>
+          </variable>
+          <variable name="CRITICAL_BASIC_LEVEL" address="%MW4">
+            <type>
+              <INT/>
+            </type>
+            <initialValue>
+              <simpleValue value="11"/>
+            </initialValue>
+            <documentation>
+              <xhtml:p><![CDATA[Critical Basic Level]]></xhtml:p>
+            </documentation>
+          </variable>
+        </globalVars>
+        <globalVars>
+          <variable name="DistributionPumpPressureReductionFlag" address="%MX0.0">
+            <type>
+              <BOOL/>
+            </type>
+            <documentation>
+              <xhtml:p><![CDATA[Flag used in reducing the speed of the distribution pump in case of high pressure]]></xhtml:p>
+            </documentation>
+          </variable>
+          <variable name="Tank0_30Capacity" address="%MX0.1">
+            <type>
+              <BOOL/>
+            </type>
+            <documentation>
+              <xhtml:p><![CDATA[Flag used to store if Tank X is above X Capacity]]></xhtml:p>
+            </documentation>
+          </variable>
+          <variable name="Tank1_30Capacity" address="%MX0.2">
+            <type>
+              <BOOL/>
+            </type>
+          </variable>
+          <variable name="Tank2_30Capacity" address="%MX0.3">
+            <type>
+              <BOOL/>
+            </type>
+          </variable>
+          <variable name="Tank0_60Capacity" address="%MX0.4">
+            <type>
+              <BOOL/>
+            </type>
+          </variable>
+          <variable name="Tank1_60Capacity" address="%MX0.5">
+            <type>
+              <BOOL/>
+            </type>
+          </variable>
+          <variable name="Tank2_60Capacity" address="%MX0.6">
+            <type>
+              <BOOL/>
+            </type>
+          </variable>
+          <variable name="Tank0_90Capacity" address="%MX0.7">
+            <type>
+              <BOOL/>
+            </type>
+          </variable>
+          <variable name="Tank1_90Capacity" address="%MX1.0">
+            <type>
+              <BOOL/>
+            </type>
+          </variable>
+          <variable name="Tank2_90Capacity" address="%MX1.1">
+            <type>
+              <BOOL/>
+            </type>
+          </variable>
+          <variable name="Tank0_DisposalReady" address="%MX1.2">
+            <type>
+              <BOOL/>
+            </type>
+            <documentation>
+              <xhtml:p><![CDATA[Flag used to determine if a tank is ready for disposal of contents]]></xhtml:p>
+            </documentation>
+          </variable>
+          <variable name="Tank1_DisposalReady" address="%MX1.3">
+            <type>
+              <BOOL/>
+            </type>
+          </variable>
+          <variable name="Tank2_DisposalReady" address="%MX1.4">
+            <type>
+              <BOOL/>
+            </type>
+          </variable>
+          <variable name="AllTanksNearCapacity" address="%MX1.5">
+            <type>
+              <BOOL/>
+            </type>
+            <documentation>
+              <xhtml:p><![CDATA[Flag true when all tanks are near their max capacity]]></xhtml:p>
+            </documentation>
+          </variable>
+          <variable name="startStirProtocol0" address="%MX1.6">
+            <type>
+              <BOOL/>
+            </type>
+            <documentation>
+              <xhtml:p><![CDATA[Flag used when to start the stir protocol for each tank]]></xhtml:p>
+            </documentation>
+          </variable>
+          <variable name="startStirProtocol1" address="%MX1.7">
+            <type>
+              <BOOL/>
+            </type>
+          </variable>
+          <variable name="startStirProtocol2" address="%MX2.0">
+            <type>
+              <BOOL/>
+            </type>
+          </variable>
+          <variable name="stopStirProtocol0" address="%MX2.1">
+            <type>
+              <BOOL/>
+            </type>
+            <documentation>
+              <xhtml:p><![CDATA[Flag used when to stop the stir protocol for each tank]]></xhtml:p>
+            </documentation>
+          </variable>
+          <variable name="stopStirProtocol1" address="%MX2.2">
+            <type>
+              <BOOL/>
+            </type>
+          </variable>
+          <variable name="stopStirProtocol2" address="%MX2.3">
             <type>
               <BOOL/>
             </type>

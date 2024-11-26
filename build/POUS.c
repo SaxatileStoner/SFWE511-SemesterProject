@@ -450,48 +450,6 @@ __end:
 
 
 
-void TANK15MINUTERESET_init__(TANK15MINUTERESET *data__, BOOL retain) {
-  __INIT_VAR(data__->EN,__BOOL_LITERAL(TRUE),retain)
-  __INIT_VAR(data__->ENO,__BOOL_LITERAL(TRUE),retain)
-  __INIT_VAR(data__->PULSEIN,__BOOL_LITERAL(FALSE),retain)
-  __INIT_VAR(data__->DISTRIBUTIONPUMPOUT,__BOOL_LITERAL(FALSE),retain)
-  TON_init__(&data__->TON1,retain);
-  TP_init__(&data__->TP1,retain);
-  R_TRIG_init__(&data__->R_TRIG0,retain);
-}
-
-// Code part
-void TANK15MINUTERESET_body__(TANK15MINUTERESET *data__) {
-  // Control execution
-  if (!__GET_VAR(data__->EN)) {
-    __SET_VAR(data__->,ENO,,__BOOL_LITERAL(FALSE));
-    return;
-  }
-  else {
-    __SET_VAR(data__->,ENO,,__BOOL_LITERAL(TRUE));
-  }
-  // Initialise TEMP variables
-
-  __SET_VAR(data__->R_TRIG0.,CLK,,__GET_VAR(data__->PULSEIN,));
-  R_TRIG_body__(&data__->R_TRIG0);
-  __SET_VAR(data__->TP1.,IN,,__GET_VAR(data__->R_TRIG0.Q,));
-  __SET_VAR(data__->TP1.,PT,,__time_to_timespec(1, 0, 5, 15, 0, 0));
-  TP_body__(&data__->TP1);
-  __SET_VAR(data__->TON1.,IN,,__GET_VAR(data__->TP1.Q,));
-  __SET_VAR(data__->TON1.,PT,,__time_to_timespec(1, 0, 0, 15, 0, 0));
-  TON_body__(&data__->TON1);
-  __SET_VAR(data__->,DISTRIBUTIONPUMPOUT,,__GET_VAR(data__->TON1.Q,));
-
-  goto __end;
-
-__end:
-  return;
-} // TANK15MINUTERESET_body__() 
-
-
-
-
-
 static inline INT __DISPOSALPROTOCOL_MOVE__INT__INT1(BOOL EN,
   INT IN,
   DISPOSALPROTOCOL *data__)
@@ -808,17 +766,8 @@ void SCADATANKLEVELPROGRAM_init__(SCADATANKLEVELPROGRAM *data__, BOOL retain) {
   __INIT_EXTERNAL(INT,ISOLATIONVALVECOMMAND2,data__->ISOLATIONVALVECOMMAND2,retain)
   __INIT_EXTERNAL(BOOL,PHALERTALARM,data__->PHALERTALARM,retain)
   __INIT_EXTERNAL(BOOL,PHCRITICALALARM,data__->PHCRITICALALARM,retain)
-  TANK15MINUTERESET_init__(&data__->TANK15MINUTERESET0,retain);
   DISPOSALPROTOCOL_init__(&data__->DISPOSALPROTOCOL0,retain);
   DISPOSALPROTOCOL_init__(&data__->DISPOSALPROTOCOL1,retain);
-  TON_init__(&data__->TON0,retain);
-  RS_init__(&data__->RS0,retain);
-  TANK15MINUTERESET_init__(&data__->TANK15MINUTERESET1,retain);
-  RS_init__(&data__->RS1,retain);
-  TON_init__(&data__->TON1,retain);
-  TANK15MINUTERESET_init__(&data__->TANK15MINUTERESET2,retain);
-  RS_init__(&data__->RS2,retain);
-  TON_init__(&data__->TON2,retain);
   __INIT_VAR(data__->_TMP_ISWITHIN5PERCENT3_OUT,__BOOL_LITERAL(FALSE),retain)
   __INIT_VAR(data__->_TMP_NOT4_OUT,__BOOL_LITERAL(FALSE),retain)
   __INIT_VAR(data__->_TMP_ISWITHIN5PERCENT10_OUT,__BOOL_LITERAL(FALSE),retain)
@@ -845,15 +794,6 @@ void SCADATANKLEVELPROGRAM_init__(SCADATANKLEVELPROGRAM *data__, BOOL retain) {
   __INIT_VAR(data__->_TMP_MOVE143_OUT,0,retain)
   __INIT_VAR(data__->_TMP_MOVE156_ENO,__BOOL_LITERAL(FALSE),retain)
   __INIT_VAR(data__->_TMP_MOVE156_OUT,0,retain)
-  F_TRIG_init__(&data__->F_TRIG1,retain);
-  __INIT_VAR(data__->_TMP_SEL237_OUT,0,retain)
-  __INIT_VAR(data__->_TMP_INT_TO_BOOL251_OUT,__BOOL_LITERAL(FALSE),retain)
-  F_TRIG_init__(&data__->F_TRIG2,retain);
-  __INIT_VAR(data__->_TMP_SEL97_OUT,0,retain)
-  __INIT_VAR(data__->_TMP_INT_TO_BOOL96_OUT,__BOOL_LITERAL(FALSE),retain)
-  F_TRIG_init__(&data__->F_TRIG3,retain);
-  __INIT_VAR(data__->_TMP_SEL233_OUT,0,retain)
-  __INIT_VAR(data__->_TMP_INT_TO_BOOL232_OUT,__BOOL_LITERAL(FALSE),retain)
 }
 
 // Code part
@@ -1034,123 +974,6 @@ void SCADATANKLEVELPROGRAM_body__(SCADATANKLEVELPROGRAM *data__) {
   __SET_EXTERNAL(data__->,ISOLATIONVALVECOMMAND1,,__GET_EXTERNAL(data__->ISOLATIONVALVECOMMAND0,));
   __SET_EXTERNAL(data__->,ISOLATIONVALVECOMMAND2,,__GET_EXTERNAL(data__->ISOLATIONVALVECOMMAND1,));
   __SET_EXTERNAL(data__->,CONTROLCENTERHORNSTROBEALARM,,__GET_EXTERNAL(data__->PHCRITICALALARM,));
-  if ((((!(__GET_EXTERNAL(data__->STOPSTIRPROTOCOL0,)) && __GET_EXTERNAL(data__->TANK0_30CAPACITY,)) && !(__GET_EXTERNAL(data__->TANK0_60CAPACITY,))) && !(__GET_EXTERNAL(data__->TANK0_90CAPACITY,)))) {
-    __SET_EXTERNAL(data__->,STARTSTIRPROTOCOL0,,__BOOL_LITERAL(TRUE));
-  };
-  __SET_VAR(data__->F_TRIG1.,CLK,,__GET_EXTERNAL(data__->STARTSTIRPROTOCOL0,));
-  F_TRIG_body__(&data__->F_TRIG1);
-  __SET_VAR(data__->RS0.,S,,__GET_EXTERNAL(data__->STARTSTIRPROTOCOL0,));
-  __SET_VAR(data__->RS0.,R1,,__GET_VAR(data__->F_TRIG1.Q,));
-  RS_body__(&data__->RS0);
-  __SET_VAR(data__->,_TMP_SEL237_OUT,,SEL__INT__BOOL__INT__INT(
-    (BOOL)__BOOL_LITERAL(TRUE),
-    NULL,
-    (BOOL)__GET_VAR(data__->RS0.Q1,),
-    (INT)0,
-    (INT)100));
-  __SET_EXTERNAL(data__->,EDUCTORVALVECOMMAND0,,__GET_VAR(data__->_TMP_SEL237_OUT,));
-  __SET_VAR(data__->TANK15MINUTERESET0.,PULSEIN,,__GET_EXTERNAL(data__->STARTSTIRPROTOCOL0,));
-  TANK15MINUTERESET_body__(&data__->TANK15MINUTERESET0);
-  if (__GET_VAR(data__->TANK15MINUTERESET0.DISTRIBUTIONPUMPOUT,)) {
-    __SET_EXTERNAL(data__->,STOPSTIRPROTOCOL0,,__BOOL_LITERAL(TRUE));
-  };
-  if (__GET_EXTERNAL(data__->STOPSTIRPROTOCOL0,)) {
-    __SET_EXTERNAL(data__->,STARTSTIRPROTOCOL0,,__BOOL_LITERAL(FALSE));
-  };
-  if (__GET_EXTERNAL(data__->STOPSTIRPROTOCOL0,)) {
-    __SET_EXTERNAL(data__->,DISTRIBUTIONPUMPCOMMAND,,__BOOL_LITERAL(FALSE));
-  };
-  __SET_VAR(data__->TON0.,IN,,__GET_EXTERNAL(data__->STOPSTIRPROTOCOL0,));
-  __SET_VAR(data__->TON0.,PT,,__time_to_timespec(1, 0, 2, 0, 0, 0));
-  TON_body__(&data__->TON0);
-  if (__GET_VAR(data__->TON0.Q,)) {
-    __SET_EXTERNAL(data__->,STOPSTIRPROTOCOL0,,__BOOL_LITERAL(FALSE));
-  };
-  __SET_VAR(data__->,_TMP_INT_TO_BOOL251_OUT,,INT_TO_BOOL(
-    (BOOL)__BOOL_LITERAL(TRUE),
-    NULL,
-    (INT)__GET_VAR(data__->_TMP_SEL237_OUT,)));
-  if (__GET_VAR(data__->_TMP_INT_TO_BOOL251_OUT,)) {
-    __SET_EXTERNAL(data__->,DISTRIBUTIONPUMPCOMMAND,,__BOOL_LITERAL(TRUE));
-  };
-  if ((((!(__GET_EXTERNAL(data__->STOPSTIRPROTOCOL1,)) && __GET_EXTERNAL(data__->TANK1_30CAPACITY,)) && !(__GET_EXTERNAL(data__->TANK1_60CAPACITY,))) && !(__GET_EXTERNAL(data__->TANK1_90CAPACITY,)))) {
-    __SET_EXTERNAL(data__->,STARTSTIRPROTOCOL1,,__BOOL_LITERAL(TRUE));
-  };
-  __SET_VAR(data__->TANK15MINUTERESET1.,PULSEIN,,__GET_EXTERNAL(data__->STARTSTIRPROTOCOL1,));
-  TANK15MINUTERESET_body__(&data__->TANK15MINUTERESET1);
-  if (__GET_VAR(data__->TANK15MINUTERESET1.DISTRIBUTIONPUMPOUT,)) {
-    __SET_EXTERNAL(data__->,STOPSTIRPROTOCOL1,,__BOOL_LITERAL(TRUE));
-  };
-  __SET_VAR(data__->F_TRIG2.,CLK,,__GET_EXTERNAL(data__->STARTSTIRPROTOCOL1,));
-  F_TRIG_body__(&data__->F_TRIG2);
-  __SET_VAR(data__->RS1.,S,,__GET_EXTERNAL(data__->STARTSTIRPROTOCOL1,));
-  __SET_VAR(data__->RS1.,R1,,__GET_VAR(data__->F_TRIG2.Q,));
-  RS_body__(&data__->RS1);
-  __SET_VAR(data__->,_TMP_SEL97_OUT,,SEL__INT__BOOL__INT__INT(
-    (BOOL)__BOOL_LITERAL(TRUE),
-    NULL,
-    (BOOL)__GET_VAR(data__->RS1.Q1,),
-    (INT)0,
-    (INT)100));
-  __SET_VAR(data__->,_TMP_INT_TO_BOOL96_OUT,,INT_TO_BOOL(
-    (BOOL)__BOOL_LITERAL(TRUE),
-    NULL,
-    (INT)__GET_VAR(data__->_TMP_SEL97_OUT,)));
-  if (__GET_VAR(data__->_TMP_INT_TO_BOOL96_OUT,)) {
-    __SET_EXTERNAL(data__->,DISTRIBUTIONPUMPCOMMAND,,__BOOL_LITERAL(TRUE));
-  };
-  if (__GET_EXTERNAL(data__->STOPSTIRPROTOCOL1,)) {
-    __SET_EXTERNAL(data__->,STARTSTIRPROTOCOL1,,__BOOL_LITERAL(FALSE));
-  };
-  if (__GET_EXTERNAL(data__->STOPSTIRPROTOCOL1,)) {
-    __SET_EXTERNAL(data__->,DISTRIBUTIONPUMPCOMMAND,,__BOOL_LITERAL(FALSE));
-  };
-  __SET_VAR(data__->TON1.,IN,,__GET_EXTERNAL(data__->STOPSTIRPROTOCOL1,));
-  __SET_VAR(data__->TON1.,PT,,__time_to_timespec(1, 0, 2, 0, 0, 0));
-  TON_body__(&data__->TON1);
-  if (__GET_VAR(data__->TON1.Q,)) {
-    __SET_EXTERNAL(data__->,STOPSTIRPROTOCOL1,,__BOOL_LITERAL(FALSE));
-  };
-  __SET_EXTERNAL(data__->,EDUCTORVALVECOMMAND1,,__GET_VAR(data__->_TMP_SEL97_OUT,));
-  if ((((!(__GET_EXTERNAL(data__->STOPSTIRPROTOCOL2,)) && __GET_EXTERNAL(data__->TANK2_30CAPACITY,)) && !(__GET_EXTERNAL(data__->TANK2_60CAPACITY,))) && !(__GET_EXTERNAL(data__->TANK2_90CAPACITY,)))) {
-    __SET_EXTERNAL(data__->,STARTSTIRPROTOCOL2,,__BOOL_LITERAL(TRUE));
-  };
-  __SET_VAR(data__->TANK15MINUTERESET2.,PULSEIN,,__GET_EXTERNAL(data__->STARTSTIRPROTOCOL2,));
-  TANK15MINUTERESET_body__(&data__->TANK15MINUTERESET2);
-  if (__GET_VAR(data__->TANK15MINUTERESET2.DISTRIBUTIONPUMPOUT,)) {
-    __SET_EXTERNAL(data__->,STOPSTIRPROTOCOL2,,__BOOL_LITERAL(TRUE));
-  };
-  __SET_VAR(data__->F_TRIG3.,CLK,,__GET_EXTERNAL(data__->STARTSTIRPROTOCOL2,));
-  F_TRIG_body__(&data__->F_TRIG3);
-  __SET_VAR(data__->RS2.,S,,__GET_EXTERNAL(data__->STARTSTIRPROTOCOL2,));
-  __SET_VAR(data__->RS2.,R1,,__GET_VAR(data__->F_TRIG3.Q,));
-  RS_body__(&data__->RS2);
-  __SET_VAR(data__->,_TMP_SEL233_OUT,,SEL__INT__BOOL__INT__INT(
-    (BOOL)__BOOL_LITERAL(TRUE),
-    NULL,
-    (BOOL)__GET_VAR(data__->RS2.Q1,),
-    (INT)0,
-    (INT)100));
-  __SET_VAR(data__->,_TMP_INT_TO_BOOL232_OUT,,INT_TO_BOOL(
-    (BOOL)__BOOL_LITERAL(TRUE),
-    NULL,
-    (INT)__GET_VAR(data__->_TMP_SEL233_OUT,)));
-  if (__GET_VAR(data__->_TMP_INT_TO_BOOL232_OUT,)) {
-    __SET_EXTERNAL(data__->,DISTRIBUTIONPUMPCOMMAND,,__BOOL_LITERAL(TRUE));
-  };
-  if (__GET_EXTERNAL(data__->STOPSTIRPROTOCOL2,)) {
-    __SET_EXTERNAL(data__->,STARTSTIRPROTOCOL2,,__BOOL_LITERAL(FALSE));
-  };
-  if (__GET_EXTERNAL(data__->STOPSTIRPROTOCOL2,)) {
-    __SET_EXTERNAL(data__->,DISTRIBUTIONPUMPCOMMAND,,__BOOL_LITERAL(FALSE));
-  };
-  __SET_VAR(data__->TON2.,IN,,__GET_EXTERNAL(data__->STOPSTIRPROTOCOL2,));
-  __SET_VAR(data__->TON2.,PT,,__time_to_timespec(1, 0, 2, 0, 0, 0));
-  TON_body__(&data__->TON2);
-  if (__GET_VAR(data__->TON2.Q,)) {
-    __SET_EXTERNAL(data__->,STOPSTIRPROTOCOL2,,__BOOL_LITERAL(FALSE));
-  };
-  __SET_EXTERNAL(data__->,EDUCTORVALVECOMMAND1,,__GET_VAR(data__->_TMP_SEL233_OUT,));
   if (__GET_VAR(data__->_TMP_MOVE117_ENO,)) {
     __SET_EXTERNAL(data__->,DISTRIBUTIONPUMPCOMMAND,,__BOOL_LITERAL(FALSE));
   };
@@ -1160,6 +983,48 @@ void SCADATANKLEVELPROGRAM_body__(SCADATANKLEVELPROGRAM *data__) {
 __end:
   return;
 } // SCADATANKLEVELPROGRAM_body__() 
+
+
+
+
+
+void TANK15MINUTERESET_init__(TANK15MINUTERESET *data__, BOOL retain) {
+  __INIT_VAR(data__->EN,__BOOL_LITERAL(TRUE),retain)
+  __INIT_VAR(data__->ENO,__BOOL_LITERAL(TRUE),retain)
+  __INIT_VAR(data__->PULSEIN,__BOOL_LITERAL(FALSE),retain)
+  __INIT_VAR(data__->DISTRIBUTIONPUMPOUT,__BOOL_LITERAL(FALSE),retain)
+  TON_init__(&data__->TON1,retain);
+  TP_init__(&data__->TP1,retain);
+  R_TRIG_init__(&data__->R_TRIG0,retain);
+}
+
+// Code part
+void TANK15MINUTERESET_body__(TANK15MINUTERESET *data__) {
+  // Control execution
+  if (!__GET_VAR(data__->EN)) {
+    __SET_VAR(data__->,ENO,,__BOOL_LITERAL(FALSE));
+    return;
+  }
+  else {
+    __SET_VAR(data__->,ENO,,__BOOL_LITERAL(TRUE));
+  }
+  // Initialise TEMP variables
+
+  __SET_VAR(data__->R_TRIG0.,CLK,,__GET_VAR(data__->PULSEIN,));
+  R_TRIG_body__(&data__->R_TRIG0);
+  __SET_VAR(data__->TP1.,IN,,__GET_VAR(data__->R_TRIG0.Q,));
+  __SET_VAR(data__->TP1.,PT,,__time_to_timespec(1, 0, 2, 15, 0, 0));
+  TP_body__(&data__->TP1);
+  __SET_VAR(data__->TON1.,IN,,__GET_VAR(data__->TP1.Q,));
+  __SET_VAR(data__->TON1.,PT,,__time_to_timespec(1, 0, 0, 15, 0, 0));
+  TON_body__(&data__->TON1);
+  __SET_VAR(data__->,DISTRIBUTIONPUMPOUT,,__GET_VAR(data__->TON1.Q,));
+
+  goto __end;
+
+__end:
+  return;
+} // TANK15MINUTERESET_body__() 
 
 
 
@@ -1216,7 +1081,7 @@ __end:
 }
 
 
-void SCADAPHTANKMONITORPROGRAM_init__(SCADAPHTANKMONITORPROGRAM *data__, BOOL retain) {
+void TANKPHMONITOR_init__(TANKPHMONITOR *data__, BOOL retain) {
   __INIT_EXTERNAL(INT,PHSENSOR,data__->PHSENSOR,retain)
   __INIT_EXTERNAL(INT,WARNING_ACIDIC_LEVEL,data__->WARNING_ACIDIC_LEVEL,retain)
   __INIT_EXTERNAL(INT,CRITICAL_ACIDIC_LEVEL,data__->CRITICAL_ACIDIC_LEVEL,retain)
@@ -1229,7 +1094,7 @@ void SCADAPHTANKMONITORPROGRAM_init__(SCADAPHTANKMONITORPROGRAM *data__, BOOL re
 }
 
 // Code part
-void SCADAPHTANKMONITORPROGRAM_body__(SCADAPHTANKMONITORPROGRAM *data__) {
+void TANKPHMONITOR_body__(TANKPHMONITOR *data__) {
   // Initialise TEMP variables
 
   __SET_VAR(data__->,_TMP_ISOUTSIDEPHRANGE4_OUT,,ISOUTSIDEPHRANGE(
@@ -1251,7 +1116,7 @@ void SCADAPHTANKMONITORPROGRAM_body__(SCADAPHTANKMONITORPROGRAM *data__) {
 
 __end:
   return;
-} // SCADAPHTANKMONITORPROGRAM_body__() 
+} // TANKPHMONITOR_body__() 
 
 
 
@@ -1354,6 +1219,178 @@ void TANKLEVELASSESSMENT_body__(TANKLEVELASSESSMENT *data__) {
 __end:
   return;
 } // TANKLEVELASSESSMENT_body__() 
+
+
+
+
+
+void STIRPROGRAM_init__(STIRPROGRAM *data__, BOOL retain) {
+  __INIT_EXTERNAL(BOOL,TANK0_30CAPACITY,data__->TANK0_30CAPACITY,retain)
+  __INIT_EXTERNAL(BOOL,TANK1_30CAPACITY,data__->TANK1_30CAPACITY,retain)
+  __INIT_EXTERNAL(BOOL,TANK2_30CAPACITY,data__->TANK2_30CAPACITY,retain)
+  __INIT_EXTERNAL(BOOL,TANK0_60CAPACITY,data__->TANK0_60CAPACITY,retain)
+  __INIT_EXTERNAL(BOOL,TANK1_60CAPACITY,data__->TANK1_60CAPACITY,retain)
+  __INIT_EXTERNAL(BOOL,TANK2_60CAPACITY,data__->TANK2_60CAPACITY,retain)
+  __INIT_EXTERNAL(BOOL,TANK0_90CAPACITY,data__->TANK0_90CAPACITY,retain)
+  __INIT_EXTERNAL(BOOL,TANK1_90CAPACITY,data__->TANK1_90CAPACITY,retain)
+  __INIT_EXTERNAL(BOOL,TANK2_90CAPACITY,data__->TANK2_90CAPACITY,retain)
+  __INIT_EXTERNAL(BOOL,STARTSTIRPROTOCOL0,data__->STARTSTIRPROTOCOL0,retain)
+  __INIT_EXTERNAL(BOOL,STARTSTIRPROTOCOL1,data__->STARTSTIRPROTOCOL1,retain)
+  __INIT_EXTERNAL(BOOL,STARTSTIRPROTOCOL2,data__->STARTSTIRPROTOCOL2,retain)
+  __INIT_EXTERNAL(BOOL,STOPSTIRPROTOCOL0,data__->STOPSTIRPROTOCOL0,retain)
+  __INIT_EXTERNAL(BOOL,STOPSTIRPROTOCOL1,data__->STOPSTIRPROTOCOL1,retain)
+  __INIT_EXTERNAL(BOOL,STOPSTIRPROTOCOL2,data__->STOPSTIRPROTOCOL2,retain)
+  __INIT_EXTERNAL(INT,EDUCTORVALVECOMMAND0,data__->EDUCTORVALVECOMMAND0,retain)
+  __INIT_EXTERNAL(INT,EDUCTORVALVECOMMAND1,data__->EDUCTORVALVECOMMAND1,retain)
+  __INIT_EXTERNAL(INT,EDUCTORVALVECOMMAND2,data__->EDUCTORVALVECOMMAND2,retain)
+  __INIT_EXTERNAL(BOOL,DISTRIBUTIONPUMPCOMMAND,data__->DISTRIBUTIONPUMPCOMMAND,retain)
+  TANK15MINUTERESET_init__(&data__->TANK15MINUTERESET0,retain);
+  RS_init__(&data__->RS0,retain);
+  TON_init__(&data__->TON0,retain);
+  RS_init__(&data__->RS1,retain);
+  TANK15MINUTERESET_init__(&data__->TANK15MINUTERESET1,retain);
+  TON_init__(&data__->TON1,retain);
+  RS_init__(&data__->RS2,retain);
+  TANK15MINUTERESET_init__(&data__->TANK15MINUTERESET2,retain);
+  TON_init__(&data__->TON2,retain);
+  F_TRIG_init__(&data__->F_TRIG1,retain);
+  __INIT_VAR(data__->_TMP_SEL237_OUT,0,retain)
+  __INIT_VAR(data__->_TMP_INT_TO_BOOL251_OUT,__BOOL_LITERAL(FALSE),retain)
+  F_TRIG_init__(&data__->F_TRIG2,retain);
+  __INIT_VAR(data__->_TMP_SEL97_OUT,0,retain)
+  __INIT_VAR(data__->_TMP_INT_TO_BOOL96_OUT,__BOOL_LITERAL(FALSE),retain)
+  F_TRIG_init__(&data__->F_TRIG3,retain);
+  __INIT_VAR(data__->_TMP_SEL233_OUT,0,retain)
+  __INIT_VAR(data__->_TMP_INT_TO_BOOL232_OUT,__BOOL_LITERAL(FALSE),retain)
+}
+
+// Code part
+void STIRPROGRAM_body__(STIRPROGRAM *data__) {
+  // Initialise TEMP variables
+
+  if ((((!(__GET_EXTERNAL(data__->STOPSTIRPROTOCOL0,)) && __GET_EXTERNAL(data__->TANK0_30CAPACITY,)) && !(__GET_EXTERNAL(data__->TANK0_60CAPACITY,))) && !(__GET_EXTERNAL(data__->TANK0_90CAPACITY,)))) {
+    __SET_EXTERNAL(data__->,STARTSTIRPROTOCOL0,,__BOOL_LITERAL(TRUE));
+  };
+  __SET_VAR(data__->TANK15MINUTERESET0.,PULSEIN,,__GET_EXTERNAL(data__->STARTSTIRPROTOCOL0,));
+  TANK15MINUTERESET_body__(&data__->TANK15MINUTERESET0);
+  if (__GET_VAR(data__->TANK15MINUTERESET0.DISTRIBUTIONPUMPOUT,)) {
+    __SET_EXTERNAL(data__->,STOPSTIRPROTOCOL0,,__BOOL_LITERAL(TRUE));
+  };
+  __SET_VAR(data__->F_TRIG1.,CLK,,__GET_EXTERNAL(data__->STARTSTIRPROTOCOL0,));
+  F_TRIG_body__(&data__->F_TRIG1);
+  __SET_VAR(data__->RS0.,S,,__GET_EXTERNAL(data__->STARTSTIRPROTOCOL0,));
+  __SET_VAR(data__->RS0.,R1,,__GET_VAR(data__->F_TRIG1.Q,));
+  RS_body__(&data__->RS0);
+  __SET_VAR(data__->,_TMP_SEL237_OUT,,SEL__INT__BOOL__INT__INT(
+    (BOOL)__BOOL_LITERAL(TRUE),
+    NULL,
+    (BOOL)__GET_VAR(data__->RS0.Q1,),
+    (INT)0,
+    (INT)100));
+  __SET_VAR(data__->,_TMP_INT_TO_BOOL251_OUT,,INT_TO_BOOL(
+    (BOOL)__BOOL_LITERAL(TRUE),
+    NULL,
+    (INT)__GET_VAR(data__->_TMP_SEL237_OUT,)));
+  if (__GET_VAR(data__->_TMP_INT_TO_BOOL251_OUT,)) {
+    __SET_EXTERNAL(data__->,DISTRIBUTIONPUMPCOMMAND,,__BOOL_LITERAL(TRUE));
+  };
+  if (__GET_EXTERNAL(data__->STOPSTIRPROTOCOL0,)) {
+    __SET_EXTERNAL(data__->,STARTSTIRPROTOCOL0,,__BOOL_LITERAL(FALSE));
+  };
+  if (__GET_EXTERNAL(data__->STOPSTIRPROTOCOL0,)) {
+    __SET_EXTERNAL(data__->,DISTRIBUTIONPUMPCOMMAND,,__BOOL_LITERAL(FALSE));
+  };
+  __SET_VAR(data__->TON0.,IN,,__GET_EXTERNAL(data__->STOPSTIRPROTOCOL0,));
+  __SET_VAR(data__->TON0.,PT,,__time_to_timespec(1, 0, 2, 0, 0, 0));
+  TON_body__(&data__->TON0);
+  if (__GET_VAR(data__->TON0.Q,)) {
+    __SET_EXTERNAL(data__->,STOPSTIRPROTOCOL0,,__BOOL_LITERAL(FALSE));
+  };
+  if (((!(__GET_EXTERNAL(data__->STOPSTIRPROTOCOL1,)) && __GET_EXTERNAL(data__->TANK1_30CAPACITY,)) && !(__GET_EXTERNAL(data__->TANK1_60CAPACITY,)))) {
+    __SET_EXTERNAL(data__->,STARTSTIRPROTOCOL1,,__BOOL_LITERAL(TRUE));
+  };
+  __SET_VAR(data__->F_TRIG2.,CLK,,__GET_EXTERNAL(data__->STARTSTIRPROTOCOL1,));
+  F_TRIG_body__(&data__->F_TRIG2);
+  __SET_VAR(data__->RS1.,S,,__GET_EXTERNAL(data__->STARTSTIRPROTOCOL1,));
+  __SET_VAR(data__->RS1.,R1,,__GET_VAR(data__->F_TRIG2.Q,));
+  RS_body__(&data__->RS1);
+  __SET_VAR(data__->,_TMP_SEL97_OUT,,SEL__INT__BOOL__INT__INT(
+    (BOOL)__BOOL_LITERAL(TRUE),
+    NULL,
+    (BOOL)__GET_VAR(data__->RS1.Q1,),
+    (INT)0,
+    (INT)100));
+  __SET_VAR(data__->,_TMP_INT_TO_BOOL96_OUT,,INT_TO_BOOL(
+    (BOOL)__BOOL_LITERAL(TRUE),
+    NULL,
+    (INT)__GET_VAR(data__->_TMP_SEL97_OUT,)));
+  if (__GET_VAR(data__->_TMP_INT_TO_BOOL96_OUT,)) {
+    __SET_EXTERNAL(data__->,DISTRIBUTIONPUMPCOMMAND,,__BOOL_LITERAL(TRUE));
+  };
+  __SET_VAR(data__->TANK15MINUTERESET1.,PULSEIN,,__GET_EXTERNAL(data__->STARTSTIRPROTOCOL1,));
+  TANK15MINUTERESET_body__(&data__->TANK15MINUTERESET1);
+  if (__GET_VAR(data__->TANK15MINUTERESET1.DISTRIBUTIONPUMPOUT,)) {
+    __SET_EXTERNAL(data__->,STOPSTIRPROTOCOL1,,__BOOL_LITERAL(TRUE));
+  };
+  if (__GET_EXTERNAL(data__->STOPSTIRPROTOCOL1,)) {
+    __SET_EXTERNAL(data__->,STARTSTIRPROTOCOL1,,__BOOL_LITERAL(FALSE));
+  };
+  if (__GET_EXTERNAL(data__->STOPSTIRPROTOCOL1,)) {
+    __SET_EXTERNAL(data__->,DISTRIBUTIONPUMPCOMMAND,,__BOOL_LITERAL(FALSE));
+  };
+  __SET_VAR(data__->TON1.,IN,,__GET_EXTERNAL(data__->STOPSTIRPROTOCOL1,));
+  __SET_VAR(data__->TON1.,PT,,__time_to_timespec(1, 0, 2, 0, 0, 0));
+  TON_body__(&data__->TON1);
+  if (__GET_VAR(data__->TON1.Q,)) {
+    __SET_EXTERNAL(data__->,STOPSTIRPROTOCOL1,,__BOOL_LITERAL(FALSE));
+  };
+  if ((((!(__GET_EXTERNAL(data__->STOPSTIRPROTOCOL2,)) && __GET_EXTERNAL(data__->TANK2_30CAPACITY,)) && !(__GET_EXTERNAL(data__->TANK2_60CAPACITY,))) && !(__GET_EXTERNAL(data__->TANK2_90CAPACITY,)))) {
+    __SET_EXTERNAL(data__->,STARTSTIRPROTOCOL2,,__BOOL_LITERAL(TRUE));
+  };
+  __SET_VAR(data__->F_TRIG3.,CLK,,__GET_EXTERNAL(data__->STARTSTIRPROTOCOL2,));
+  F_TRIG_body__(&data__->F_TRIG3);
+  __SET_VAR(data__->RS2.,S,,__GET_EXTERNAL(data__->STARTSTIRPROTOCOL2,));
+  __SET_VAR(data__->RS2.,R1,,__GET_VAR(data__->F_TRIG3.Q,));
+  RS_body__(&data__->RS2);
+  __SET_VAR(data__->,_TMP_SEL233_OUT,,SEL__INT__BOOL__INT__INT(
+    (BOOL)__BOOL_LITERAL(TRUE),
+    NULL,
+    (BOOL)__GET_VAR(data__->RS2.Q1,),
+    (INT)0,
+    (INT)100));
+  __SET_VAR(data__->,_TMP_INT_TO_BOOL232_OUT,,INT_TO_BOOL(
+    (BOOL)__BOOL_LITERAL(TRUE),
+    NULL,
+    (INT)__GET_VAR(data__->_TMP_SEL233_OUT,)));
+  if (__GET_VAR(data__->_TMP_INT_TO_BOOL232_OUT,)) {
+    __SET_EXTERNAL(data__->,DISTRIBUTIONPUMPCOMMAND,,__BOOL_LITERAL(TRUE));
+  };
+  __SET_VAR(data__->TANK15MINUTERESET2.,PULSEIN,,__GET_EXTERNAL(data__->STARTSTIRPROTOCOL2,));
+  TANK15MINUTERESET_body__(&data__->TANK15MINUTERESET2);
+  if (__GET_VAR(data__->TANK15MINUTERESET2.DISTRIBUTIONPUMPOUT,)) {
+    __SET_EXTERNAL(data__->,STOPSTIRPROTOCOL2,,__BOOL_LITERAL(TRUE));
+  };
+  if (__GET_EXTERNAL(data__->STOPSTIRPROTOCOL2,)) {
+    __SET_EXTERNAL(data__->,STARTSTIRPROTOCOL2,,__BOOL_LITERAL(FALSE));
+  };
+  if (__GET_EXTERNAL(data__->STOPSTIRPROTOCOL2,)) {
+    __SET_EXTERNAL(data__->,DISTRIBUTIONPUMPCOMMAND,,__BOOL_LITERAL(FALSE));
+  };
+  __SET_VAR(data__->TON2.,IN,,__GET_EXTERNAL(data__->STOPSTIRPROTOCOL2,));
+  __SET_VAR(data__->TON2.,PT,,__time_to_timespec(1, 0, 2, 0, 0, 0));
+  TON_body__(&data__->TON2);
+  if (__GET_VAR(data__->TON2.Q,)) {
+    __SET_EXTERNAL(data__->,STOPSTIRPROTOCOL2,,__BOOL_LITERAL(FALSE));
+  };
+  __SET_EXTERNAL(data__->,EDUCTORVALVECOMMAND0,,__GET_VAR(data__->_TMP_SEL237_OUT,));
+  __SET_EXTERNAL(data__->,EDUCTORVALVECOMMAND1,,__GET_VAR(data__->_TMP_SEL97_OUT,));
+  __SET_EXTERNAL(data__->,EDUCTORVALVECOMMAND2,,__GET_VAR(data__->_TMP_SEL233_OUT,));
+
+  goto __end;
+
+__end:
+  return;
+} // STIRPROGRAM_body__() 
 
 
 

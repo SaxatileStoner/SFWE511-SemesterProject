@@ -397,35 +397,6 @@ FUNCTION_BLOCK Tank15MinuteReset
   DistributionPumpOut := TON1.Q;
 END_FUNCTION_BLOCK
 
-FUNCTION_BLOCK DisposalProtocol
-  VAR_INPUT
-    In : BOOL;
-    DistributionPumpSpeedIn : INT;
-    DisposalValveCommandIn : INT;
-  END_VAR
-  VAR_OUTPUT
-    Out : BOOL;
-    DistributionPumpSpeedOut : INT;
-    DisposalValveCommandOut : INT;
-  END_VAR
-  VAR
-    _TMP_MOVE3_ENO : BOOL;
-    _TMP_MOVE3_OUT : INT;
-    _TMP_MOVE6_ENO : BOOL;
-    _TMP_MOVE6_OUT : INT;
-  END_VAR
-
-  _TMP_MOVE3_OUT := MOVE(EN := In, IN := DistributionPumpSpeedIn, ENO => _TMP_MOVE3_ENO);
-  IF _TMP_MOVE3_ENO THEN
-      DistributionPumpSpeedOut := _TMP_MOVE3_OUT;
-  END_IF;
-  _TMP_MOVE6_OUT := MOVE(EN := _TMP_MOVE3_ENO, IN := DisposalValveCommandIn, ENO => _TMP_MOVE6_ENO);
-  IF _TMP_MOVE6_ENO THEN
-      DisposalValveCommandOut := _TMP_MOVE6_OUT;
-  END_IF;
-  Out := _TMP_MOVE6_ENO;
-END_FUNCTION_BLOCK
-
 FUNCTION isOutsidePHRange : BOOL
   VAR_INPUT
     EvalulateVarIn : INT;

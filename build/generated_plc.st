@@ -268,9 +268,6 @@ PROGRAM SCADATankLevelProgram
     EductorValveStatus0 : INT;
     EductorValveStatus1 : INT;
     EductorValveStatus2 : INT;
-    UltrasonicTankLevelSensor0 : INT;
-    UltrasonicTankLevelSensor1 : INT;
-    UltrasonicTankLevelSensor2 : INT;
     DisposalValveStatus : INT;
     DistributionPumpStatus : BOOL;
     HighPressureSwitch0 : BOOL;
@@ -354,15 +351,6 @@ PROGRAM SCADATankLevelProgram
     _TMP_isWithin5Percent30_OUT : BOOL;
     _TMP_isWithin5Percent31_OUT : BOOL;
     _TMP_SetDistributionPumpSpeed48_OUT : INT;
-    _TMP_GE52_OUT : BOOL;
-    _TMP_GE34_OUT : BOOL;
-    _TMP_GE56_OUT : BOOL;
-    _TMP_GE60_OUT : BOOL;
-    _TMP_GE64_OUT : BOOL;
-    _TMP_GE69_OUT : BOOL;
-    _TMP_GE72_OUT : BOOL;
-    _TMP_GE76_OUT : BOOL;
-    _TMP_GE81_OUT : BOOL;
     _TMP_MOVE146_ENO : BOOL;
     _TMP_MOVE146_OUT : INT;
     _TMP_MOVE117_ENO : BOOL;
@@ -409,24 +397,6 @@ PROGRAM SCADATankLevelProgram
   _TMP_isWithin5Percent31_OUT := isWithin5Percent(EductorValveStatus2, 100);
   _TMP_SetDistributionPumpSpeed48_OUT := SetDistributionPumpSpeed(_TMP_isWithin5Percent42_OUT, _TMP_isWithin5Percent30_OUT, _TMP_isWithin5Percent31_OUT, DistributionPumpPressureReductionFlag);
   DistributionPumpSpeedCommand := _TMP_SetDistributionPumpSpeed48_OUT;
-  _TMP_GE52_OUT := GE(UltrasonicTankLevelSensor0, 30);
-  Tank0_30Capacity := _TMP_GE52_OUT;
-  _TMP_GE34_OUT := GE(UltrasonicTankLevelSensor1, 30);
-  Tank1_30Capacity := _TMP_GE34_OUT;
-  _TMP_GE56_OUT := GE(UltrasonicTankLevelSensor2, 30);
-  Tank2_30Capacity := _TMP_GE56_OUT;
-  _TMP_GE60_OUT := GE(UltrasonicTankLevelSensor0, 60);
-  Tank0_60Capacity := _TMP_GE60_OUT;
-  _TMP_GE64_OUT := GE(UltrasonicTankLevelSensor1, 60);
-  Tank1_60Capacity := _TMP_GE64_OUT;
-  _TMP_GE69_OUT := GE(UltrasonicTankLevelSensor2, 60);
-  Tank2_60Capacity := _TMP_GE69_OUT;
-  _TMP_GE72_OUT := GE(UltrasonicTankLevelSensor0, 90);
-  Tank0_90Capacity := _TMP_GE72_OUT;
-  _TMP_GE76_OUT := GE(UltrasonicTankLevelSensor1, 90);
-  Tank1_90Capacity := _TMP_GE76_OUT;
-  _TMP_GE81_OUT := GE(UltrasonicTankLevelSensor2, 90);
-  Tank2_90Capacity := _TMP_GE81_OUT;
   _TMP_MOVE146_OUT := MOVE(EN := Tank0_DisposalReady, IN := 0, ENO => _TMP_MOVE146_ENO);
   IF _TMP_MOVE146_ENO THEN
       EductorValveCommand0 := _TMP_MOVE146_OUT;
@@ -638,6 +608,53 @@ PROGRAM SCADApHTankMonitorProgram
   pHCriticalAlarm := _TMP_isOutsidePHRange9_OUT;
 END_PROGRAM
 
+PROGRAM TankLevelAssessment
+  VAR_EXTERNAL
+    UltrasonicTankLevelSensor0 : INT;
+    UltrasonicTankLevelSensor1 : INT;
+    UltrasonicTankLevelSensor2 : INT;
+    Tank0_30Capacity : BOOL;
+    Tank1_30Capacity : BOOL;
+    Tank2_30Capacity : BOOL;
+    Tank0_60Capacity : BOOL;
+    Tank1_60Capacity : BOOL;
+    Tank2_60Capacity : BOOL;
+    Tank0_90Capacity : BOOL;
+    Tank1_90Capacity : BOOL;
+    Tank2_90Capacity : BOOL;
+  END_VAR
+  VAR
+    _TMP_GE52_OUT : BOOL;
+    _TMP_GE34_OUT : BOOL;
+    _TMP_GE56_OUT : BOOL;
+    _TMP_GE60_OUT : BOOL;
+    _TMP_GE64_OUT : BOOL;
+    _TMP_GE69_OUT : BOOL;
+    _TMP_GE72_OUT : BOOL;
+    _TMP_GE76_OUT : BOOL;
+    _TMP_GE81_OUT : BOOL;
+  END_VAR
+
+  _TMP_GE52_OUT := GE(UltrasonicTankLevelSensor0, 30);
+  Tank0_30Capacity := _TMP_GE52_OUT;
+  _TMP_GE34_OUT := GE(UltrasonicTankLevelSensor1, 30);
+  Tank1_30Capacity := _TMP_GE34_OUT;
+  _TMP_GE56_OUT := GE(UltrasonicTankLevelSensor2, 30);
+  Tank2_30Capacity := _TMP_GE56_OUT;
+  _TMP_GE60_OUT := GE(UltrasonicTankLevelSensor0, 60);
+  Tank0_60Capacity := _TMP_GE60_OUT;
+  _TMP_GE64_OUT := GE(UltrasonicTankLevelSensor1, 60);
+  Tank1_60Capacity := _TMP_GE64_OUT;
+  _TMP_GE69_OUT := GE(UltrasonicTankLevelSensor2, 60);
+  Tank2_60Capacity := _TMP_GE69_OUT;
+  _TMP_GE72_OUT := GE(UltrasonicTankLevelSensor0, 90);
+  Tank0_90Capacity := _TMP_GE72_OUT;
+  _TMP_GE76_OUT := GE(UltrasonicTankLevelSensor1, 90);
+  Tank1_90Capacity := _TMP_GE76_OUT;
+  _TMP_GE81_OUT := GE(UltrasonicTankLevelSensor2, 90);
+  Tank2_90Capacity := _TMP_GE81_OUT;
+END_PROGRAM
+
 
 CONFIGURATION Config0
   VAR_GLOBAL
@@ -744,8 +761,10 @@ CONFIGURATION Config0
     TASK task0(INTERVAL := T#30ms,PRIORITY := 0);
     TASK task1(INTERVAL := T#30ms,PRIORITY := 0);
     TASK task2(INTERVAL := T#30ms,PRIORITY := 0);
+    TASK task3(INTERVAL := T#30ms,PRIORITY := 0);
     PROGRAM instance0 WITH task0 : DCSProgramSector;
     PROGRAM instance1 WITH task1 : SCADATankLevelProgram;
     PROGRAM instance2 WITH task2 : SCADApHTankMonitorProgram;
+    PROGRAM instance3 WITH task3 : TankLevelAssessment;
   END_RESOURCE
 END_CONFIGURATION

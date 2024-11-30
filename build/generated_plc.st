@@ -287,14 +287,18 @@ PROGRAM SCADATankLevelProgram
     _TMP_isWithin5Percent31_OUT : BOOL;
     _TMP_SetDistributionPumpSpeed48_OUT : INT;
     _TMP_NE184_OUT : BOOL;
-    _TMP_MOVE200_ENO : BOOL;
-    _TMP_MOVE200_OUT : INT;
-    _TMP_MOVE111_ENO : BOOL;
-    _TMP_MOVE111_OUT : INT;
-    _TMP_MOVE143_ENO : BOOL;
-    _TMP_MOVE143_OUT : INT;
-    _TMP_MOVE156_ENO : BOOL;
-    _TMP_MOVE156_OUT : INT;
+    _TMP_SEL269_OUT : INT;
+    _TMP_SEL33_OUT : INT;
+    _TMP_SEL52_OUT : INT;
+    _TMP_SEL57_OUT : INT;
+    _TMP_SEL62_OUT : INT;
+    _TMP_SEL67_OUT : INT;
+    _TMP_SEL72_OUT : INT;
+    _TMP_SEL77_OUT : INT;
+    _TMP_SEL82_OUT : INT;
+    _TMP_SEL87_OUT : INT;
+    _TMP_SEL92_OUT : INT;
+    _TMP_SEL97_OUT : INT;
   END_VAR
 
   _TMP_isWithin5Percent3_OUT := isWithin5Percent(EductorValveCommand0, EductorValveStatus0);
@@ -324,22 +328,10 @@ PROGRAM SCADATankLevelProgram
   Tank2_CapacityAlarm := Tank2_90Capacity;
   AllTanksNearCapacity := Tank2_90Capacity AND Tank1_90Capacity AND Tank0_90Capacity;
   CentralTankAlarmSwitch := AllTanksNearCapacity;
-  _TMP_MOVE200_OUT := MOVE(EN := AllTanksNearCapacity, IN := 0, ENO => _TMP_MOVE200_ENO);
-  IF _TMP_MOVE200_ENO THEN
-      EductorValveCommand0 := _TMP_MOVE200_OUT;
-  END_IF;
-  EductorValveCommand1 := EductorValveCommand0;
-  EductorValveCommand2 := EductorValveCommand1;
-  IF _TMP_MOVE200_ENO THEN
+  IF AllTanksNearCapacity THEN
     DistributionPumpCommand := FALSE; (*reset*)
   END_IF;
-  _TMP_MOVE111_OUT := MOVE(EN := AllTanksNearCapacity, IN := 0, ENO => _TMP_MOVE111_ENO);
-  IF _TMP_MOVE111_ENO THEN
-      IsolationValveCommand0 := _TMP_MOVE111_OUT;
-  END_IF;
-  IsolationValveCommand1 := IsolationValveCommand0;
-  IsolationValveCommand2 := IsolationValveCommand1;
-  IF _TMP_MOVE111_ENO THEN
+  IF AllTanksNearCapacity THEN
     BoosterPumpCommand0 := FALSE; (*reset*)
   END_IF;
   IF AllTanksNearCapacity THEN
@@ -351,12 +343,10 @@ PROGRAM SCADATankLevelProgram
   ControlCenterHornStrobeAlarm := AllTanksNearCapacity;
   pHWarningHMI := pHAlertAlarm;
   pHCriticalHMI := pHCriticalAlarm;
-  _TMP_MOVE143_OUT := MOVE(EN := pHCriticalAlarm, IN := 0, ENO => _TMP_MOVE143_ENO);
-  IF _TMP_MOVE143_ENO THEN
+  IF pHCriticalAlarm THEN
     DistributionPumpCommand := FALSE; (*reset*)
   END_IF;
-  _TMP_MOVE156_OUT := MOVE(EN := pHCriticalAlarm, IN := 0, ENO => _TMP_MOVE156_ENO);
-  IF _TMP_MOVE156_ENO THEN
+  IF pHCriticalAlarm THEN
     BoosterPumpCommand0 := FALSE; (*reset*)
   END_IF;
   IF pHCriticalAlarm THEN
@@ -365,17 +355,31 @@ PROGRAM SCADATankLevelProgram
   IF pHCriticalAlarm THEN
     BoosterPumpCommand2 := FALSE; (*reset*)
   END_IF;
-  IF _TMP_MOVE143_ENO THEN
-      EductorValveCommand0 := _TMP_MOVE143_OUT;
-  END_IF;
-  EductorValveCommand1 := EductorValveCommand0;
-  EductorValveCommand2 := EductorValveCommand1;
-  IF _TMP_MOVE156_ENO THEN
-      IsolationValveCommand0 := _TMP_MOVE156_OUT;
-  END_IF;
-  IsolationValveCommand1 := IsolationValveCommand0;
-  IsolationValveCommand2 := IsolationValveCommand1;
   ControlCenterHornStrobeAlarm := pHCriticalAlarm;
+  _TMP_SEL269_OUT := SEL(AllTanksNearCapacity, EductorValveCommand0, 0);
+  EductorValveCommand0 := _TMP_SEL269_OUT;
+  _TMP_SEL33_OUT := SEL(AllTanksNearCapacity, EductorValveCommand1, 0);
+  EductorValveCommand1 := _TMP_SEL33_OUT;
+  _TMP_SEL52_OUT := SEL(AllTanksNearCapacity, EductorValveCommand2, 0);
+  EductorValveCommand2 := _TMP_SEL52_OUT;
+  _TMP_SEL57_OUT := SEL(AllTanksNearCapacity, IsolationValveCommand0, 0);
+  IsolationValveCommand0 := _TMP_SEL57_OUT;
+  _TMP_SEL62_OUT := SEL(AllTanksNearCapacity, IsolationValveCommand1, 0);
+  IsolationValveCommand1 := _TMP_SEL62_OUT;
+  _TMP_SEL67_OUT := SEL(AllTanksNearCapacity, IsolationValveCommand2, 0);
+  IsolationValveCommand2 := _TMP_SEL67_OUT;
+  _TMP_SEL72_OUT := SEL(pHCriticalAlarm, EductorValveCommand0, 0);
+  EductorValveCommand0 := _TMP_SEL72_OUT;
+  _TMP_SEL77_OUT := SEL(pHCriticalAlarm, EductorValveCommand1, 0);
+  EductorValveCommand1 := _TMP_SEL77_OUT;
+  _TMP_SEL82_OUT := SEL(pHCriticalAlarm, EductorValveCommand2, 0);
+  EductorValveCommand2 := _TMP_SEL82_OUT;
+  _TMP_SEL87_OUT := SEL(pHCriticalAlarm, IsolationValveCommand0, 0);
+  IsolationValveCommand0 := _TMP_SEL87_OUT;
+  _TMP_SEL92_OUT := SEL(pHCriticalAlarm, IsolationValveCommand1, 0);
+  IsolationValveCommand1 := _TMP_SEL92_OUT;
+  _TMP_SEL97_OUT := SEL(pHCriticalAlarm, IsolationValveCommand2, 0);
+  IsolationValveCommand2 := _TMP_SEL97_OUT;
 END_PROGRAM
 
 FUNCTION_BLOCK Tank15MinuteReset

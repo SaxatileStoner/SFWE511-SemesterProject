@@ -310,14 +310,18 @@ PROGRAM SCADATankLevelProgram
     _TMP_isWithin5Percent31_OUT : BOOL;
     _TMP_SetDistributionPumpSpeed48_OUT : INT;
     _TMP_NE184_OUT : BOOL;
-    _TMP_MOVE200_ENO : BOOL;
-    _TMP_MOVE200_OUT : INT;
-    _TMP_MOVE111_ENO : BOOL;
-    _TMP_MOVE111_OUT : INT;
-    _TMP_MOVE143_ENO : BOOL;
-    _TMP_MOVE143_OUT : INT;
-    _TMP_MOVE156_ENO : BOOL;
-    _TMP_MOVE156_OUT : INT;
+    _TMP_SEL269_OUT : INT;
+    _TMP_SEL33_OUT : INT;
+    _TMP_SEL52_OUT : INT;
+    _TMP_SEL57_OUT : INT;
+    _TMP_SEL62_OUT : INT;
+    _TMP_SEL67_OUT : INT;
+    _TMP_SEL72_OUT : INT;
+    _TMP_SEL77_OUT : INT;
+    _TMP_SEL82_OUT : INT;
+    _TMP_SEL87_OUT : INT;
+    _TMP_SEL92_OUT : INT;
+    _TMP_SEL97_OUT : INT;
   END_VAR
 
   _TMP_isWithin5Percent3_OUT := isWithin5Percent(EductorValveCommand0, EductorValveStatus0);
@@ -347,22 +351,10 @@ PROGRAM SCADATankLevelProgram
   Tank2_CapacityAlarm := Tank2_90Capacity;
   AllTanksNearCapacity := Tank2_90Capacity AND Tank1_90Capacity AND Tank0_90Capacity;
   CentralTankAlarmSwitch := AllTanksNearCapacity;
-  _TMP_MOVE200_OUT := MOVE(EN := AllTanksNearCapacity, IN := 0, ENO => _TMP_MOVE200_ENO);
-  IF _TMP_MOVE200_ENO THEN
-      EductorValveCommand0 := _TMP_MOVE200_OUT;
-  END_IF;
-  EductorValveCommand1 := EductorValveCommand0;
-  EductorValveCommand2 := EductorValveCommand1;
-  IF _TMP_MOVE200_ENO THEN
+  IF AllTanksNearCapacity THEN
     DistributionPumpCommand := FALSE; (*reset*)
   END_IF;
-  _TMP_MOVE111_OUT := MOVE(EN := AllTanksNearCapacity, IN := 0, ENO => _TMP_MOVE111_ENO);
-  IF _TMP_MOVE111_ENO THEN
-      IsolationValveCommand0 := _TMP_MOVE111_OUT;
-  END_IF;
-  IsolationValveCommand1 := IsolationValveCommand0;
-  IsolationValveCommand2 := IsolationValveCommand1;
-  IF _TMP_MOVE111_ENO THEN
+  IF AllTanksNearCapacity THEN
     BoosterPumpCommand0 := FALSE; (*reset*)
   END_IF;
   IF AllTanksNearCapacity THEN
@@ -374,12 +366,10 @@ PROGRAM SCADATankLevelProgram
   ControlCenterHornStrobeAlarm := AllTanksNearCapacity;
   pHWarningHMI := pHAlertAlarm;
   pHCriticalHMI := pHCriticalAlarm;
-  _TMP_MOVE143_OUT := MOVE(EN := pHCriticalAlarm, IN := 0, ENO => _TMP_MOVE143_ENO);
-  IF _TMP_MOVE143_ENO THEN
+  IF pHCriticalAlarm THEN
     DistributionPumpCommand := FALSE; (*reset*)
   END_IF;
-  _TMP_MOVE156_OUT := MOVE(EN := pHCriticalAlarm, IN := 0, ENO => _TMP_MOVE156_ENO);
-  IF _TMP_MOVE156_ENO THEN
+  IF pHCriticalAlarm THEN
     BoosterPumpCommand0 := FALSE; (*reset*)
   END_IF;
   IF pHCriticalAlarm THEN
@@ -388,17 +378,31 @@ PROGRAM SCADATankLevelProgram
   IF pHCriticalAlarm THEN
     BoosterPumpCommand2 := FALSE; (*reset*)
   END_IF;
-  IF _TMP_MOVE143_ENO THEN
-      EductorValveCommand0 := _TMP_MOVE143_OUT;
-  END_IF;
-  EductorValveCommand1 := EductorValveCommand0;
-  EductorValveCommand2 := EductorValveCommand1;
-  IF _TMP_MOVE156_ENO THEN
-      IsolationValveCommand0 := _TMP_MOVE156_OUT;
-  END_IF;
-  IsolationValveCommand1 := IsolationValveCommand0;
-  IsolationValveCommand2 := IsolationValveCommand1;
   ControlCenterHornStrobeAlarm := pHCriticalAlarm;
+  _TMP_SEL269_OUT := SEL(AllTanksNearCapacity, EductorValveCommand0, 0);
+  EductorValveCommand0 := _TMP_SEL269_OUT;
+  _TMP_SEL33_OUT := SEL(AllTanksNearCapacity, EductorValveCommand1, 0);
+  EductorValveCommand1 := _TMP_SEL33_OUT;
+  _TMP_SEL52_OUT := SEL(AllTanksNearCapacity, EductorValveCommand2, 0);
+  EductorValveCommand2 := _TMP_SEL52_OUT;
+  _TMP_SEL57_OUT := SEL(AllTanksNearCapacity, IsolationValveCommand0, 0);
+  IsolationValveCommand0 := _TMP_SEL57_OUT;
+  _TMP_SEL62_OUT := SEL(AllTanksNearCapacity, IsolationValveCommand1, 0);
+  IsolationValveCommand1 := _TMP_SEL62_OUT;
+  _TMP_SEL67_OUT := SEL(AllTanksNearCapacity, IsolationValveCommand2, 0);
+  IsolationValveCommand2 := _TMP_SEL67_OUT;
+  _TMP_SEL72_OUT := SEL(pHCriticalAlarm, EductorValveCommand0, 0);
+  EductorValveCommand0 := _TMP_SEL72_OUT;
+  _TMP_SEL77_OUT := SEL(pHCriticalAlarm, EductorValveCommand1, 0);
+  EductorValveCommand1 := _TMP_SEL77_OUT;
+  _TMP_SEL82_OUT := SEL(pHCriticalAlarm, EductorValveCommand2, 0);
+  EductorValveCommand2 := _TMP_SEL82_OUT;
+  _TMP_SEL87_OUT := SEL(pHCriticalAlarm, IsolationValveCommand0, 0);
+  IsolationValveCommand0 := _TMP_SEL87_OUT;
+  _TMP_SEL92_OUT := SEL(pHCriticalAlarm, IsolationValveCommand1, 0);
+  IsolationValveCommand1 := _TMP_SEL92_OUT;
+  _TMP_SEL97_OUT := SEL(pHCriticalAlarm, IsolationValveCommand2, 0);
+  IsolationValveCommand2 := _TMP_SEL97_OUT;
 END_PROGRAM
 
 FUNCTION_BLOCK Tank15MinuteReset
@@ -715,103 +719,103 @@ END_PROGRAM
 
 CONFIGURATION Config0
   VAR_GLOBAL
-    FlowRateSensor0 : INT := 4;
-    FlowRateSensor1 : INT := 23;
-    FlowRateSensor2 : INT := 42;
-    IsolationValveStatus0 : INT := 0;
-    IsolationValveStatus1 : INT := 0;
-    IsolationValveStatus2 : INT := 0;
-    EductorValveStatus0 : INT := 0;
-    EductorValveStatus1 : INT := 0;
-    EductorValveStatus2 : INT := 0;
-    UltrasonicTankLevelSensor0 : INT := 35;
-    UltrasonicTankLevelSensor1 : INT := 57;
-    UltrasonicTankLevelSensor2 : INT := 12;
-    DisposalValveStatus : INT := 0;
-    pHSensor : INT := 7;
-    BoosterPumpStatus0 : BOOL;
-    BoosterPumpStatus1 : BOOL;
-    BoosterPumpStatus2 : BOOL;
-    GeneralSiteAlarm0 : BOOL;
-    DistributionPumpStatus : BOOL;
-    HighPressureSwitch0 : BOOL;
-    HighPressureSwitch1 : BOOL;
-    HighPressureSwitch2 : BOOL;
-    IsolationValveCommand0 : INT;
-    IsolationValveCommand1 : INT;
-    IsolationValveCommand2 : INT;
-    EductorValveCommand0 : INT;
-    EductorValveCommand1 : INT;
-    EductorValveCommand2 : INT;
-    DistributionPumpSpeedCommand : INT := 0;
-    DisposalValveCommand : INT := 0;
-    BoosterPumpCommand0 : BOOL;
-    BoosterPumpCommand1 : BOOL;
-    BoosterPumpCommand2 : BOOL;
-    pHAlertAlarm : BOOL;
-    pHCriticalAlarm : BOOL;
-    BoosterPumpAlarm0 : BOOL;
-    BoosterPumpAlarm1 : BOOL;
-    BoosterPumpAlarm2 : BOOL;
-    IsolationValveAlarm0 : BOOL;
-    IsolationValveAlarm1 : BOOL;
-    IsolationValveAlarm2 : BOOL;
-    FlowSensorAlarm0 : BOOL;
-    FlowSensorAlarm1 : BOOL;
-    FlowSensorAlarm2 : BOOL;
-    ExcessiveFlowAlarm0 : BOOL;
-    ExcessiveFlowAlarm1 : BOOL;
-    ExcessiveFlowAlarm2 : BOOL;
-    EductorValveAlarm0 : BOOL;
-    EductorValveAlarm1 : BOOL;
-    EductorValveAlarm2 : BOOL;
-    DistributionPumpCommand : BOOL;
-    DistributionPumpAlarm : BOOL;
-    HighPressureSwitchAlarm0 : BOOL;
-    HighPressureSwitchAlarm1 : BOOL;
-    HighPressureSwitchAlarm2 : BOOL;
-    askHMIContainmentUnitAttached : BOOL;
-    askHMIContainmentUnitFull : BOOL;
-    DisposalValveAlarm : BOOL;
-    Tank0_CapacityAlarm : BOOL;
-    Tank1_CapacityAlarm : BOOL;
-    Tank2_CapacityAlarm : BOOL;
-    CentralTankAlarmSwitch : BOOL;
-    ControlCenterHornStrobeAlarm : BOOL;
-    pHWarningHMI : BOOL;
-    pHCriticalHMI : BOOL;
-    HMITankDisposalButton : BOOL;
-    isContainmentUnitAttached : BOOL;
-    isContainmentUnitFull : BOOL;
+    FlowRateSensor0 AT %IW0 : INT := 4;
+    FlowRateSensor1 AT %IW1 : INT := 23;
+    FlowRateSensor2 AT %IW2 : INT := 42;
+    IsolationValveStatus0 AT %IW3 : INT := 0;
+    IsolationValveStatus1 AT %IW4 : INT := 0;
+    IsolationValveStatus2 AT %IW5 : INT := 0;
+    EductorValveStatus0 AT %IW6 : INT := 0;
+    EductorValveStatus1 AT %IW7 : INT := 0;
+    EductorValveStatus2 AT %IW8 : INT := 0;
+    UltrasonicTankLevelSensor0 AT %IW9 : INT := 35;
+    UltrasonicTankLevelSensor1 AT %IW10 : INT := 57;
+    UltrasonicTankLevelSensor2 AT %IW11 : INT := 12;
+    DisposalValveStatus AT %IW12 : INT := 0;
+    pHSensor AT %IW13 : INT := 7;
+    BoosterPumpStatus0 AT %IX0.0 : BOOL;
+    BoosterPumpStatus1 AT %IX0.1 : BOOL;
+    BoosterPumpStatus2 AT %IX0.2 : BOOL;
+    GeneralSiteAlarm0 AT %IX0.3 : BOOL;
+    DistributionPumpStatus AT %IX0.4 : BOOL;
+    HighPressureSwitch0 AT %IX0.5 : BOOL;
+    HighPressureSwitch1 AT %IX0.6 : BOOL;
+    HighPressureSwitch2 AT %IX0.7 : BOOL;
+    IsolationValveCommand0 AT %QW0 : INT;
+    IsolationValveCommand1 AT %QW1 : INT;
+    IsolationValveCommand2 AT %QW2 : INT;
+    EductorValveCommand0 AT %QW3 : INT;
+    EductorValveCommand1 AT %QW4 : INT;
+    EductorValveCommand2 AT %QW5 : INT;
+    DistributionPumpSpeedCommand AT %QW6 : INT := 0;
+    DisposalValveCommand AT %QW7 : INT := 0;
+    BoosterPumpCommand0 AT %QX0.0 : BOOL;
+    BoosterPumpCommand1 AT %QX0.1 : BOOL;
+    BoosterPumpCommand2 AT %QX0.2 : BOOL;
+    pHAlertAlarm AT %QX0.3 : BOOL;
+    pHCriticalAlarm AT %QX0.4 : BOOL;
+    BoosterPumpAlarm0 AT %QX0.5 : BOOL;
+    BoosterPumpAlarm1 AT %QX0.6 : BOOL;
+    BoosterPumpAlarm2 AT %QX0.7 : BOOL;
+    IsolationValveAlarm0 AT %QX1.0 : BOOL;
+    IsolationValveAlarm1 AT %QX1.1 : BOOL;
+    IsolationValveAlarm2 AT %QX1.2 : BOOL;
+    FlowSensorAlarm0 AT %QX1.3 : BOOL;
+    FlowSensorAlarm1 AT %QX1.4 : BOOL;
+    FlowSensorAlarm2 AT %QX1.5 : BOOL;
+    ExcessiveFlowAlarm0 AT %QX1.6 : BOOL;
+    ExcessiveFlowAlarm1 AT %QX1.7 : BOOL;
+    ExcessiveFlowAlarm2 AT %QX2.0 : BOOL;
+    EductorValveAlarm0 AT %QX2.1 : BOOL;
+    EductorValveAlarm1 AT %QX2.2 : BOOL;
+    EductorValveAlarm2 AT %QX2.3 : BOOL;
+    DistributionPumpCommand AT %QX2.4 : BOOL;
+    DistributionPumpAlarm AT %QX2.5 : BOOL;
+    HighPressureSwitchAlarm0 AT %QX2.6 : BOOL;
+    HighPressureSwitchAlarm1 AT %QX2.7 : BOOL;
+    HighPressureSwitchAlarm2 AT %QX3.0 : BOOL;
+    askHMIContainmentUnitAttached AT %QX3.1 : BOOL;
+    askHMIContainmentUnitFull AT %QX3.2 : BOOL;
+    DisposalValveAlarm AT %QX3.3 : BOOL;
+    Tank0_CapacityAlarm AT %QX3.4 : BOOL;
+    Tank1_CapacityAlarm AT %QX3.5 : BOOL;
+    Tank2_CapacityAlarm AT %QX3.6 : BOOL;
+    CentralTankAlarmSwitch AT %QX3.7 : BOOL;
+    ControlCenterHornStrobeAlarm AT %QX4.0 : BOOL;
+    pHWarningHMI AT %QX4.1 : BOOL;
+    pHCriticalHMI AT %QX4.2 : BOOL;
+    HMITankDisposalButton AT %QX4.3 : BOOL;
+    isContainmentUnitAttached AT %QX4.4 : BOOL;
+    isContainmentUnitFull AT %QX4.5 : BOOL;
   END_VAR
   VAR_GLOBAL CONSTANT
-    FLOW_SENSOR_MAX_CAPACITY : INT := 50;
-    WARNING_ACIDIC_LEVEL : INT := 4;
-    CRITICAL_ACIDIC_LEVEL : INT := 3;
-    WARNING_BASIC_LEVEL : INT := 10;
-    CRITICAL_BASIC_LEVEL : INT := 11;
+    FLOW_SENSOR_MAX_CAPACITY AT %MW0 : INT := 50;
+    WARNING_ACIDIC_LEVEL AT %MW1 : INT := 4;
+    CRITICAL_ACIDIC_LEVEL AT %MW2 : INT := 3;
+    WARNING_BASIC_LEVEL AT %MW3 : INT := 10;
+    CRITICAL_BASIC_LEVEL AT %MW4 : INT := 11;
   END_VAR
   VAR_GLOBAL
-    DistributionPumpPressureReductionFlag : BOOL;
-    Tank0_30Capacity : BOOL;
-    Tank1_30Capacity : BOOL;
-    Tank2_30Capacity : BOOL;
-    Tank0_60Capacity : BOOL;
-    Tank1_60Capacity : BOOL;
-    Tank2_60Capacity : BOOL;
-    Tank0_90Capacity : BOOL;
-    Tank1_90Capacity : BOOL;
-    Tank2_90Capacity : BOOL;
-    Tank0_DisposalReady : BOOL;
-    Tank1_DisposalReady : BOOL;
-    Tank2_DisposalReady : BOOL;
-    AllTanksNearCapacity : BOOL;
-    startStirProtocol0 : BOOL;
-    startStirProtocol1 : BOOL;
-    startStirProtocol2 : BOOL;
-    stopStirProtocol0 : BOOL;
-    stopStirProtocol1 : BOOL;
-    stopStirProtocol2 : BOOL;
+    DistributionPumpPressureReductionFlag AT %MX0.0 : BOOL;
+    Tank0_30Capacity AT %MX0.1 : BOOL;
+    Tank1_30Capacity AT %MX0.2 : BOOL;
+    Tank2_30Capacity AT %MX0.3 : BOOL;
+    Tank0_60Capacity AT %MX0.4 : BOOL;
+    Tank1_60Capacity AT %MX0.5 : BOOL;
+    Tank2_60Capacity AT %MX0.6 : BOOL;
+    Tank0_90Capacity AT %MX0.7 : BOOL;
+    Tank1_90Capacity AT %MX1.0 : BOOL;
+    Tank2_90Capacity AT %MX1.1 : BOOL;
+    Tank0_DisposalReady AT %MX1.2 : BOOL;
+    Tank1_DisposalReady AT %MX1.3 : BOOL;
+    Tank2_DisposalReady AT %MX1.4 : BOOL;
+    AllTanksNearCapacity AT %MX1.5 : BOOL;
+    startStirProtocol0 AT %MX1.6 : BOOL;
+    startStirProtocol1 AT %MX1.7 : BOOL;
+    startStirProtocol2 AT %MX2.0 : BOOL;
+    stopStirProtocol0 AT %MX2.1 : BOOL;
+    stopStirProtocol1 AT %MX2.2 : BOOL;
+    stopStirProtocol2 AT %MX2.3 : BOOL;
   END_VAR
 
   RESOURCE Res0 ON PLC
